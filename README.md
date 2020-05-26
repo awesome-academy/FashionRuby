@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# FashionRuby
+PR2003F-Team2
+>>>>>>> 73194954e1fa2e55003ef6501e7ae8df5ad649ee
