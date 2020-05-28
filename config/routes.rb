@@ -2,11 +2,11 @@ Rails.application.routes.draw do
 		  get 'users/new'
 		root 'static_pages#home'
 		get '/help', to: 'static_pages#help'
-		get '/about', to: 'static_pages#about'
+		get '/home', to: 'static_pages#home'
 		get '/contact', to: 'static_pages#contact'
 		get '/signup', to: 'users#new'
 		get '/login', to: 'sessions#new'
-		post '/login', to: 'sessions#create'
-		delete '/logout', to: 'sessions#destroy'
-		resources :users
+		get '/women', to: 'products#women'
+		get '/man', to: 'products#men'
+		resources :products
 end

@@ -2,8 +2,12 @@
 
 one:
   name: MyString
-  email: MyString
+  name: MyString
+  admin: false
+  level: false
 
 two:
   name: MyString
-  email: MyString
+  name: MyString
+  admin: false
+  level: false
