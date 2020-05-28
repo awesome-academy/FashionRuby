@@ -2,12 +2,12 @@
 
 one:
   name: MyString
-  name: MyString
-  admin: false
-  level: false
+  catelogy: one
+  price: 1
+  size: 1
 
 two:
   name: MyString
-  name: MyString
-  admin: false
-  level: false
+  catelogy: two
+  price: 1
+  size: 1
