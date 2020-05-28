@@ -2,12 +2,10 @@
 
 one:
   name: MyString
-  name: MyString
-  admin: false
-  level: false
+  product: one
+  url: MyText
 
 two:
   name: MyString
-  name: MyString
-  admin: false
-  level: false
+  product: two
+  url: MyText
