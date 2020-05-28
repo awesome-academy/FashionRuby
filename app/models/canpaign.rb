@@ -1,0 +1,2 @@
+class Canpaign < ApplicationRecord
+end

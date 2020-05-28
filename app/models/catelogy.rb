@@ -1,0 +1,2 @@
+class Catelogy < ApplicationRecord
+end

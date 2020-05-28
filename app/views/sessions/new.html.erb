@@ -1,19 +1,36 @@
 <% provide(:title, "Log in") %>
-<h1>Log in</h1>
-<div class="row">
-<div class="col-md-6 col-md-offset-3">
-<%= form_for(:session, url: login_path) do |f| %>
-<%= f.label :email %>
-<%= f.email_field :email, class: 'form-control' %>
-<%= f.label :password %>
-<%= f.password_field :password, class: 'form-control' %>
+<div class="breadcrumbs">
+		<div class="container">
+			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
+				<li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+				<li class="active">Account</li>
+			</ol>
+		</div>
+	</div>
+<div class="account">
+	<div class="container">
+		<h2>Account</h2>
+		<div class="account_grid">
+			   <div class="col-md-6 login-right">
+				<form action="#" method="post">
 
-<%= f.label :remember_me, class: "checkbox inline" do %>
-<%= f.check_box :remember_me %>
-<span>Remember me on this computer</span>
-<% end %>
-<%= f.submit "Log in", class: "btn btn-primary" %>
-<% end %>
-<p>New user? <%= link_to "Sign up now!", signup_path %></p>
-</div>
+					<span>Email Address</span>
+					<input type="text" name="email"> 
+				
+					<span>Password</span>
+					<input type="password" name="password"> 
+					<div class="word-in">
+				  		<a class="forgot" href="#">Forgot Your Password?</a>
+				 		 <input type="submit" value="Login">
+				  	</div>
+			    </form>
+			   </div>	
+			    <div class="col-md-6 login-left">
+			  	 <h4>NEW CUSTOMERS</h4>
+				 <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
+				 <%= link_to "Create an Account", signup_path, class: 'acount-btn' %>
+			   </div>
+			   <div class="clearfix"> </div>
+			 </div>
+	</div>
 </div>
