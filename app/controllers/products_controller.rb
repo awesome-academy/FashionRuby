@@ -2,19 +2,21 @@ class ProductsController < ApplicationController
 	before_action :destroy_product, only: :destroy
 
 	def index
-		@products = Product.all
+		@products = Product.paginate(page: params[:page])
 	end
 
 	def new
 		@product = Product.new
+		@product.images.build 
 	end
 
 
 	def create
 
 		@product = Product.new product_params
-	
-		# params[:product][:catelogys][:name]
+		@product.images.attach(product_params[:images])
+		byebug
+		# params[:product][:catelogys][:name]	
 		if @product.save
 
 			redirect_to root_url
@@ -57,7 +59,11 @@ class ProductsController < ApplicationController
 	private
 
 		def product_params
-			params.require(:product).permit(:name, :catelogy_id , :price, :size )
+			params.require(:product).permit(
+				:name, :catelogy_id , :price, :size, images: []
+				# images_attributes: [:name, :product_id, :url]
+
+			 )
 		end
 
 

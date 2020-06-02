@@ -4,14 +4,19 @@
   <div class="card mb-3" style="max-width: 540px;">
     <div class="row no-gutters">
       <div class="col-md-4">
-        <%= link_to image_tag("lak1.png",  width: "200px") %>
+
+        <% i.images.each do |image| %>
+
+          <%= image_tag image.variant(resize_to_limit: [100, 100]) %> 
+        <% end %>
+
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title"><%= i.name %></h5>
+          <h1 class="card-title"><%= i.name %></h1>
           <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
           <h3>$<%= i.price %></h3>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <p class="card-text"><small class="text-muted"><%= i.created_at %>ago</small></p>
 
           <%= link_to "delete", i, method: :delete, data: { confirm: "You sure?" } %>
           <%= link_to "Edit", edit_product_path(i) %>
@@ -21,3 +26,6 @@
   </div>
   <% end %>
   <%= link_to 'CREATE', new_product_path, class: 'btn btn-primary' %>
+
+
+  <%= will_paginate %>
