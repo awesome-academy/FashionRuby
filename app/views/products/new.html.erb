@@ -1,0 +1,43 @@
+<div class="container">
+	<div class="form-group">
+	<%= form_for @product  do |f| %>
+		<div class="form-group">
+			<%= f.label 'Name' %>
+			<%= f.text_field :name, placeholder: 'name....', class: 'form-control' %>
+		</div>
+		<%= f.select :catelogy_id, options_for_select(["Catelogy....", "1", "2"]) 	 %>
+
+		<div class="form-group">
+			<%= f.label 'Price' %>
+			<%= f.text_field :price, placeholder: "price....", class: 'form-control'  %>
+		</div>
+		<div class="form-group">
+			<%= f.label 'Size' %>
+			<%= f.text_field :size, placeholder: "size....", class: 'form-control' %>
+		</div>
+
+				<span class="image">
+					<%= f.file_field :images,multiple: true, accept: "image/jpeg,image/gif,image/png" %>
+	
+				</span>
+
+		
+
+
+		<%= f.submit "Create", class: "btn btn-primary" %> 
+
+	<% end %>
+	</div>
+
+</div>
+
+
+<script type="text/javascript">
+	$("#micropost_image").bind("change", function() {
+		var size_in_megabytes = this.files[0].size/1024/1024;
+	if (size_in_megabytes > 5) {
+		alert("Maximum file size is 5MB. Please choose a smaller file.");
+		}
+	});
+</script>
+
