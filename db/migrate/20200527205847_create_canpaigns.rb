@@ -4,6 +4,7 @@ class CreateCanpaigns < ActiveRecord::Migration[6.0]
       t.string :name
       t.text :content
 
+
       t.timestamps
     end
   end

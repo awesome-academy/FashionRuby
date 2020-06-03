@@ -6,15 +6,31 @@
           <h1><%= link_to 'RuBY Fashion', home_path%></h1>
         </div>
         <div class="col-sm-4 world animated wow fadeInRight" data-wow-delay=".5s">
-       
+
           </div>
           <div class="col-sm-2 number animated wow fadeInRight" data-wow-delay=".5s">
-            <span><i class="glyphicon glyphicon-phone"></i>085 596 234</span>
-            <p>Call me</p>
+            <span style="color:white" ><i style="color:white"  class="glyphicon glyphicon-phone"> </i > 089.999.999</span>
+            <p style="color:white"> Call me</p>
+
+
           </div>
-          <div class="col-sm-2 search animated wow fadeInRight" data-wow-delay=".5s">
-            <a class="play-icon popup-with-zoom-anim" href="#small-dialog"><i class="glyphicon glyphicon-search"> </i> </a>
-          </div>
+                      <div class="col-md-6 top-footer1 animated wow fadeInRight" data-wow-delay=".5s">
+      <div class="search-hotel">
+        <h3 class="agileits-sear-head">Search Here..</h3>
+      </div>
+      <div>
+        <%= form_for search_path, method: :get do |f| %>
+          <%= text_field_tag :query, params[:query],
+            placeholder: "" %>
+          <%= button_to "", name: nil, class: "btn btn-default",
+            "aria-label" => "Left Align" do %>
+            <span class="glyphicon glyphicon-search" aria-hidden="true"> </span>
+          <% end %>
+        <% end %>
+      </div>
+
+
+
           <div class="clearfix"> </div>
         </div>
       </div>
@@ -40,12 +56,7 @@
                 <li>
                 	<%= link_to 'Home', home_path %>
                 </li>
-                <li>
-                	<%= link_to 'Women', women_path %>
-                </li>
-                <li>
-                	<%= link_to 'Man', man_path %>
-                </li>
+
                 <li>
                 	<%= link_to 'Products', products_path %>
                 </li>

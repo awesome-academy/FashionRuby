@@ -1,0 +1,73 @@
+<%= form_for search_path, method: :get do |f| %>
+  <p>
+    <%= f.label t(".search_for") %>
+    <%= text_field_tag :query, params[:query] %>
+    <%= submit_tag t(".search"), name: nil %>
+  </p>
+<% end %>
+<div class="row">
+  <ul class="all_products">
+    <%     @products.each do |id|%>
+    <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
+      <div class="col-md1 simpleCart_shelfItem">
+        <a href="/products/<%= id%>">
+         <%=  image_tag("lak4.png",  width: "200px") %>
+       </a>
+
+       <h3><a href="/products/<%= id%>"><%= id.name %></a></h3>
+       <div class="price">
+        <h5 class="item_price"><%= id.price %></h5>
+        <a href="/products/<%= id%>" class="item_add">Add To Cart</a>
+        <div class="clearfix"> </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
+    <div class="col-md1 simpleCart_shelfItem">
+      <a href="/products/<%= id%>">
+       <%=  image_tag("lak5.png",  width: "200px") %>
+     </a>
+     <h3><a href="/products/<%= id%>"><%= id.name %></a></h3>
+     <div class="price">
+      <h5 class="item_price"><%= id.price %></h5>
+      <a href="/products/<%= id%>" class="item_add">Add To Cart</a>
+      <div class="clearfix"> </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="col-md-3 col-md2 animated wow fadeInRight" data-wow-delay=".5s">
+  <div class="col-md1 simpleCart_shelfItem">
+    <a href="/products/<%= id%>">
+      <%=  image_tag("lak6.png",  width: "200px") %>
+    </a>
+    <h3><a href="/products/<%= id%>"><%= id.name %></a></h3>
+    <div class="price">
+      <h5 class="item_price"><%= id.price %></h5>
+      <a href="/products/<%= id%>" class="item_add">Add To Cart</a>
+      <div class="clearfix"> </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-3 col-md2 cmn animated wow fadeInRight" data-wow-delay=".5s">
+  <div class="col-md1 simpleCart_shelfItem">
+    <a href="/products/<%= id%>">
+     <%=  image_tag("lak7.png",  width: "200px") %>
+   </a>
+   <h3><a href="/products/<%= id%>"><%= id.name %></a></h3>
+   <div class="price">
+    <h5 class="item_price"><%= id.price %></h5>
+    <a href="/products/<%= id%>" class="item_add">Add To Cart</a>
+    <div class="clearfix"> </div>
+  </div>
+</div>
+</div>
+<%end%>
+
+  </ul>
+  <p><%= will_paginate @product %></p>
+</div>

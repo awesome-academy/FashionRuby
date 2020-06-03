@@ -10,17 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_27_213941) do
+ActiveRecord::Schema.define(version: 2020_06_02_071016) do
 
   create_table "canpaigns", force: :cascade do |t|
     t.string "name"
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "value"
+    t.boolean "status"
   end
 
   create_table "catelogies", force: :cascade do |t|
     t.string "name"
+    t.string "catelogy"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -64,12 +67,12 @@ ActiveRecord::Schema.define(version: 2020_05_27_213941) do
   end
 
   create_table "sales", force: :cascade do |t|
-    t.integer "products_id", null: false
+    t.integer "product_id", null: false
     t.integer "canpaign_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["canpaign_id"], name: "index_sales_on_canpaign_id"
-    t.index ["products_id"], name: "index_sales_on_products_id"
+    t.index ["product_id"], name: "index_sales_on_product_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -86,5 +89,5 @@ ActiveRecord::Schema.define(version: 2020_05_27_213941) do
   add_foreign_key "orders", "users"
   add_foreign_key "products", "catelogies"
   add_foreign_key "sales", "canpaigns"
-  add_foreign_key "sales", "products", column: "products_id"
+  add_foreign_key "sales", "products"
 end

@@ -3,16 +3,14 @@
         <link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
         <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
         <!---//pop-up-box---->
-        <div id="small-dialog" class="mfp-hide">
-          <div class="search-top">
-            <div class="login">
-              <form action="#" method="post">
-                <input type="submit" value="">
-                <input type="text" name="search" value="Type something..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
 
-              </form>
+<!-- search -->
+
+
+
+
             </div>
-            <p> Shopping</p>
+
           </div>
         </div>
         <script>
@@ -42,16 +40,20 @@
         <div class="callbacks_container">
           <ul class="rslides" id="slider">
             <li>
-              <%= link_to image_tag("Nen.jpg",  width: "200px") %>
-              <div class="tes animated wow fadeInUp animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+                       <%= link_to image_tag("2.jpg",  width: "200px") %>
+            <div class="tes animated wow fadeInUp animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+                <h2> Flash Sale </h2>
 
+              <h4>UPTO 50%</h4>
+              <p>OFFER</p>
+            </div>
 
 
 
               </div>
             </li>
-            
-           
+
+
           </ul>
         </div>
       </div>
@@ -70,15 +72,17 @@
 
       <div class="content-top">
         <div class="content-top1">
+
+          <% @buy1free.each do |id|%>
           <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
             <div class="col-md1 simpleCart_shelfItem">
-              <a href="single.html">
-                <%= link_to image_tag("lak10.png",  width: "200px") %>
+              <a href="/products/<%= id%>">
+                <%= image_tag("lak10.png",  width: "200px") %>
               </a>
-              <h3><a href="single.html">Palazzo</a></h3>
+              <h3><a href="/products/<%= id%>"> <%= id.name %> </a></h3>
               <div class="price">
-                <h5 class="item_price">$450</h5>
-                <a href="#" class="item_add">Add To Cart</a>
+                <h5 class="item_price"> <%= id.price %> </h5>
+                <a href="/products/<%= id%>" class="item_add">Add To Cart</a>
                 <div class="clearfix"> </div>
               </div>
             </div>
@@ -87,198 +91,95 @@
             <div class="col-md3">
               <div class="up-t">
                 <h3>
-                buy 1 get 1 free</h3>
+                Buy 1 get 1 free</h3>
               </div>
             </div>
           </div>
           <div class="col-md-3 col-md2 animated wow fadeInRight" data-wow-delay=".5s">
             <div class="col-md1 simpleCart_shelfItem">
-              <a href="single.html">
-               <%= link_to image_tag("lak10.png",  width: "200px") %>
+               <a href="/products/<%= id%>">
+               <%= image_tag("lak10.png",  width: "200px") %>
              </a>
-             <h3><a href="single.html">Pant</a></h3>
+             <h3>  <a href="/products/<%= id%>"><%= id.name %></a></h3>
              <div class="price">
-              <h5 class="item_price">$300</h5>
-              <a href="#" class="item_add">Add To Cart</a>
+              <h5 class="item_price"><%= id.price %></h5>
+              <a href="/products/<%= id%>" class="item_add">Add To Cart</a>
               <div class="clearfix"> </div>
             </div>
           </div>
         </div>
+         <% end %>
+
+
+
         <div class="clearfix"> </div>
       </div>
-      <h1 style="background-color:#ad4095"> On Sale </h1>
-      <div class="content-top1">
-        <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
-          <div class="col-md1 simpleCart_shelfItem">
-            <a href="single.html">
-              <img class="img-responsive" src="images/pi3.png" alt="" />
-              <%= link_to image_tag("son.png",  width: "200px") %>
-            </a>
+      <h1 style="background-color:#ad4095"> On Sale</h1>
 
-            <h3><a href="single.html">Palazoo</a></h3>
-            <div class="price">
-              <h5 class="item_price">$300</h5>
-              <a href="#" class="item_add">Add To Cart</a>
-              <div class="clearfix"> </div>
+      <div class="content-top1">
+        <%  @Canpaign.products.each do |id|%>
+          <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
+            <div class="col-md1 simpleCart_shelfItem">
+              <a href="/products/<%= id.id%>">
+                <img class="img-responsive" src="images/pi3.png" alt="" />
+                <%=  image_tag("lak1.png",  width: "200px")%>
+              </a>
+
+              <h3> <a href="/products/<%= id.id%>"><%= id.name %></a></h3>
+              <div class="price">
+                <h5 class="item_price">$<%= id.price %></h5>
+                <a href="/products/<%= id.id%>" class="item_add">Add To Cart</a>
+                <div class="clearfix"> </div>
+              </div>
+
             </div>
           </div>
-        </div>
-        <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
-          <div class="col-md1 simpleCart_shelfItem">
-            <a href="single.html">
-             <%= link_to image_tag("lak1.png",  width: "200px") %>
-           </a>
-           <h3><a href="single.html">Trouser</a></h3>
-           <div class="price">
-            <h5 class="item_price">$300</h5>
-            <a href="#" class="item_add">Add To Cart</a>
-            <div class="clearfix"> </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
-        <div class="col-md1 simpleCart_shelfItem">
-          <a href="single.html">
-            <%= link_to image_tag("lak2.png",  width: "200px") %>
-          </a>
-          <h3><a href="single.html">Trouser</a></h3>
-          <div class="price">
-            <h5 class="item_price">$300</h5>
-            <a href="#" class="item_add">Add To Cart</a>
-            <div class="clearfix"> </div>
-          </div>
-        </div>
+        <% end %>
       </div>
 
-      <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
-        <div class="col-md1 simpleCart_shelfItem">
-          <a href="single.html">
-           <%= link_to image_tag("lak3.png",  width: "200px") %>
-         </a>
-         <h3><a href="single.html">Trouser</a></h3>
-         <div class="price">
-          <h5 class="item_price">$300</h5>
-          <a href="#" class="item_add">Add To Cart</a>
-          <div class="clearfix"> </div>
-        </div>
-      </div>
-    </div>
+
 
 
 
     <!-- best seller -->
 
     <div class="clearfix"> </div>
-  </div>
+
   <h1 style="background-color:#ad4095"> Best Seller </h1>
+
+          <div class="col-md1 simpleCart_shelfItem">
   <div class="content-top1">
-    <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
-      <div class="col-md1 simpleCart_shelfItem">
-        <a href="single.html">
-         <%= link_to image_tag("lak4.png",  width: "200px") %>
-       </a>
+    <% @bestseller.each do |product|%>
 
-       <h3><a href="single.html">Palazoo</a></h3>
-       <div class="price">
-        <h5 class="item_price">$300</h5>
-        <a href="#" class="item_add">Add To Cart</a>
-        <div class="clearfix"> </div>
+      <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
+
+          <a href="/products/<%= product[:key].id %>">
+           <%=  image_tag("lak8.png",  width: "270px") %>
+         </a>
+
+         <h3><a href="/products/<%= product[:key].id  %>"><%= product[:key].name %></a></h3>
+         <div class="price">
+          <h5 class="item_price"><%=product[:key].price%></h5>
+          <a href="/products/<%= product[:key].id%>" class="item_add">Add To Cart</a>
+          <div class="clearfix"> </div>
+        </div>
       </div>
-    </div>
+    <%end%>
   </div>
-  <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
-    <div class="col-md1 simpleCart_shelfItem">
-      <a href="single.html">
-       <%= link_to image_tag("lak5.png",  width: "200px") %>
-     </a>
-     <h3><a href="single.html">Trouser</a></h3>
-     <div class="price">
-      <h5 class="item_price">$300</h5>
-      <a href="#" class="item_add">Add To Cart</a>
-      <div class="clearfix"> </div>
-    </div>
-  </div>
-</div>
 
 
-
-
-
-<div class="col-md-3 col-md2 animated wow fadeInRight" data-wow-delay=".5s">
-  <div class="col-md1 simpleCart_shelfItem">
-    <a href="single.html">
-      <%= link_to image_tag("lak6.png",  width: "200px") %>
-    </a>
-    <h3><a href="single.html">Trouser</a></h3>
-    <div class="price">
-      <h5 class="item_price">$300</h5>
-      <a href="#" class="item_add">Add To Cart</a>
-      <div class="clearfix"> </div>
-    </div>
-  </div>
-</div>
-<div class="col-md-3 col-md2 cmn animated wow fadeInRight" data-wow-delay=".5s">
-  <div class="col-md1 simpleCart_shelfItem">
-    <a href="single.html">
-     <%= link_to image_tag("lak7.png",  width: "200px") %>
-   </a>
-   <h3><a href="single.html">Palazoo</a></h3>
-   <div class="price">
-    <h5 class="item_price">$300</h5>
-    <a href="#" class="item_add">Add To Cart</a>
-    <div class="clearfix"> </div>
-  </div>
-</div>
-</div>
 <div class="clearfix"> </div>
 </div>
 </div>
 </div>
 </div>
 <!--//content-->
-<div class="con-tp">
-  <div class="container">
-    <div class="col-md-4 con-tp-lft animated wow fadeInLeft" data-wow-delay=".5s">
-      <a href="products.html">
-        <div class="content-grid-effect slow-zoom vertical">
-          <div class="img-box">  <%= link_to image_tag("lak1.png",  width: "400px") %></div>
-          <div class="info-box">
-            <div class="info-content simpleCart_shelfItem">
-              <h4>30%offer</h4>
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="col-md-4 con-tp-lft animated wow fadeInDown animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
-      <a href="products.html">
-        <div class="content-grid-effect slow-zoom vertical">
-          <div class="img-box">  <%= link_to image_tag("lak2.png",  width: "400px") %></div>
-          <div class="info-box">
-            <div class="info-content simpleCart_shelfItem">
-              <h4>45%offer</h4>
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="col-md-4 con-tp-lft animated wow fadeInRight" data-wow-delay=".5s">
-      <a href="products.html">
-        <div class="content-grid-effect slow-zoom vertical">
-          <div class="img-box">  <%= link_to image_tag("lak4.png",  width: "400px") %></div>
-          <div class="info-box">
-            <div class="info-content simpleCart_shelfItem">
-              <h4>50%offer</h4>
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
+
     <div class="clearfix"></div>
     <div class="col-md-4 con-tp-lft animated wow fadeInLeft" data-wow-delay=".5s">
       <a href="products.html">
         <div class="content-grid-effect slow-zoom vertical">
-          <div class="img-box">  <%= link_to image_tag("lak7.png",  width: "400px") %></div>
+          <div class="img-box">  <%= link_to image_tag("lak7.png",  width: "900px") %></div>
           <div class="info-box">
             <div class="info-content simpleCart_shelfItem">
               <h4>25%offer</h4>
@@ -290,7 +191,7 @@
     <div class="col-md-4 con-tp-lft animated wow fadeInUp animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
       <a href="products.html">
         <div class="content-grid-effect slow-zoom vertical">
-          <div class="img-box">  <%= link_to image_tag("lak5.png",  width: "400px") %></div>
+          <div class="img-box">  <%= link_to image_tag("lak7.png",  width: "900px") %></div>
           <div class="info-box">
             <div class="info-content simpleCart_shelfItem">
               <h4>50%offer</h4>
@@ -302,7 +203,7 @@
     <div class="col-md-4 con-tp-lft animated wow fadeInRight" data-wow-delay=".5s">
       <a href="products.html">
         <div class="content-grid-effect slow-zoom vertical">
-          <div class="img-box">  <%= link_to image_tag("lak6.png",  width: "400px") %></div>
+          <div class="img-box">  <%= link_to image_tag("lak7.png",  width: "900px") %></div>
           <div class="info-box">
             <div class="info-content simpleCart_shelfItem">
               <h4>35%offer</h4>
@@ -314,65 +215,82 @@
     <div class="clearfix"></div>
   </div>
 </div>
-<div class="c-btm">
-  <div class="content-top1">
-    <div class="container">
-      <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
-        <div class="col-md1 simpleCart_shelfItem">
-          <a href="single.html">
-           <%= link_to image_tag("lak7.png",  width: "200px") %>
-         </a>
-         <h3><a href="single.html">Trousers</a></h3>
-         <div class="price">
-          <h5 class="item_price">$300</h5>
-          <a href="#" class="item_add">Add To Cart</a>
-          <div class="clearfix"> </div>
+
+
+   <div class="clearfix"></div>
+    <div class="col-md-4 con-tp-lft animated wow fadeInLeft" data-wow-delay=".5s">
+      <a href="products.html">
+        <div class="content-grid-effect slow-zoom vertical">
+          <div class="img-box">  <%= link_to image_tag("lak7.png",  width: "900px") %></div>
+          <div class="info-box">
+            <div class="info-content simpleCart_shelfItem">
+              <h4>25%offer</h4>
+            </div>
+          </div>
         </div>
-
-      </div>
+      </a>
     </div>
-    <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
-      <div class="col-md1 simpleCart_shelfItem">
-        <a href="single.html">
-          <%= link_to image_tag("lak7.png",  width: "200px") %>
-        </a>
-        <h3><a href="single.html">Formal</a></h3>
-        <div class="price">
-          <h5 class="item_price">$450</h5>
-          <a href="#" class="item_add">Add To Cart</a>
-          <div class="clearfix"> </div>
+    <div class="col-md-4 con-tp-lft animated wow fadeInUp animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+      <a href="products.html">
+        <div class="content-grid-effect slow-zoom vertical">
+          <div class="img-box">  <%= link_to image_tag("lak7.png",  width: "900px") %></div>
+          <div class="info-box">
+            <div class="info-content simpleCart_shelfItem">
+              <h4>50%offer</h4>
+            </div>
+          </div>
         </div>
-
-      </div>
+      </a>
     </div>
-    <div class="col-md-3 col-md2 animated wow fadeInRight" data-wow-delay=".5s">
-      <div class="col-md1 simpleCart_shelfItem">
-        <a href="single.html">
-          <%= link_to image_tag("lak7.png",  width: "200px") %>
-        </a>
-        <h3><a href="single.html">Trousers</a></h3>
-        <div class="price">
-          <h5 class="item_price">$350</h5>
-          <a href="#" class="item_add">Add To Cart</a>
-          <div class="clearfix"> </div>
+    <div class="col-md-4 con-tp-lft animated wow fadeInRight" data-wow-delay=".5s">
+      <a href="products.html">
+        <div class="content-grid-effect slow-zoom vertical">
+          <div class="img-box">  <%= link_to image_tag("lak7.png",  width: "900px") %></div>
+          <div class="info-box">
+            <div class="info-content simpleCart_shelfItem">
+              <h4>35%offer</h4>
+            </div>
+          </div>
         </div>
-
-      </div>
+      </a>
     </div>
-    <div class="col-md-3 col-md2 animated wow fadeInRight" data-wow-delay=".5s">
-      <div class="col-md1 simpleCart_shelfItem">
-        <a href="single.html">
-         <%= link_to image_tag("lak7.png",  width: "200px") %>
-       </a>
-       <h3><a href="single.html">Formal</a></h3>
-       <div class="price">
-        <h5 class="item_price">$400</h5>
-        <a href="#" class="item_add">Add To Cart</a>
-        <div class="clearfix"> </div>
-      </div>
-
-    </div>
+    <div class="clearfix"></div>
   </div>
+</div>
+
+
+
+
+
+  <h1 style="background-color:#ad4095"> New Deal </h1>
+
+
+
+<div class="c-btm">
+
+  <div class="content-top1">
+    <% @products.each do |id|%>
+    <div class="container">
+
+      <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
+   <div class="col-md1 simpleCart_shelfItem">
+         <a href="/products/<%= id%>">
+           <%=  image_tag("lak6.png",  width: "300px") %>
+         </a>
+         <h3><%= id.name %></h3>
+         <div class="price">
+          <h5 class="item_price"><%= id.price %>  </h5>
+          <a href="/products/<%= id%>" class="item_add">Add To Cart</a>
+          <div class="clearfix"> </div>
+        </div>
+
+
+      </div>
+
+    </div>
+   <% end %>
+  </div>
+
   <div class="clearfix"> </div>
 </div>
 </div>
