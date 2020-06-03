@@ -1,7 +1,7 @@
 <h1>Edit your product</h1>
 <div class="container">
 	<div class="form-group">
-	<%= form_for @product  do |f| %>
+	<%= form_for(@product)  do |f| %>
 		<div class="form-group">
 			<%= f.label 'Name' %>
 			<%= f.text_field :name, placeholder: 'name....', class: 'form-control' %>
@@ -16,8 +16,11 @@
 			<%= f.label 'Size' %>
 			<%= f.text_field :size, placeholder: "size....", class: 'form-control' %>
 		</div>
-		
-		<%= f.submit "Updating", class: "btn btn-primary" %>
+			<span class="image">
+					<%= f.file_field :images,multiple: true, accept: "image/jpeg,image/gif,image/png" %>
+	
+				</span>
+		<%= f.submit "Updating", method: :update, class: "btn btn-primary" %>
 	<% end %>
 
 

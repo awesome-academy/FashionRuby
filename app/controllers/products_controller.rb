@@ -12,11 +12,10 @@ class ProductsController < ApplicationController
 
 
 	def create
-
-		@product = Product.new product_params
+		@product = Product.new product_params	
 		@product.images.attach(product_params[:images])
-		byebug
-		# params[:product][:catelogys][:name]	
+		# params[:product][:catelogys][:name]
+
 		if @product.save
 
 			redirect_to root_url
@@ -36,7 +35,7 @@ class ProductsController < ApplicationController
 
 
 	def edit
-		@product = Product.find_by(id: params[:id])
+		@product = Product.find(params[:id])
 	end
 
 
