@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2020_06_01_075849) do
     t.integer "order_id", null: false
     t.integer "product_id", null: false
     t.datetime "senddate"
-    t.integer "quanity"
+    t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["order_id"], name: "index_orderdetails_on_order_id"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 2020_06_01_075849) do
     t.integer "catelogy_id", null: false
     t.integer "price"
     t.integer "size"
+    t.integer "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["catelogy_id"], name: "index_products_on_catelogy_id"
