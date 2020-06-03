@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-
-ActiveRecord::Schema.define(version: 2020_06_01_075849) do
+ActiveRecord::Schema.define(version: 2020_06_02_071016) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -35,7 +33,6 @@ ActiveRecord::Schema.define(version: 2020_06_01_075849) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-
   create_table "canpaigns", force: :cascade do |t|
     t.string "name"
     t.text "content"
@@ -51,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_06_01_075849) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
-3.
+
   create_table "images", force: :cascade do |t|
     t.string "name"
     t.integer "product_id", null: false
@@ -113,7 +110,7 @@ ActiveRecord::Schema.define(version: 2020_06_01_075849) do
   add_foreign_key "orderdetails", "orders"
   add_foreign_key "orderdetails", "products"
   add_foreign_key "orders", "users"
-  add_foreign_key "products", "catelogies "
+  add_foreign_key "products", "catelogies"
   add_foreign_key "sales", "canpaigns"
   add_foreign_key "sales", "products"
 end
