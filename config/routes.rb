@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-		  get 'users/new'
+		get 'users/new'
 		root 'static_pages#home'
 		get '/help', to: 'static_pages#help'
 		get '/home', to: 'static_pages#home'
@@ -7,5 +7,6 @@ Rails.application.routes.draw do
 		get '/all', to: 'static_pages#products'
 		get '/signup', to: 'users#new'
 		get '/login', to: 'sessions#new'
+    # get '/details', to: 'detail#show'
 		resources :products
 end

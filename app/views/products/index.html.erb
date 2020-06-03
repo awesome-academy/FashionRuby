@@ -1,3 +1,4 @@
+
 <div class="container">
   <%= link_to 'CREATE', new_product_path, class: 'btn btn-primary' %>
 </div>
@@ -11,12 +12,12 @@
 
         <% i.images.each do |image| %>
 
-          <%= image_tag image.variant(resize_to_limit: [100, 100]) %> 
+          <%= image_tag image.variant(resize_to_limit: [100, 100]) %>
         <% end %>
 
       </div>
     </div>
-    
+
       <div class="col-md-8">
         <div class="card-body">
           <div class="alert alert-primary" role="alert">
@@ -29,13 +30,14 @@
           <%= link_to "Edit", edit_product_path(i) %>
         </div>
       </div>
-    
+
     </div>
   </div>
   <% end %>
 </div>
-  
+
 
 
 
   <%= will_paginate %>
+
