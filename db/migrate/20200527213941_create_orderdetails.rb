@@ -4,7 +4,7 @@ class CreateOrderdetails < ActiveRecord::Migration[6.0]
       t.references :order, null: false, foreign_key: true
       t.references :product, null: false, foreign_key: true
       t.datetime :senddate
-      t.integer :quanity
+      t.integer :quantity
 
       t.timestamps
     end

@@ -1,10 +1,3 @@
-
-
-
-# ("inner join orderdetail on product.id = id
-# inner join order on id.orderid = order.id  ")
-
-
 class StaticPagesController < ApplicationController
   def home
 
@@ -19,7 +12,7 @@ class StaticPagesController < ApplicationController
 count_order=[]
 Product.all.each do |product|
 count_order<< {key: product , value: product.orders.count}
-    end
+end
 sort = count_order.sort_by{|l| -l[:value]}
 @bestseller= sort.take(8)
 
@@ -33,8 +26,13 @@ sort = count_order.sort_by{|l| -l[:value]}
 def help
    end
 
-def about
-   end
+
+  def about
+  end
+
+  def products
+  end
+
 end
 
 
