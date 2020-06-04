@@ -1,8 +1,20 @@
+
+
 class Product < ApplicationRecord
+
   belongs_to :catelogy
 
-  belongs_to :order, optional: true
   has_many :orderdetails
+  has_many :orders, through: :orderdetails
+
+  has_many :sales
+
+
+
+
+
+  validates :catelogy_id, presence: true
+
   has_many_attached :images
   default_scope -> { order(created_at: :desc) }
   # accepts_nested_attributes_for :images
@@ -16,4 +28,21 @@ class Product < ApplicationRecord
 
 
 
+
 end
+
+
+
+# require "elasticsearch/model"
+# class Book < ApplicationRecord
+#   include Elasticsearch::Model
+#   include Elasticsearch::Model::Callbacks
+
+#   belongs_to :category
+#   has_many :cart_items, dependent: :destroy
+#   has_many :carts, through: :cart_items
+
+#   default_scope ->{order created_at: :desc}
+
+#   validates :category_id, presence: true
+# end

@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 
 
+gem "ransack"
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3'
 # Use sqlite3 as the database for Active Record
@@ -41,7 +43,12 @@ gem 'bootstrap-sass', '3.4.1'
 gem 'bootsnap'
 gem 'bcrypt',    '3.1.13'
 
+
+
+
 group :development, :test do
+
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end

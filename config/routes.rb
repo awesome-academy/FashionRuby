@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 		get '/all', to: 'static_pages#products'
 		get '/signup', to: 'users#new'
 		get '/login', to: 'sessions#new'
-    # get '/details', to: 'detail#show'
+    get "/search", to: "search#search"
+
+
+
 		resources :products
 end

@@ -1,9 +1,33 @@
 class ProductsController < ApplicationController
-	before_action :destroy_product, only: :destroy
 
-	def index
-		@products = Product.paginate(page: params[:page])
-	end
+    # before_action :search_product, only: [:index]
+      before_action :destroy_product, only: :destroy
+    def index
+       @catelogies = Catelogy.order :catelogy_name
+          @products = Product.paginate(page: params[:page])
+    end
+
+ # def search_book
+ #    @product = if params[:query].present?
+ #              Product.search(params[:query]).paginate page: params[:page],
+ #                per_page: Settings.per_page_search
+ #            elsif params[:check] == "1" && params[:query].present? == false
+ #              Category.find(params[:catelogy_id]).products.paginate page: params[:page],
+ #                per_page: Settings.per_page_search
+ #            else
+ #              Product.all.paginate page: params[:page],
+ #                per_page: Settings.per_page
+ #            end
+ #      return if @product
+ #      flash[:danger] = t("not_found")
+ #      redirect_to root_path
+ #    end
+
+
+
+
+
+
 
 	def new
 		@product = Product.new
@@ -53,6 +77,23 @@ class ProductsController < ApplicationController
 	end
 
 
+	def show
+    @product = Product.find(params[:id])
+
+    @x = Product.where(catelogy: @product.catelogy)
+
+
+
+
+    if  @product.amount.to_i >= 1
+
+      @amount = @product.amount
+    else
+      @amount = 'het hang'
+    end
+end
+
+
 
 
 	private
@@ -77,34 +118,11 @@ class ProductsController < ApplicationController
     # @product = Product.find_by(params[:id])
     # @ids = [1,2,3,4,5,6,7,8,9]
     # # @product = Product.find_by(1)
-  end
-
-
-	def show
-    @product = Product.find(params[:id])
-
-    @x = Product.where(catelogy: @product.catelogy)
 
 
 
 
-    if  @product.amount.to_i >= 1
 
-      @amount = @product.amount
-    else
-      @amount = 'het hang'
-    end
-end
-
-
-  def create
-
-  end
-
-
-def update
-
-end
 
 # 1. khi taoj order (order.save)
 # 2. lay order_detail (order.order_details)
