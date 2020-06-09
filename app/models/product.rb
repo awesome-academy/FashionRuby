@@ -2,6 +2,7 @@
 
 class Product < ApplicationRecord
 
+
   belongs_to :catelogy
 
   has_many :orderdetails
@@ -16,6 +17,14 @@ class Product < ApplicationRecord
   validates :catelogy_id, presence: true
 
   has_many_attached :images
+
+  attr_accessor :quantity
+  has_many :sales, dependent: :destroy
+  has_many :orderdetails, dependent: :destroy
+  belongs_to :catelogy
+
+  # belongs_to :order, optional: true
+
   default_scope -> { order(created_at: :desc) }
   # accepts_nested_attributes_for :images
   validates :images,

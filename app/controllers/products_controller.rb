@@ -52,7 +52,10 @@ class ProductsController < ApplicationController
 
 
 	def destroy
+
 		@product.destroy
+    @product= Product.find(params[:id])
+
 		redirect_to root_url if @product.nil?
 	end
 
@@ -74,7 +77,29 @@ class ProductsController < ApplicationController
 			render 'edit'
 
 		end
-	end
+  end
+
+
+	def show
+
+    @product = Product.find(params[:id])
+
+    @x = Product.where(catelogy: @product.catelogy_id)
+
+
+
+
+        if  @product.amount.to_i >= 1
+
+              @amount = @product.amount
+            else
+              @amount = 'het hang'
+            end
+        end
+
+
+
+
 
 
 	def show
@@ -102,8 +127,7 @@ end
 			params.require(:product).permit(
 				:name, :catelogy_id , :price, :size, images: []
 				# images_attributes: [:name, :product_id, :url]
-
-			 )
+)
 		end
 
 
@@ -118,6 +142,8 @@ end
     # @product = Product.find_by(params[:id])
     # @ids = [1,2,3,4,5,6,7,8,9]
     # # @product = Product.find_by(1)
+
+
 
 
 

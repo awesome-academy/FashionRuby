@@ -19,15 +19,15 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-      <%= link_to image_tag("lak2.png",  width: "200px") %>
+      <%= link_to image_tag("lak2.png",  width: "500px") %>
     </div>
 
     <div class="item">
-      <%= link_to image_tag("lak3.png",  width: "200px") %>
+      <%= link_to image_tag("lak3.png",  width: "500px") %>
     </div>
 
     <div class="item">
-      <%= link_to image_tag("lak4.png",  width: "200px") %>
+      <%= link_to image_tag("lak4.png",  width: "500px") %>
     </div>
   </div>
 
@@ -64,10 +64,13 @@
 
               <div class="available">
                 <h6>Available Options :</h6>
-                <ul>
+                <!-- <ul> -->
                   <li> So luong : <%= @amount %> </li>
                   <li> Size: <%= @product.size %></li>
-                </ul>
+
+                  <%= link_to 'Thêm vào giỏ hàng', cart_path, class: 'btn btn-primary' %>
+</button>
+              </div>
 
             </div>
                <!--  <a href="#" class="cart item_add">More details</a> -->
@@ -76,14 +79,15 @@
 
 
 
-            <%= @x.name %>
 
-          <% @x.each do |catelogy|%>
+
+
+          <% @x.each do |product|%>
       <div class="clearfix"> </div>
       <div class="content-top1">
         <div class="col-md-4 col-md4">
           <div class="col-md1 simpleCart_shelfItem">
-            <a href="/products/<%= catelogy.id %>">
+            <a href="/products/<%= product.id %>">
               <%= link_to image_tag("lak2.png",  width: "200px") %>
 
             </a>
@@ -99,7 +103,7 @@
         </div>
       <div class="col-md-4 col-md4">
           <div class="col-md1 simpleCart_shelfItem">
-            <a href="/products/<%= catelogy.id %>">
+            <a href="/products/<%= product.id %>">
              <%= link_to image_tag("lak5.png",  width: "200px") %>
             </a>
             <h3><a href="single.html">Jeans</a></h3>
@@ -111,21 +115,7 @@
 
           </div>
         </div>
-      <!-- <div class="col-md-4 col-md4">
-          <div class="col-md1 simpleCart_shelfItem">
-            <a href="/products/<%= catelogy.id %>">
-              <%= link_to image_tag("lak4.png",  width: "200px") %>
-            </a>
-            <h3><a href="single.html">Palazoo</a></h3>
-            <div class="<%= @product.price%>">
 
-                <h5 class="item_price">$300</h5>
-                <a href="#" class="item_add">Add To Cart</a>
-                <div class="clearfix"> </div>
-            </div>
-
-          </div>
-        </div> -->
 
       <div class="clearfix"> </div>
       </div>
