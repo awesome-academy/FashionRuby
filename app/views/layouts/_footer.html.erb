@@ -2,48 +2,23 @@
   <div class="container">
     <div class="footer-top">
       <div class="col-md-6 top-footer animated wow fadeInLeft" data-wow-delay=".5s">
-
-
-        <h3><%= t"global.footer.share" %></h3>
-        <!-- comment fb -->
-        <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0&appId=2329080434067072&autoLogAppEvents=1"></script>
-
-<div class="fb-comments" data-href="http://localhost:3000/" data-numposts="1" data-width="full"></div>
-
-<div class="fb-comments" data-href="https://your_rails_app.com" data-numposts="5"></div>
-
-
+        <h3>Follow Us On</h3>
         <div class="social-icons">
           <ul class="social">
-            <li><a href="#"><i>   </i></a> </li>
-
+            <li><a href="#"><i></i></a> </li>
+            <li><a href="#"><i class="facebook"></i></a></li>
             <li><a href="#"><i class="google"></i> </a></li>
             <li><a href="#"><i class="linked"></i> </a></li>
-
           </ul>
-
-<br>
-            <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    Languages🌐 <b class="'btn btn-info'"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><%= link_to "En", locale:"en" %></li>
-                      <li><%= link_to "Vi", locale:"vi"  %></li>
-
-                    </ul>
-                </li>
           <div class="clearfix"></div>
         </div>
       </div>
       <div class="col-md-6 top-footer1 animated wow fadeInRight" data-wow-delay=".5s">
-        <h3><%= t"global.footer.newsub" %></h3>
+        <h3>Newsletter</h3>
         <form action="#" method="post">
           <input type="text" name="email" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
-          <input type="submit" value="📤">
+          <input type="submit" value="SUBSCRIBE">
         </form>
-
       </div>
       <div class="clearfix"> </div>
     </div>
@@ -83,16 +58,12 @@
 
         </ul>
       </div>
-
       <div class="col-md-3 footer-bottom-cate cate-bottom animated wow fadeInRight" data-wow-delay=".5s">
         <h6>Our Address</h6>
         <ul>
           <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Address : 12th Avenue, 5th block, <span>Sydney.</span></li>
           <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email : <a href="mailto:info@example.com">info@example.com</a></li>
           <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>Phone : +1234 567 567</li>
-
-
-
         </ul>
       </div>
       <div class="clearfix"> </div>
@@ -100,6 +71,3 @@
     </div>
   </div>
 </div>
-
-
-

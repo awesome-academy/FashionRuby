@@ -6,19 +6,24 @@
           <h1><%= link_to 'RuBY Fashion', home_path%></h1>
         </div>
         <div class="col-sm-4 world animated wow fadeInRight" data-wow-delay=".5s">
-
+       
           </div>
           <div class="col-sm-2 number animated wow fadeInRight" data-wow-delay=".5s">
-
-            <span style="color:white" ><i style="color:white"  class="glyphicon glyphicon-phone"> </i > 089.999.999</span>
-            <p><%= t("global.header.call") %></p>
-
-
-
-            </ul>
+            <span><i class="glyphicon glyphicon-phone"></i>085 596 234</span>
+            <p>Call me</p>
           </div>
-          <div class="clearfix"> </div>
-        </div>
+
+          <div class="col-sm-2 number animated wow fadeInRight" data-wow-delay=".5s">
+            <%= link_to 'Carts', carts_path %>
+          </div>
+<!-- Search -->
+
+
+
+
+
+
+
       </div>
       <div class="container">
         <div class="head-top">
@@ -40,96 +45,29 @@
             <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
               <ul class="nav navbar-nav nav_1">
                 <li>
-                  <%= link_to t("global.header.home1"), home_path %>
-                </li>
-
-
-
-                <li>
-                  <%= link_to t("global.header.product"), all_path %>
-
+                  <%= link_to 'Home', home_path %>
                 </li>
                 <li>
-                  <%= link_to t("global.header.signin"), login_path %>
+                  
+                </li>
+                <li>
+                  
+                </li>
+                <li>
+                  <%= link_to 'Products', all_path %>
+                </li>
+                <li>
+                  <%= link_to 'Sign In', login_path %>
                 </li>
                 <li class="last">
-                  <%= link_to t("global.header.contact"), contact_path %>
+                  <%= link_to 'Contact', contact_path %>
                 </li>
                 <li class="last">
-                  <%= link_to t("global.header.admin"), products_path %>
+                  <%= link_to 'Admin', products_path %>
                 </li>
 
               </ul>
             </div><!-- /.navbar-collapse -->
-
-
-          </nav>
-        </div>
-</header>
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="header">
-    <div class="header-top">
-      <div class="container">
-        <div class="col-sm-4 logo animated wow fadeInLeft" data-wow-delay=".5s">
-          <h1><%= link_to 'RuBY Fashion', home_path%></h1>
-        </div>
-        <div class="col-sm-4 world animated wow fadeInRight" data-wow-delay=".5s">
-
-          </div>
-          <div class="col-sm-2 number animated wow fadeInRight" data-wow-delay=".5s">
-
-            <span style="color:white" ><i style="color:white"  class="glyphicon glyphicon-phone"> </i > 089.999.999</span>
-            <p><%= t("global.header.call") %></p>
-
-
-
-            </ul>
-          </div>
-          <div class="clearfix"> </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="head-top">
-          <div class="n-avigation">
-
-            <nav class="navbar nav_bottom" role="navigation">
-
-             <!-- Brand and toggle get grouped for better mobile display -->
-             <div class="navbar-header nav_2">
-              <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#"></a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-              <ul class="nav navbar-nav nav_1">
-                <li>
-                  <%= link_to t("global.header.home1"), home_path %>
-                </li>
-
-
-
-                <li>
-                  <%= link_to t("global.header.product"), all_path %>
-
-                </li>
-                <li>
-                  <%= link_to t("global.header.signin"), login_path %>
-                </li>
-                <li class="last">
-                  <%= link_to t("global.header.contact"), contact_path %>
-                </li>
-                <li class="last">
-                  <%= link_to t("global.header.admin"), products_path %>
-                </li>
-
-              </ul>
-            </div><!-- /.navbar-collapse -->
-
 
           </nav>
         </div>

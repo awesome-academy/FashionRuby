@@ -8,18 +8,23 @@
 
 
 
-# Product.create!(name: 'Dolce gapagang',
-# 				catelogy_id: 1,
-# 				price: 5000,
-# 				size: 5)
+['men', 'women', 'kisd', 'shoes'].each do |catelogy|
+	Catelogy.create(name: catelogy)
+end
 
-# 30.times do |n|
-# 		name = Faker::Name.name
-# 	Product.create!(name: name,
-# 					catelogy_id: 1,
-# 					price: 5000,
-# 					size: 3)
-# end
+Product.create!(name: 'Dolce gapagang',
+				catelogy_id: 1,
+				price: 5000,
+				size: 5)
+
+30.times do |n|
+		name = Faker::Name.name
+	Product.create!(name: name,
+					catelogy_id: 2,
+					price: 5000,
+					size: 3)
+end
+
 
 
 
@@ -34,4 +39,7 @@ OrderStatus.create! id: 1, name: "In Progress"
 OrderStatus.create! id: 2, name: "Placed"
 OrderStatus.create! id: 3, name: "Shipped"
 OrderStatus.create! id: 4, name: "Cancelled"
+
+
+Canpaign.create!(name: 'Sale 50%', content: 'salr all products', value: 1, status: true	)
 
