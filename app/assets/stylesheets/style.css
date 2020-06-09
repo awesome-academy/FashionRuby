@@ -2735,6 +2735,7 @@ th {
 
 
 
+
 .footer > button {
   display: flex;
   border: 0;
@@ -2812,3 +2813,45 @@ display:block;
 .checked {
   color: orange;
 }
+
+.alert {
+  font-family: courier;
+     width: 1500px;
+     font-size: 1.0em;
+    margin-bottom: 20px;
+
+ border-radius:50px/50px;
+     color:black;
+}
+
+
+.radio-inline, .checkbox-inline {
+
+    display: inline-block;
+    padding-left: 500px;
+    margin-bottom: 0;
+
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+
+.ca  {
+  color: #D90467;
+  font-family: verdana;
+  font-size: 160%;
+}
+
+
+a {
+  color: #D90467;
+  font-family: verdana;
+  font-size: 160%;
+
+    text-decoration: none;
+
+}
+
+
+
+

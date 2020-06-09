@@ -1,0 +1,49 @@
+<h1>Edit your Canpaign</h1>
+<div class="container">
+  <div class="form-group">
+  <%= form_for(@canpaigns)  do |f| %>
+   <div class="form-group">
+      <%= f.label 'Canpaign-Name' %>
+      <%= f.text_field :name, placeholder: "....", class: 'form-control' %>
+    </div>
+
+
+     <div class="form-group">
+      <%= f.label 'Content' %>
+      <%= f.text_field :content, placeholder: "....", class: 'form-control' %>
+    </div>
+
+   <div class="form-group">
+      <%= f.label 'value' %>
+      <%= f.number_field :value, placeholder: "....", class: 'form-control' %>
+    </div>
+
+
+   <div class="form-group">
+      <%= f.label 'status' %>
+      <%= f.check_box :status, placeholder: "....", class: 'form-control'  %>
+    </div>
+
+    Products:
+    <ul>
+    <% @products.each do |product| %>
+      <li>
+        <label class="radio-inline"><%= product.name %>
+          <%= f.check_box :product_ids, {:multiple => true}, product.id, nil %>
+
+        </label>
+      </li>
+    <% end %>
+    </ul>
+
+    <%= f.submit "Updating", method: :update, class: "btn btn-success" %>
+  <% end %>
+
+
+  </div>
+
+</div>
+
+
+
+

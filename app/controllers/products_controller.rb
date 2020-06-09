@@ -7,30 +7,12 @@ class ProductsController < ApplicationController
           @products = Product.paginate(page: params[:page])
     end
 
- # def search_book
- #    @product = if params[:query].present?
- #              Product.search(params[:query]).paginate page: params[:page],
- #                per_page: Settings.per_page_search
- #            elsif params[:check] == "1" && params[:query].present? == false
- #              Category.find(params[:catelogy_id]).products.paginate page: params[:page],
- #                per_page: Settings.per_page_search
- #            else
- #              Product.all.paginate page: params[:page],
- #                per_page: Settings.per_page
- #            end
- #      return if @product
- #      flash[:danger] = t("not_found")
- #      redirect_to root_path
- #    end
-
-
-
-
 
 
 
 	def new
 		@product = Product.new
+
 		@product.images.build
 	end
 

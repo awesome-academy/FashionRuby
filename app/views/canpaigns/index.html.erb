@@ -1,0 +1,31 @@
+
+
+<% @canpaigns.each do |i|%>
+
+
+
+      <div class="col-md-8">
+        <div class="card-body">
+          <div class="alert alert-primary" role="alert">
+            <h4 class="card-title">➤<%= i.name %>:</h4>
+               <h1 style="border-style:double" class="card-title"><%= i.content %></h1>
+             <h1  class="ca"><%= i.status %> ✔</h1> <p class="card-text"><small class="text-muted"><%= i.created_at %>ago</small></p>
+
+
+          </div>
+          <%= link_to "Delete", i, method: :delete, data: { confirm: "You sure?" } , class: "btn btn-warning" %>
+          <%= link_to "Edit", edit_canpaign_path(i) , class: "btn btn-info" %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <% end %>
+
+
+
+</div>
+
+
+
