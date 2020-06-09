@@ -43,6 +43,8 @@ gem 'bootstrap-sass', '3.4.1'
 gem 'bootsnap'
 gem 'bcrypt',    '3.1.13'
 
+gem 'rails-i18n'
+
 
 
 

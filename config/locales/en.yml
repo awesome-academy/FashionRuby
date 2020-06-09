@@ -30,5 +30,36 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+
+
+  static_pages:
+    home:
+      title: "Flashsale"
+      title2: "UPTO 50%"
+      title3: "OFFER"
+      addcart: "Add To Cart"
+      buy: "Buy 1 get 1 free"
+      onsale: "On Sale"
+      bestseller: "Best Seller"
+      50offer: "50% offer"
+      20offer: "25% offer"
+      30offer: "35% offer"
+      new: "New Deal"
+  global:
+    footer:
+      share: "Share On Face Book"
+      newsub: "Newsletter"
+    header:
+       call: "Call me"
+       home1: "Home"
+       product: "Products"
+       signin: "Sign In"
+       contact: "Contact"
+       admin: "Admin"
+
+
+
+
+
+
 

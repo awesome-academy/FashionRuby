@@ -18,7 +18,7 @@ sort = count_order.sort_by{|l| -l[:value]}
 
 
   @Canpaign = Canpaign.where(status: true).first
-  @Canpaign.products.all.limit(4)
+  @Canpaign.products.all
 
 
     end

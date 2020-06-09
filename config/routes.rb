@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
     # get 'order_items/create'
     # get 'order_items/update'
     # get 'order_items/destroy'
@@ -7,8 +8,12 @@ Rails.application.routes.draw do
     #  get 'carts/edit'
 
         get 'productcarts/index'
+
+	scope "(:locale)", locale: /en|vi/ do
+  root to: 'static_pages#home'
+
 		get 'users/new'
-		root 'static_pages#home'
+
 		get '/help', to: 'static_pages#help'
 		get '/home', to: 'static_pages#home'
 		get '/contact', to: 'static_pages#contact'
@@ -16,7 +21,7 @@ Rails.application.routes.draw do
 		get '/signup', to: 'users#new'
 		get '/login', to: 'sessions#new'
         get "/search", to: "search#search"
-		resources :products, only: [:index, :create, :update, :destroy, :show]
+
         resources :productcarts, only: [:index, :create, :update, :destroy]
         resources :carts, only: [:index, :create, :update, :destroy, :show]
         resources :order_items, only: [:create, :update, :destroy]
@@ -24,7 +29,10 @@ Rails.application.routes.draw do
 
 
 
+		resources :products
+      resources  :canpaigns
 
-    # get '/cart', to: 'sessions#cart'
-    # get '/details', to: 'detail#show'
+
+end
+
 end
