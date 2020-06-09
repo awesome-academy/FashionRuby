@@ -1,11 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<%= render 'layouts/shim' %>
+  <title>ShoppingCartExample</title>
+ <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <% if request.ssl? %>
+    <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+  <% else %>
+    <%= stylesheet_link_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+  <% end %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
 </head>
 <body>
-	<%= render 'layouts/header' %>
-		<%= yield %>
-	<%= render 'layouts/footer' %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <h1><%= link_to "My Store", root_path %></h1>
+      </div>
+      <div class="col-xs-6 text-right">
+        <h1 class="cart-text">
+      </div>
+    </div>
+    <hr>
+    <%= render 'layouts/header' %></h1>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+  </div>
+
 </body>
 </html>
+
+
+
+
+
