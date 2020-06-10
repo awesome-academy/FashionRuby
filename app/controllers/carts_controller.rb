@@ -73,6 +73,7 @@ def destroy
                 if cart["id"] == params[:id]
                   # so sanh trong cart co id san pham day chua neu ma co thi +1
                   cart.delete("id")
+                  cart.delete("quantity")
                 end
               end
 
