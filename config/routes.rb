@@ -27,10 +27,11 @@ Rails.application.routes.draw do
         resources :order_items, only: [:create, :update, :destroy]
         resource :cart
 
-
+        resources :catelogies, only: :show
 
 		resources :products
       resources  :canpaigns
+      resources :orders
 
 
 end

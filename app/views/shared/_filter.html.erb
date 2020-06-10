@@ -1,0 +1,120 @@
+
+
+<div class="col-md-3 product-bottom">
+
+			
+            
+
+
+
+
+			<!--categories-->
+				<div class=" rsidebar span_1_of_left">
+						<h3 class="cate">Categories</h3>
+							 <ul class="menu-drop">
+
+							<% @catelogies.each do |catelogy| %>	 	
+								<li class="item1">
+							
+									<%= link_to catelogy.name, all_path(id: catelogy.id) %>
+									
+								</li>
+							<% end %>
+
+						</ul>
+					</div>
+
+					<div class=" rsidebar span_1_of_left">
+						<h3 class="cate">Price</h3>
+							 <ul class="menu-drop">
+								<li class="item1"><%= link_to "1000",:price => "1000" %></li>
+								
+								<li class="item1"><%= link_to "3000",:price => "3000" %></li>
+								<li class="item1"><%= link_to "5000", :price => "5000"%></li>
+								<li class="item1"><%= link_to "10000",:price => "10000"%></li>
+							</ul>
+					</div>
+
+				<!--initiate accordion-->
+						<script type="text/javascript">
+							$(function() {
+							    var menu_ul = $('.menu-drop > li > ul'),
+							           menu_a  = $('.menu-drop > li > a');
+							    menu_ul.hide();
+							    menu_a.click(function(e) {
+							        // e.preventDefault();
+							        if(!$(this).hasClass('active')) {
+							            menu_a.removeClass('active');
+							            menu_ul.filter(':visible').slideUp('normal');
+							            $(this).addClass('active').next().stop(true,true).slideDown('normal');
+							        } else {
+							            $(this).removeClass('active');
+							            $(this).next().stop(true,true).slideUp('normal');
+							        }
+							    });
+							
+							});
+						</script>
+<!--//menu-->
+<!--seller-->
+				<div class="product-bottom">
+						<h3 class="cate">Best Sellers</h3>
+					<div class="product-go">
+						<div class=" fashion-grid">
+							<!-- <a href="single.html"><img class="img-responsive " src="images/pr.jpg" alt=""></a> -->	
+						</div>
+						<div class=" fashion-grid1">
+							<h6 class="best2"><a href="single.html" >Lorem ipsum dolor sitamet consectetuer  </a></h6>
+							<span class=" price-in1"> $40.00</span>
+						</div>	
+						<div class="clearfix"> </div>
+					</div>
+					<div class="product-go">
+						<div class=" fashion-grid">
+							<!-- <a href="single.html"><img class="img-responsive " src="images/pr1.jpg" alt=""></a> -->	
+						</div>
+						<div class=" fashion-grid1">
+							<h6 class="best2"><a href="single.html" >Lorem ipsum dolor sitamet consectetuer  </a></h6>
+							<span class=" price-in1"> $40.00</span>
+						</div>	
+						<div class="clearfix"> </div>
+					</div>
+					<div class="product-go">
+						<div class=" fashion-grid">
+							<!-- <a href="single.html"><img class="img-responsive " src="images/pr2.jpg" alt=""></a> -->	
+						</div>
+						<div class=" fashion-grid1">
+							<h6 class="best2"><a href="single.html" >Lorem ipsum dolor sitamet consectetuer  </a></h6>
+							<span class=" price-in1"> $40.00</span>
+						</div>	
+						<div class="clearfix"> </div>
+					</div>	
+					<div class="product-go">
+						<div class=" fashion-grid">
+							<!-- <a href="single.html"><img class="img-responsive " src="images/pr3.jpg" alt=""></a> -->	
+						</div>
+						<div class=" fashion-grid1">
+							<h6 class="best2"><a href="single.html" >Lorem ipsum dolor sitamet consectetuer  </a></h6>
+							<span class=" price-in1"> $40.00</span>
+						</div>	
+						<div class="clearfix"> </div>
+					</div>		
+				</div>
+
+<!--//seller-->
+<!--tag-->
+				<div class="tag">	
+						<h3 class="cate">Hots</h3>
+					<div class="tags">
+						<ul>
+							<% @catelogies.each do |catelogy| %>
+
+								<li>
+									<%= link_to catelogy.name, catelogy_path(id: catelogy.id) %>
+								</li>
+							<% end %>
+						<div class="clearfix"> </div>
+						</ul>
+				</div>					
+			</div>
+		</div>	

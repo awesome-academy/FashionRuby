@@ -5,9 +5,9 @@ class Product < ApplicationRecord
 
   belongs_to :catelogy
 
+
   has_many :orderdetails
   has_many :orders, through: :orderdetails
-
   has_many :sales
   has_many :canpaigns, through: :sales
 

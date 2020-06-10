@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="check-out">
+    <h2>Checkout</h2>
+    <table >
+      <tr>
+        <th>Item</th>
+        <th>Qty</th>    
+        <th>Prices</th>
+        <th>Sub total</th>
+      </tr>
+      <tr>
+
+      <% @products.each do |product| %>
+
+        <td class="ring-in">
+          <div class="sed">
+            <h5><%= product.name %></h5>
+
+          </div>
+          <div class="clearfix"> </div></td>
+          <td><%= @quantity %></td>
+          <td><%= product.price %></td>
+        
+          <td><%= product.price * @quantity %></td>
+        </tr>
+
+        <% end %>
+        <tr>
+        <th scope="row">From</th>
+          <% form_for  %>
+        </tr>
+        
+          </table>
+          <a href="#" class=" to-buy">PROCEED TO BUY</a>
+          <div class="clearfix"> </div>
+        </div>
+      </div>
+

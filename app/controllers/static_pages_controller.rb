@@ -3,22 +3,22 @@ class StaticPagesController < ApplicationController
 
 # before_action :search_product, only: [:index]
 # @ids = Product.all.pluck(:id)
-@products = Product.all.limit(4)
-@deal = Product.all.pluck(:id)
-@buy1free = Product.all.limit(1)
-@sale = Product.find([1, 3])
+		@products = Product.all.limit(4)
+		@deal = Product.all.pluck(:id)
+		@buy1free = Product.all.limit(1)
+		@sale = Product.find([1, 3])
 
 
-count_order=[]
-Product.all.each do |product|
-count_order<< {key: product , value: product.orders.count}
-end
-sort = count_order.sort_by{|l| -l[:value]}
-@bestseller= sort.take(8)
+		count_order=[]
+		Product.all.each do |product|
+		count_order<< {key: product , value: product.orderdetails.count}
+		end
+		sort = count_order.sort_by{|l| -l[:value]}
+		@bestseller= sort.take(8)
 
 
-  @Canpaign = Canpaign.where(status: true).first
-  @Canpaign.products.all
+		  @Canpaign = Canpaign.where(status: true).first
+		  @Canpaign.products.all
 
 
     end
@@ -31,6 +31,23 @@ def help
   end
 
   def products
+  	@catelogies = Catelogy.all
+  	@catelogy = Catelogy.find_by(id: params[:id])
+
+  	if params[:search]
+		@products = Product.where(["lower(name) LIKE ?","%#{params[:search].downcase}%"])
+
+	elsif params[:id]
+		@catelogy = Catelogy.find_by(id: params[:id])
+		@products = @catelogy.products 
+
+	elsif params[:price]
+		@products = Product.where(price: params[:price].to_i)
+
+	else
+	  	@products = Product.all
+	 end
+  	
   end
 
 end
