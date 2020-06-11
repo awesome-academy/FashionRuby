@@ -2,27 +2,33 @@
 
 class Product < ApplicationRecord
 
+  attr_accessor :quantity
 
   belongs_to :catelogy
 
 
-  has_many :orderdetails
+
+
+
+
+
+  has_many :orderdetails, dependent: :destroy
   has_many :orders, through: :orderdetails
-  has_many :sales
+
+  has_many :sales, dependent: :destroy
+
+
   has_many :canpaigns, through: :sales
 
 
 
 
+  has_many_attached :images
 
   validates :catelogy_id, presence: true
 
-  has_many_attached :images
 
-  attr_accessor :quantity
-  has_many :sales, dependent: :destroy
-  has_many :orderdetails, dependent: :destroy
-  belongs_to :catelogy
+
 
   # belongs_to :order, optional: true
 

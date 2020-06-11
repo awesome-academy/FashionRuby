@@ -1,0 +1,12 @@
+<li>
+
+<%= link_to user.name, user,class: 'acount-btn'  %>
+<% if current_user.admin? && !current_user?(user) %>
+| <%= link_to t("global.canpaigs.delete"), user, method: :delete,
+data: { confirm: "You sure?" },class: "bg-info" %>
+<br>
+  <%= link_to t("global.header.admin"), products_path,class: "bg-info" %>
+
+
+<% end %>
+</li>

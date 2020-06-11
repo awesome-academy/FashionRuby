@@ -1,5 +1,6 @@
 
 class ApplicationController < ActionController::Base
+  include SessionsHelper
   protect_from_forgery with: :exception
   helper_method :current_order
 
@@ -12,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
 
-	include SessionsHelper
+
   before_action :set_locale
   private
   def set_locale

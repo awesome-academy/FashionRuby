@@ -12,14 +12,16 @@ Rails.application.routes.draw do
 	scope "(:locale)", locale: /en|vi/ do
   root to: 'static_pages#home'
 
-		get 'users/new'
+	 get 'users/new'
 
 		get '/help', to: 'static_pages#help'
 		get '/home', to: 'static_pages#home'
 		get '/contact', to: 'static_pages#contact'
 		get '/all', to: 'static_pages#products'
 		get '/signup', to: 'users#new'
-		get '/login', to: 'sessions#new'
+        get'/login',to: 'sessions#new'
+        post '/login', to: 'sessions#create'
+        delete '/logout', to: 'sessions#destroy'
         get "/search", to: "search#search"
 
         resources :productcarts, only: [:index, :create, :update, :destroy]
@@ -27,11 +29,22 @@ Rails.application.routes.draw do
         resources :order_items, only: [:create, :update, :destroy]
         resource :cart
 
+
         resources :catelogies, only: :show
+
+        resources :users do
+        member do
+            end
+        end
+
 
 		resources :products
       resources  :canpaigns
       resources :orders
+
+      namespace :admin do
+  resources :catelories, only: [:new, :create,:index,:show]
+end
 
 
 end
