@@ -3,10 +3,12 @@ class StaticPagesController < ApplicationController
 
 # before_action :search_product, only: [:index]
 # @ids = Product.all.pluck(:id)
+
 		@products = Product.all.limit(4)
 		@deal = Product.all.pluck(:id)
 		@buy1free = Product.all.limit(1)
 		@sale = Product.find([1, 3])
+
 
 
 		count_order=[]
@@ -39,7 +41,7 @@ def help
 
 	elsif params[:id]
 		@catelogy = Catelogy.find_by(id: params[:id])
-		@products = @catelogy.products 
+		@products = @catelogy.products
 
 	elsif params[:price]
 		@products = Product.where(price: params[:price].to_i)
@@ -47,7 +49,7 @@ def help
 	else
 	  	@products = Product.all
 	 end
-  	
+
   end
 
 end

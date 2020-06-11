@@ -5,35 +5,20 @@ class Product < ApplicationRecord
   attr_accessor :quantity
 
   belongs_to :catelogy
-
-
-
-
-
-
-
   has_many :orderdetails, dependent: :destroy
   has_many :orders, through: :orderdetails
 
   has_many :sales, dependent: :destroy
-
-
   has_many :canpaigns, through: :sales
-
-
-
 
   has_many_attached :images
 
   validates :catelogy_id, presence: true
-
-
-
-
-  # belongs_to :order, optional: true
+  has_many :ratings, dependent: :destroy
+  has_many :users, through: :raings
+  has_many_attached :images
 
   default_scope -> { order(created_at: :desc) }
-  # accepts_nested_attributes_for :images
   validates :images,
 			content_type: { in: %w[image/jpeg image/gif image/png],
 							message: "must be a valid image format" },
@@ -42,6 +27,18 @@ class Product < ApplicationRecord
 
 
 end
+
+
+
+
+
+
+
+
+
+  # belongs_to :order, optional: true
+
+  # accepts_nested_attributes_for :images
 
 
 

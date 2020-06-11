@@ -7,14 +7,5 @@ class Order < ApplicationRecord
 
 accepts_nested_attributes_for :orderdetails
 
-	def add_product_form_orderdetails(sessions)
-			sessions.each do |x|
-		end
-	end
-
-	
-
-
-
 
 end
