@@ -15,7 +15,7 @@ class CartsController < ApplicationController
                   exist = true
                 end
               end
-
+               
 
             unless exist
               session[:carts] << {id: params[:id], quantity: 1}
@@ -44,6 +44,22 @@ class CartsController < ApplicationController
        end
       end
     end
+
+
+    if session[:carts].nil?
+      session[:carts] = []
+    end
+    @session = session[:carts].reject{|k| k == {} }
+
+    amount = 0
+    @session.each do |n|
+      @total = amount += (Product.find(n['id']).price * n['quantity'])
+    end
+
+    @order = Order.new 
+
+
+    
   end
 
 

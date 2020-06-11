@@ -47,19 +47,8 @@
                                             <%= f.text_field :quantity, :value => product.quantity, class: 'form-control' %>
                                              <%= f.submit "✅", class: "btn btn-primary" %>
 
-
-
                                                 <% end %>
-
-
-
-
-
-
-
-
                                              </div>
-
 
                                         </div>
                                     </td>
@@ -84,6 +73,59 @@
                         <div class="button-action">
                             <a title="Tiếp tục" class="cartContinue" href="/">Tiếp tục mua sắm</a>
                         </div>
+
+
+                        <div class="container">
+                              <div class="check-out">
+                                <h2>Checkout</h2>
+                                <table >
+                                  <tr>
+                                    <th>Item</th>
+                                    <th>Qty</th>    
+                                    <th>Prices</th>
+                                    <th>Sub total</th>
+                                  </tr>
+
+                                  <% @session.each do |i| %>
+                                  <tr>
+                                    <td class="ring-in">
+                                      <div class="sed">
+                                        <h5><%= Product.find(i['id']).name %></h5>
+
+                                      </div>
+                                      <div class="clearfix"> </div></td>
+                                      <td><%= i['quantity'] %></td>
+                                      <td><%= Product.find(i['id']).price %></td>
+                                    
+                                      <td><%= Product.find(i['id']).price * i['quantity']  %></td>
+                                    </tr>
+
+
+                                    <% end %>
+                                    
+                                      </table>
+                                      <hr>
+                                      <p>Total <span class="price" style="color:black"><b>
+
+                                        <%= @total %>
+                                          
+                                        </b></span></p>
+                                    
+                                      
+                                      <div class="clearfix"> </div>
+                                    </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
                          <div class="button-action">
                               <%= link_to 'Thanh Toan', new_order_path %>
                         </div>
