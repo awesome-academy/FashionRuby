@@ -1,38 +1,47 @@
-<div class="container">
-  <div class="check-out">
-    <h2>Checkout</h2>
-    <table >
-      <tr>
-        <th>Item</th>
-        <th>Qty</th>    
-        <th>Prices</th>
-        <th>Sub total</th>
-      </tr>
-      <tr>
 
-      <% @products.each do |product| %>
 
-        <td class="ring-in">
-          <div class="sed">
-            <h5><%= product.name %></h5>
 
-          </div>
-          <div class="clearfix"> </div></td>
-          <td><%= @quantity %></td>
-          <td><%= product.price %></td>
-        
-          <td><%= product.price * @quantity %></td>
-        </tr>
 
-        <% end %>
-        <tr>
-        <th scope="row">From</th>
-          <% form_for  %>
-        </tr>
-        
-          </table>
-          <a href="#" class=" to-buy">PROCEED TO BUY</a>
-          <div class="clearfix"> </div>
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+
+
+     
+        <div class="row">
+          <div class="col-50">
+            <h3>Billing Address</h3>
+              <%= form_for @order do |f| %>
+                <%= f.hidden_field :user_id, value: 1 %>
+
+
+
+
+
+
+                <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+                <%= f.text_field :Name %>
+
+                <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                <%= f.text_field :Email %>
+
+                <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                <%= f.text_area :Address %>
+
+
+
+                <label for="city"><i class="fa fa-institution"></i> Phone</label>
+                <%= f.text_field :Phone %>
+
+                <%= f.submit 'Continue to checkout', class: 'btn'%>
+              <%end%>    
         </div>
-      </div>
+    
 
+
+
+    </div>
+  </div>
+</div>
+
+  

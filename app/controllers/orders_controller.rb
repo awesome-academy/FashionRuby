@@ -1,22 +1,51 @@
 class OrdersController < ApplicationController
+	
 	def new
-		@products = []
-		
-		@session = session[:carts]
-		unless @session.nil?
-
-			@session.each do |product|
-			
-				unless product == {}
-					@quantity = product['quantity']
-
-					products = Product.find(product['id'])
-					@products << products
-				end
-				
-			end
-		
+		if session[:carts].reject{|k| k == {} }.empty?
+			redirect_to carts_path
+		else
+			@order = Order.new 
 		end
-		
 	end
+
+	def show
+	end
+
+	def create
+		user = User.find_by id: order_params[:user_id]
+
+		@order = user.orders.new order_params
+		 # @order = Order.new order_params
+
+
+	
+		if @order.save
+			session[:carts].reject{|k| k == {} }.each do |x|
+		 		Orderdetail.create(order_id: Order.last.id ,product_id: x['id'], quantity: x['quantity'])
+		 	end
+
+
+
+			redirect_to root_path
+			flash[:danger] = "Order successful"
+			session[:carts] = nil
+		end
+	end
+
+
+
+private
+
+	def order_params
+		params.require(:order).permit( :user_id, :Name, :Email, :Address, :Phone 
+				# orderdetails_attributes: [:order_id, :product_id, :quantity]
+			)
+	end
+
+	def set_product
+		session[:carts].each do |s|
+			@product = Product.find(s['id'])
+		end
+	end
+
 end

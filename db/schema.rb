@@ -90,10 +90,9 @@ ActiveRecord::Schema.define(version: 2020_06_03_164328) do
     t.index ["order_status_id"], name: "index_ordercarts_on_order_status_id"
   end
 
-  create_table "orderdetails", force: :cascade do |t|
+  create_table "orderdetails", force: :cascade do |t| 
     t.integer "order_id", null: false
     t.integer "product_id", null: false
-    t.datetime "senddate"
     t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -103,7 +102,10 @@ ActiveRecord::Schema.define(version: 2020_06_03_164328) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.datetime "orderdate"
+    t.text "Name"
+    t.text "Email"
+    t.text "Address"
+    t.integer "Phone"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
