@@ -49,13 +49,14 @@ en:
     footer:
       share: "Share On Face Book"
       newsub: "Newsletter"
+      category: "Categories"
     header:
        call: "Call me"
        home1: "Home"
        product: "Products"
        signin: "Sign In"
        contact: "Contact"
-       admin: "Admin"
+       admin: "Manager"
 
 
 

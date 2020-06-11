@@ -1,0 +1,26 @@
+<% provide(:title, "Edit user") %>
+<div class="container">
+  <div class="register">
+<h2><%= t("global.canpaigs.update") %></h2>
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+<%= form_for(@user) do |f| %>
+<%= render 'shared/error_messages' %>
+<%= f.label :name %>
+<%= f.text_field :name, class: 'form-control' %>
+<%= f.label :email %>
+<%= f.email_field :email, class: 'form-control' %>
+<%= f.label :password %>
+<%= f.password_field :password, class: 'form-control' %>
+<%= f.label :password_confirmation, "Confirmation" %>
+<%= f.password_field :password_confirmation, class: 'form-control' %>
+<%= f.submit t("global.canpaigs.savechange"),  class: 'acount-btn' %>
+<% end %>
+<div class="gravatar_edit">
+
+<a href="https://gravatar.com/emails" target="_blank" ></a>
+</div>
+</div>
+</div>
+
+

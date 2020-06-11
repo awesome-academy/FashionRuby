@@ -22,11 +22,44 @@ vi:
       signin: "Đăng Nhập "
       contact: "Liên hệ"
       admin: "Quản lí"
+      account: "Tài Khoản"
+      user: "Ngừoi dùng"
+      profile: "Trang cá nhân "
+      set: "Cài đặt"
+      logout: "Đăng Xuất"
+      login: "Đăng Nhập"
+    canpaigs:
+      create1: "Tạo Đợt Khuyến Mãi"
+      view: "Xem Đợt Khuyến Mãi"
+      create2: "Tạo Sản Phẩm"
+      delete: "Xóa"
+      edit: "Sửa"
+      update: "Chỉnh Sửa"
+      savechange: "Lưu Thay Đổi"
+      allusers: "Danh sách Khách"
+
 
     footer:
       share: "Chia sẻ face book"
       newsub: "Gửi phản hồi"
+      category: "Thể loại"
+      feature: " Dự án "
+      topbrands: "Thương hiệu"
+      address: "Địa chỉ"
 
+  sessions:
+    new:
+      login: "Đăng Nhập"
+      signup: "Đăng kí ngay!"
+
+
+    users:
+      show:
+      form:
+        create: "Tạo Tài Khoản"
+
+
+        res: "Đăng kí"
 
 
 

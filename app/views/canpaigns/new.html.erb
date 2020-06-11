@@ -42,14 +42,14 @@
     </ul>
 
 
-    <%= f.submit "Create", class: "btn btn-info" %>
+    <%= f.submit t("global.canpaigs.create1") , class: "btn btn-info" %>
 
   <% end %>
   </div>
  <br>
 <div class="container">
- <%= link_to ' 👁 View Campaign ',canpaigns_path, class: 'btn btn-info' %>
-  <%= link_to ' ✚ Create Product', new_product_path, class: 'btn btn-info' %>
+ <%= link_to  t("global.canpaigs.view"),canpaigns_path, class: 'btn btn-info' %>
+  <%= link_to t("global.canpaigs.create2"), new_product_path, class: 'btn btn-info' %>
 </div>
 </div>
 

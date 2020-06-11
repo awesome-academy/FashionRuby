@@ -13,8 +13,8 @@
 
 
           </div>
-          <%= link_to "Delete", i, method: :delete, data: { confirm: "You sure?" } , class: "btn btn-warning" %>
-          <%= link_to "Edit", edit_canpaign_path(i) , class: "btn btn-info" %>
+          <%= link_to t("global.canpaigs.delete"), i, method: :delete, data: { confirm: "You sure?" } , class: "btn btn-warning" %>
+          <%= link_to t("global.canpaigs.edit"), edit_canpaign_path(i) , class: "btn btn-info" %>
         </div>
       </div>
 
