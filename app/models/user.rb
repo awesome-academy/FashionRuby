@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # class User < ApplicationRecord
 
@@ -17,7 +18,9 @@
 
 
 class User < ApplicationRecord
-     has_many :orders, dependent: :destroy
+
+  has_many :orders, dependent: :destroy
+  has_many :ratings, dependent: :destroy
 
 attr_accessor :remember_token
 before_save { self.email = email.downcase }
@@ -52,5 +55,3 @@ def forget
 update_attribute(:remember_digest, nil)
 end
 
-
-end

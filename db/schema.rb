@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2020_06_03_164328) do
-
+ActiveRecord::Schema.define(version: 2020_06_09_075414) do
 
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -130,6 +128,16 @@ ActiveRecord::Schema.define(version: 2020_06_03_164328) do
     t.index ["catelogy_id"], name: "index_products_on_catelogy_id"
   end
 
+  create_table "ratings", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "product_id", null: false
+    t.integer "total"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_ratings_on_product_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
+  end
+
   create_table "sales", force: :cascade do |t|
     t.integer "product_id", null: false
     t.integer "canpaign_id", null: false
@@ -162,6 +170,8 @@ ActiveRecord::Schema.define(version: 2020_06_03_164328) do
   add_foreign_key "orderdetails", "products"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "catelogies"
+  add_foreign_key "ratings", "products"
+  add_foreign_key "ratings", "users"
   add_foreign_key "sales", "canpaigns"
   add_foreign_key "sales", "products"
 end

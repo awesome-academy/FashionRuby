@@ -18,7 +18,7 @@
 		</div>
 			<span class="image">
 					<%= f.file_field :images,multiple: true, accept: "image/jpeg,image/gif,image/png" %>
-	
+
 				</span>
 		<%= f.submit "Updating", method: :update, class: "btn btn-primary" %>
 	<% end %>
@@ -29,5 +29,5 @@
 </div>
 
 
-
+<%= will_paginate %>
 

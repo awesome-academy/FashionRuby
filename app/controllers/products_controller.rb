@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
     def index
        @catelogies = Catelogy.order :catelogy_name
           @products = Product.paginate(page: params[:page])
+
     end
 
 
@@ -20,6 +21,10 @@ class ProductsController < ApplicationController
 	def create
 		@product = Product.new product_params
 		@product.images.attach(product_params[:images])
+
+
+
+
 		# params[:product][:catelogys][:name]
 
 		if @product.save
@@ -45,6 +50,10 @@ class ProductsController < ApplicationController
 
 	def edit
 		@product = Product.find(params[:id])
+     @ratings = Rating.paginate(page: params[:page])
+
+
+
 	end
 
 
@@ -63,34 +72,9 @@ class ProductsController < ApplicationController
 
 
 	def show
-
     @product = Product.find(params[:id])
 
     @x = Product.where(catelogy: @product.catelogy_id)
-
-
-
-
-        if  @product.amount.to_i >= 1
-
-              @amount = @product.amount
-            else
-              @amount = 'het hang'
-            end
-        end
-
-
-
-
-
-
-	def show
-    @product = Product.find(params[:id])
-
-    @x = Product.where(catelogy: @product.catelogy)
-
-
-
 
     if  @product.amount.to_i >= 1
 
@@ -98,7 +82,11 @@ class ProductsController < ApplicationController
     else
       @amount = 'het hang'
     end
-end
+  end
+
+
+
+
 
 
 
@@ -119,6 +107,20 @@ end
 
 			redirect_to root_url if @product.nil?
 		end
+
+
+
+
+
+
+      def rating_params
+      params.require(:rating).permit(
+        :product_id , :user_id, :total[]
+        # images_attributes: [:name, :product_id, :url]
+)
+    end
+
+
 
     #   flash[:id] = params[:id]
     # @product = Product.find_by(params[:id])
