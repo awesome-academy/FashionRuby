@@ -1,2 +1,2 @@
 $("#rating2").html("count :<%= @product.ratings.count %>");
-$(".rating").html("avg :<%= @product.ratings.average(:total).round(1) %>");
+$(".rating").html("avg :<%= @product.ratings.average(:total) %>");

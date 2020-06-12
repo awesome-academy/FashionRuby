@@ -21,13 +21,18 @@ vi:
       product: "Sản Phẩm"
       signin: "Đăng Nhập "
       contact: "Liên hệ"
-      admin: "Quản lí"
+      admin1: "Quản lí sản phẩm"
+      admin2: "Quản lí khuyến mại"
       account: "Tài Khoản"
       user: "Ngừoi dùng"
       profile: "Trang cá nhân "
       set: "Cài đặt"
       logout: "Đăng Xuất"
       login: "Đăng Nhập"
+      res: "Đăng kí"
+      adminmanager: "Quản lí "
+
+
     canpaigs:
       create1: "Tạo Đợt Khuyến Mãi"
       view: "Xem Đợt Khuyến Mãi"
@@ -37,6 +42,22 @@ vi:
       update: "Chỉnh Sửa"
       savechange: "Lưu Thay Đổi"
       allusers: "Danh sách Khách"
+      contact: "Liên hệ"
+      camname: "Tên Khuyến Mại"
+      content: "Tiêu Đề"
+      value: "Đợt"
+      status: "Trạng thái"
+      productname: "Tên Sản phẩm"
+      price: "Giá"
+      size: "Kích Cỡ"
+      pass: "Mật Khẩu"
+      pass1: "Nhập lại mật khẩu"
+      name: "Tên"
+      search: "Tìm Kiếm"
+      phone: "Số Điện Thoại"
+      mess: "Tin Nhắn"
+      adress: "Địa chỉ"
+      cart: "Giỏ Hàng"
 
 
     footer:
@@ -51,14 +72,10 @@ vi:
     new:
       login: "Đăng Nhập"
       signup: "Đăng kí ngay!"
-
-
     users:
       show:
       form:
         create: "Tạo Tài Khoản"
-
-
         res: "Đăng kí"
 
 

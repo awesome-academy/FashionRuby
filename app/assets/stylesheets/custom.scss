@@ -360,3 +360,15 @@ border-box;
 box-sizing:
 border-box;
 }
+.abc{
+  width: 100%;
+}
+.xyz{
+  background: #403b37;
+  color: #fff;
+}
+.xyz:hover{
+  background: #ea3769;
+  color: #fff;
+  text-decoration: none;
+}

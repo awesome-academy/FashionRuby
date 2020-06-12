@@ -1,37 +1,5 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-
-
   static_pages:
     home:
       title: "Flashsale"
@@ -56,7 +24,55 @@ en:
        product: "Products"
        signin: "Sign In"
        contact: "Contact"
-       admin: "Manager"
+       admin1: "Production management"
+       admin2: "Campaign management"
+       res: "Register"
+       adminmanager: "Management"
+    canpaigs:
+       create1: "Add - Canpaigns"
+       view: "View - Canpaigns"
+       create2: "Add - Products"
+       delete: "Delete"
+       edit: "Edit"
+       update: "Update"
+       savechange: "Save change"
+       allusers: "All Users"
+       contact: "Contact"
+       camname: "Campaigns Name"
+       content: "Content"
+       value: "Value"
+       status: "Status"
+       productname: "Product Name"
+       price: "Price"
+       size: "Size"
+       pass: "Passwords"
+       pass1: "Password confirmation"
+       name: "Name"
+       search: "Search"
+
+
+
+    footer:
+      share: "Share on face book"
+      newsub: "Send Comment"
+      category: "Categories"
+      feature: " Feature Products "
+      topbrands: "Top brands"
+      address: "Adress"
+
+  sessions:
+    new:
+      login: "Login"
+      signup: "Register !"
+
+    users:
+      show:
+      form:
+        create: "Create Account"
+
+        res: "Register"
+
+
 
 
 

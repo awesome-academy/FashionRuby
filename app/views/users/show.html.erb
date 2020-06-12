@@ -9,22 +9,18 @@
 </section>
 </aside>
 </div>
-
-
-
    <nav>
 <br>
 <% if logged_in? %>
-
-<li><%= link_to t("global.header.set"), edit_user_path(current_user),class: 'acount-btn'  %></li>
+<div><%= link_to t("global.header.set"), edit_user_path(current_user),class: 'acount-btn'  %></div>
 <br>
-<li>
+<div>
 <%= link_to t("global.header.logout"), logout_path, method: :delete ,class: 'acount-btn' %>
-</li>
+</div>
 </ul>
-</li>
-<% else %> <li>
-<%= link_to t("global.header.login"), login_path ,class: 'acount-btn' %></li>
+</div>
+<% else %> <div>
+<%= link_to t("global.header.login"), login_path ,class: 'acount-btn' %></div>
 <% end %>
 </ul>
 </nav>

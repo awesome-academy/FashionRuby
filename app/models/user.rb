@@ -1,27 +1,6 @@
-<<<<<<< HEAD
-
-# class User < ApplicationRecord
-
-# before_save { email.downcase! }
-
-# validates :name, presence: true, length: { maximum: 50 }
-# VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-# validates :email, presence: true, length: { maximum: 255 },
-# format: { with: VALID_EMAIL_REGEX },
-# uniqueness: true
-
-
-# has_secure_password
-
-# validates :password, presence: true, length: { minimum: 6 }
-# end
-
-
 class User < ApplicationRecord
-
   has_many :orders, dependent: :destroy
   has_many :ratings, dependent: :destroy
-
 attr_accessor :remember_token
 before_save { self.email = email.downcase }
 validates :name, presence: true, length: { maximum: 50 }
@@ -53,5 +32,6 @@ BCrypt::Password.new(remember_digest).is_password?(remember_token)
 end
 def forget
 update_attribute(:remember_digest, nil)
+end
 end
 

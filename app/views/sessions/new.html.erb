@@ -1,12 +1,12 @@
 <% provide(:title, "Log in") %>
 <div class="breadcrumbs">
-		<div class="container">
-			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
-				<li><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= t("global.header.home1") %> </a></li>
-				<li class="active"><%= t("global.header.account") %></li>
-			</ol>
-		</div>
-	</div>
+    <div class="container">
+      <ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
+        <li><a href="home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= t("global.header.home1") %> </a></li>
+        <li class="active"><%= t("global.header.account") %></li>
+      </ol>
+    </div>
+  </div>
 
 
 <% provide(:title, "Log in") %>
@@ -16,7 +16,7 @@
 <%= form_for(:session, url: login_path) do |f| %>
 <%= f.label :email %>
 <%= f.email_field :email, class: 'form-control' %>
-<%= f.label :password %>
+<%= f.label :password,t("global.canpaigs.pass")  %>
 <%= f.password_field :password, class: 'form-control' %>
 
 
