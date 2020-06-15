@@ -1,140 +1,75 @@
 class CartsController < ApplicationController
-  def show
-    # @order_items = Order.order_items
+  def index
+     @carts = []
+     unless session[:carts].nil?
+      session[:carts].each do |cart|
+      product = Product.find_by id: cart["id"]
+      if product
+        product.quantity = cart["quantity"]
+       @carts << product
+      end
+    end
+  end
+    if session[:carts].nil?
+       session[:carts] = []
+    end
+       @session = session[:carts].reject{|k| k == {} }
+       amount = 0
+       @session.each do |n|
+       @total = amount += (Product.find(n['id']).price * n['quantity'])
+    end
+      @order = Order.new
+  end
 
+  def show
     if  session[:carts].nil?
         session[:carts] = []
     end
-
-              exist = false
-              session[:carts].each do |cart|
-                if cart["id"] == params[:id]
-                  # so sanh trong cart co id san pham day chua neu ma co thi +1
-                  cart["quantity"] += 1
-
-                  exist = true
-                end
-              end
-               
-
-            unless exist
-              session[:carts] << {id: params[:id], quantity: 1}
-              # nếu mà trong cart chưa có id sản phẩm đấy thì nó thêm id sản phẩm mới vào cart và quantity = 1
-            end
-
-
-
-
-      redirect_to product_path(params[:id])
-  end
-
-
-
-  def index
-
-    #@product_cart = Product.find_by(params[:id])
-
-    @carts = []
-    unless session[:carts].nil?
+      exist = false
       session[:carts].each do |cart|
-       product = Product.find_by id: cart["id"]
-       if product
-         product.quantity = cart["quantity"]
-         @carts << product
-       end
+        if cart["id"] == params[:id]
+          cart["quantity"] += 1
+          exist = true
+        end
       end
+    unless exist
+      session[:carts] << {id: params[:id], quantity: 1}
     end
-
-
-    if session[:carts].nil?
-      session[:carts] = []
+      redirect_to product_path(params[:id])
     end
-    @session = session[:carts].reject{|k| k == {} }
-
-    amount = 0
-    @session.each do |n|
-      @total = amount += (Product.find(n['id']).price * n['quantity'])
-    end
-
-    @order = Order.new 
-
-
-    
-  end
-
 
 
   def create
     if session[:carts].nil?
-      session[:carts] = []
+       session[:carts] = []
     end
-    session[:carts] << params[:id]
-    redirect_to product_path(params[:id])
+       session[:carts] << params[:id]
+       redirect_to product_path(params[:id])
   end
 
-
-#   def destroy
-#   # @cart = session[:carts]
-#   # @item = cart[:carts].find { |item| item[:product_id] == params[:id] }
-#   if item
-#     cart[:carts].delete item
-#   end
-#   redirect_to cart_path
-# end
-
-
-def destroy
-
-              session[:carts].each do |cart|
-                if cart["id"] == params[:id]
-                  # so sanh trong cart co id san pham day chua neu ma co thi +1
-                  cart.delete("id")
-                  cart.delete("quantity")
-                end
-              end
-
-  redirect_to product_path(params[:id])
- end
-
-
-
-
-
-  # def destroy
-  #   @product.destroy
-  #   @product= Product.find(params[:id])
-  #   redirect_to root_url if @product.nil?
-  # end
-
-
-
-def update
-
-
+  def update
     @product = Product.find(params[:id])
     if @product.update(product_params)
       redirect_to root_url
     else
       render 'edit'
-
     end
   end
 
-
+  def destroy
+    session[:carts].each do |cart|
+    if cart["id"] == params[:id]
+       cart.delete("id")
+       cart.delete("quantity")
+    end
+  end
+    redirect_to product_path(params[:id])
+  end
 
 private
 
-    def product_params
-      params.require(:product).permit(
-        :name, :catelogy_id , :price, :size, images: []
-        # images_attributes: [:name, :product_id, :url]
-        )
-    end
-
-
-
-
-
-
-
+  def product_params
+    params.require(:product).permit(
+    :name, :catelogy_id , :price, :size, images: [])
+  end
 end

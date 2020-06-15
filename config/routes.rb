@@ -31,5 +31,5 @@ Rails.application.routes.draw do
      resources :products
      resources  :canpaigns
      end
-    end
+  end
 end
