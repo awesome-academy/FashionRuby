@@ -1,7 +1,6 @@
-<h1><%= t("global.canpaigs.update")%></h1>
 <div class="container">
   <div class="form-group">
-  <%= form_for(@canpaign)  do |f| %>
+  <%= form_for @canpaign  do |f| %>
    <div class="form-group">
       <%= f.label t("global.canpaigs.camname") %>
       <%= f.text_field :name, placeholder: "....", class: 'form-control' %>
@@ -30,20 +29,19 @@
       <li>
         <label class="radio-inline"><%= product.name %>
           <%= f.check_box :product_ids, {:multiple => true}, product.id, nil %>
-
         </label>
       </li>
     <% end %>
     </ul>
+    <%= f.submit t("global.canpaigs.create1") , class: "btn btn-info" %>
 
-    <%= f.submit t("global.canpaigs.savechange"), method: :update, class: "btn btn-success" %>
   <% end %>
-
-
   </div>
-
+ <br>
+<div class="container">
+ <%= link_to  t("global.canpaigs.view"),admin_canpaigns_path, class: 'btn btn-info' %>
+  <%= link_to t("global.canpaigs.create2"), admin_products_path, class: 'btn btn-info' %>
 </div>
-
-
+</div>
 
 

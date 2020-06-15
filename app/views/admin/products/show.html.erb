@@ -51,7 +51,7 @@
       </br>
 
       <div  class="rating"> avg:
-          <%= @product.ratings.average(:total) %>
+          <%= @product.ratings.average(:total).round(1) %>
       </div>
 
       <div class="star-on">

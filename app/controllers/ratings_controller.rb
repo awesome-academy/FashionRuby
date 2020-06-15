@@ -28,7 +28,7 @@ class RatingsController < ApplicationController
         @product = Product.find params[:product_id]
         ratings = {user_id: @user,product_id: @product.id}
         total = params[:ratings]
-        @rating = Rating.new user_id: 1, product_id: @product.id, total: total
+        @rating = Rating.new user_id: 2, product_id: @product.id, total: total
         respond_to do |format|
             format.html
             format.js

@@ -2,21 +2,21 @@
 <div class="breadcrumbs">
 		<div class="container">
 			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
-				<li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
-				<li class="active">Contact</li>
+				<li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><%=t("global.header.home1")%></a></li>
+				<li class="active"><%=t("global.header.contact")%></li>
 			</ol>
 		</div>
 	</div>
 <div class="contact">
 			<div class="container">
-				<h3>Contact</h3>
-				
+				<h3><%=t("global.header.contact")%></h3>
+
 				<div class="contact-grids">
 					<div class="contact-form">
 							<form action="#" method="post">
 								<div class="contact-bottom">
 									<div class="col-md-4 in-contact">
-										<span>Name</span>
+										<span><%= t("global.canpaigs.name")%></span>
 										<input type="text" name="name">
 									</div>
 									<div class="col-md-4 in-contact">
@@ -24,26 +24,26 @@
 										<input type="text" name="email" >
 									</div>
 									<div class="col-md-4 in-contact">
-										<span>Phonenumber</span>
+										<span><%= t("global.canpaigs.phone")%></span>
 										<input type="text" name="phonenumber">
 									</div>
 									<div class="clearfix"> </div>
 								</div>
-							
+
 								<div class="contact-bottom-top">
-									<span>Message</span>
-									<textarea  name="message"> </textarea>								
+									<span><%= t("global.canpaigs.mess")%></span>
+									<textarea  name="message"> </textarea>
 									</div>
-								<input type="submit" value="Send">
+								<input type="submit" value="📤">
 							</form>
 						</div>
 				<div class="address">
 					<div class=" address-more">
-						<h2>Address</h2>
+						<h2><%= t("global.canpaigs.adress")%></h2>
 						<div class="col-md-4 address-grid">
 							<i class="glyphicon glyphicon-map-marker"></i>
 							<div class="address1">
-								<p>Lorem ipsum dolor</p>
+
 								<p>TL 19034-88974</p>
 							</div>
 							<div class="clearfix"> </div>
