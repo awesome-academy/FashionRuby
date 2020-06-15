@@ -1,92 +1,118 @@
-<div class="cart-page mt-50 mb-50">
-    <div class="container">
-        <div class="headingPage">
-            <h1 class="titlet"><svg class="bi bi-cart4" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
-                </svg></h1>
-        </div>
-        <div class="row">
-            <div class="col-md-8 col-sm-12 col-xs-12 listItem">
-                <div class="table-cart-area">
-                    <form action="/cart" method="post" novalidate="">
-                        <table class="table table-cart">
-                            <tbody>
-                                <tr class="cartItem" data-id="32988713">
-                                    <% @carts.each do |product| %>
-                                    <td class="product">
-                                        <div class="thumb-cart">
-                                            <a href="/carts/<%= product %> title=" Kappa Logo T-shirt (Chính Hãng)>
-                                                <img src="//bizweb.dktcdn.net/thumb/medium/100/347/891/products/307-md-0fbf4327-fc52-42ab-ae69-4159f9995130.png?v=1590405842473" alt="Kappa Logo T-shirt (Chính Hãng)">
-                                            </a>
-                                            <a href="/kappa-logo-t-shirt-chinh-hang?variantid=32988713" title="Kappa Logo T-shirt (Chính Hãng)">
-                                                <h4>
-                                                    <%= product.name %>
-                                                </h4>
-                                            </a>
-                                            <span class="variant_title">Size:
-                                                <%= product.size%></span>
-                                            <span>Price:
-                                                <%= product.price%></span>
-                                            <span>Quantity:
-                                                <%= product.quantity%></span>
-                                            <%= form_for :carts, url: "/carts/id", method: :get  do |f|%>
-                                            <%= link_to 'delete', cart_path(product.id), method: :delete, class: 'btn btn-primary'%>
-                                            <%= f.text_field :quantity, :value => product.quantity, class: 'form-control' %>
-                                            <%= f.submit "✅", class: "btn btn-primary" %>
-                                            <% end %>
-                                        </div>
-                </div>
-                </td>
-                <%end%>
-                </tr>
-                </tbody>
-                </table>
-                <!-- end table-cart -->
-                <div class="button-action">
-                    <a title="Tiếp tục" class="cartContinue" href="/">Tiếp tục mua sắm</a>
-                </div>
-                <div class="container">
-                    <div class="check-out">
-                        <h2>Checkout</h2>
-                        <table>
-                            <tr>
-                                <th>Item</th>
-                                <th>Qty</th>
-                                <th>Prices</th>
-                                <th>Sub total</th>
-                            </tr>
-                            <% @session.each do |i| %>
-                            <tr>
-                                <td class="ring-in">
-                                    <div class="sed">
-                                        <h5>
-                                            <%= Product.find(i['id']).name %>
-                                        </h5>
-                                    </div>
-                                    <div class="clearfix"> </div>
-                                </td>
-                                <td>
-                                    <%= i['quantity'] %>
-                                </td>
-                                <td>
-                                    <%= Product.find(i['id']).price %>
-                                </td>
-                                <td>
-                                    <%= Product.find(i['id']).price * i['quantity']  %>
-                                </td>
-                            </tr>
-                            <% end %>
-                        </table>
-                        <hr>
-                        <p>Total <span class="price" style="color:black"><b>
-                                    <%= @total %>
-                                </b></span></p>
-                        <div class="clearfix"> </div>
-                    </div>
-                </div>
-                <div class="button-action">
-                    <%= link_to 'Thanh Toan', new_order_path %>
-                </div>
-                </form>
+
+            <div class="button-action">
+                <a title="Tiếp tục" class="cartContinue" href="/">Tiếp tục mua sắm</a>
             </div>
+            <div class="container">
+              <div class="check-out">
+                <h2>Checkout</h2>
+                <p>
+                 <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Thanh Toan</a> 
+                </p>
+                <%= form_for @order do |f| %>
+                <div class="row">
+                  <div class="col">
+                    <div class="collapse multi-collapse" id="multiCollapseExample1">
+                      <div class="card card-body">
+                         
+                             <%= f.hidden_field :user_id, value: 1 %>
+
+                                <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+                                <%= f.text_field :Name %>
+
+                                <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                                <%= f.text_field :Email %>
+
+                                <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                                <%= f.text_area :Address %>
+
+                                <label for="city"><i class="fa fa-institution"></i> Phone</label>
+                                <%= f.text_field :Phone %>
+
+                                <%= f.submit 'Continue to checkout', class: 'btn'%>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+
+                <table >
+                  <tr>
+                    <th>Item</th>
+                    <th>Qty</th>    
+                    <th>Prices</th>
+                    <th>Sub total</th>
+                </tr>
+                <%= f.fields_for :orderdetails do |ff| %>
+                <tr>
+                    <td class="ring-in">
+                      <div class="sed">
+                        <%= ff.hidden_field :product_id %>
+                        <h5><%= ff.object.product.name %></h5>
+                      </div>
+                    <div class="clearfix"> </div></td>
+                    <td>
+                        <%= ff.text_field :quantity %>
+                    </td>
+                    <td><%= ff.object.product.price %></td>
+
+                    <td><%= ff.object.product.price * ff.object.quantity  %></td>
+                    <td> <%= link_to 'delete', cart_path(ff.object.product.id), method: :delete, class: 'btn btn-primary'%></td>
+                    <td></td>
+                </tr>
+                <% end %>
+            </table>
+            <% end %>
+            <hr>
+            <p>Total <span class="price" style="color:black"><b>
+                <%= @total %>
+            </b></span></p>
+            <div class="clearfix"> </div>
         </div>
+    </div>
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+               
+                
+                
+
+
+   
+>>>>>>> task 3

@@ -16,34 +16,25 @@
 <!--content-->
 <div class="products">
 	<div class="container">
-
 		<% if params[:id] %>
 			<h2><%= @catelogy.name %></h2>
 		<% else %>
 			<h2><%=  t("global.header.product") %></h2>
 		<% end %>
 
-
 		<div class="col-md-9">
 			<div class="content-top1">
-
-
-
 				<% @products.each do |product| %>
 					<div class="col-md-4 col-md4" style="margin-bottom: 10px">
 						<div class="col-md1 simpleCart_shelfItem">
 
-								<a href="single.html">
-									<img class="img-responsive" src="#" alt="" />
-								</a>
+							
 								<h3><%= link_to product.name, product_path(product.id) %></h3>
 								<div class="price">
 										<h5 class="item_price">$<%= product.price %></h5>
-
-										<a href="#" class="item_add"><%= t"static_pages.home.addcart" %></a>
+										<a href="#" class="item_add">Add To Cart</a>
 
 								</div>
-
 						</div>
 
 					</div>
@@ -56,8 +47,9 @@
 
 
 
-		<% unless params[:search] %>
 
+		<% unless params[:search] %>
+			<%= render 'shared/filter' %>
 		<% end %>
 		<div class="clearfix"> </div>
 	</div>
