@@ -15,10 +15,14 @@
       <td><%= user.name %></td>
       <td><%= user.level %></td>
     </tr>
+
     <% end %>
+
   </tbody>
 </table>
-	
+
+<%= render @users %>
+
 <%= will_paginate %>
 
 

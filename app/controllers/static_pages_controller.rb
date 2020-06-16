@@ -1,18 +1,10 @@
 class StaticPagesController < ApplicationController
-  def home
+   def home
     @products = Product.all.limit(4)
-    @deal = Product.all.pluck(:id)
     @buy1free = Product.all.limit(1)
-    @sale = Product.find([1, 3])
-    count_order=[]
-    Product.all.each do |product|
-	  count_order<< {key: product , value: product.orderdetails.count}
+    @canpaign = Canpaign.where(status: true).first
+    @bestseller =Product.best_saler
     end
-    sort = count_order.sort_by{|l| -l[:value]}
-    @bestseller= sort.take(8)
-    @Canpaign = Canpaign.where(status: true).first
-    @Canpaign.products.all
-  end
   def products
   	count_order=[]
     Product.all.each do |product|
@@ -25,7 +17,7 @@ class StaticPagesController < ApplicationController
     if params[:search]
       @products = Product.where(["lower(name) LIKE ?","%#{params[:search].downcase}%"])
       elsif params[:id]
-        @products = @catelogy.products 
+        @products = @catelogy.products
       elsif params[:price]
         case  params[:price]
           when '1000'

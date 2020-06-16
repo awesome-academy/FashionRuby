@@ -27,8 +27,12 @@ end
 
 
 
+User.create! id: 9,name:"DSon", admin: true, level: true ,email: "saaaaaa@gmail.com",password:"123456"
+# User.create! id: 3,name:"DG", admin: false, level: true ,email: "aaaaaa1@gmail.com",password:"123456"
 
-User.create(name: 'doan', admin: true, level: true, email: "aaaaa@gmail.com", password: "123456", password_confirmation: '123456')
+
+
+# User.create(name: 'doan', admin: true, level: true, email: "aaaaa@gmail.com", password: "123456", password_confirmation: '123456')
 
 Canpaign.create!(name: 'Sale 50%', content: 'salr all products', value: 1, status: true	)
 
