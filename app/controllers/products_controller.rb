@@ -26,9 +26,9 @@ class ProductsController < ApplicationController
 
 
 	def destroy
-    	@product= Product.find params[:id]
+    @product= Product.find params[:id]
 		@product.destroy
-		redirect_to products_path 
+		redirect_to admin_products_path 
 	end
 
 
@@ -38,13 +38,10 @@ class ProductsController < ApplicationController
 	end
 
 
-
-
-
 	def update
 		@product = Product.find params[:id]
 		if @product.update product_params
-			redirect_to @product
+			redirect_to admin_product_path
 		else
 			render 'edit'
 		end
@@ -67,54 +64,6 @@ class ProductsController < ApplicationController
             end
         end
 
-
-	def show
-    @product = Product.find params[:id]
-
-    @x = Product.where catelogy: @product.catelogy
-
-    if  @product.amount.to_i >= 1
-
-      @amount = @product.amount
-    else
-      @amount = 'het hang'
-    end
-
-  end
-
-  def new
-    @product = Product.new
-    @product.images.build
-  end
-
-  def create
-    @product = Product.new product_params
-    @product.images.attach product_params[:images]
-    if @product.save
-      redirect_to root_url
-    else
-      render root_path
-    end
-  end
-
-  def edit
-    @product = Product.find params[:id]
-  end
-
-  def update
-    @product = Product.find params[:id]
-    if @product.update product_params
-      redirect_to root_url
-    else
-      render 'edit'
-    end
-  end
-
-  def destroy
-    @product= Product.find params[:id]
-    @product.destroy
-    redirect_to root_url if @product.nil?
-  end
 
 	private
 

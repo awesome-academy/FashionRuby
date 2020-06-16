@@ -14,14 +14,34 @@ end
 
 Product.create!(name: 'Dolce gapagang',
 				catelogy_id: 1,
-				price: 5000,
+				price: 1000,
 				size: 5)
 
-30.times do |n|
-		name = Faker::Name.name
-	Product.create!(name: name,
+10.times do |n|
+	Product.create!(name: "product#{n}",
 					catelogy_id: 2,
+					price: 3000,
+					size: 3)
+end
+
+(11..15).times do |n|
+	Product.create!(name: "product#{n}",
+					catelogy_id: 3,
 					price: 5000,
+					size: 3)
+end
+
+(16..20).times do |n|
+	Product.create!(name: "product#{n}",
+					catelogy_id: 2,
+					price: 10000,
+					size: 3)
+end
+
+(21..30)times do |n|
+		Product.create!(name: "product#{n}",
+					catelogy_id: 2,
+					price: 15	000,
 					size: 3)
 end
 

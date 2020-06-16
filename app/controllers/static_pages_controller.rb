@@ -1,17 +1,10 @@
 class StaticPagesController < ApplicationController
   def home
-    @products = Product.all.limit(4)
-    @deal = Product.all.pluck(:id)
+     @products = Product.all.limit(4)
     @buy1free = Product.all.limit(1)
-    @sale = Product.find([1, 3])
-    count_order=[]
-    Product.all.each do |product|
-	  count_order<< {key: product , value: product.orderdetails.count}
-    end
-    sort = count_order.sort_by{|l| -l[:value]}
-    @bestseller= sort.take(8)
-    @Canpaign = Canpaign.where(status: true).first
-    @Canpaign.products.all
+    @canpaign = Canpaign.where(status: true).first
+    @bestseller =Product.best_saler
+    
   end
   def products
   	count_order=[]

@@ -21,9 +21,9 @@ class Admin::ProductsController < Admin::BaseController
   end
 
     def destroy
-    @product.destroy
     @product= Product.find params[:id]
-    redirect_to root_url if @product.nil?
+    @product.destroy
+    redirect_to admin_product_path
   end
 
     def edit
@@ -33,7 +33,7 @@ class Admin::ProductsController < Admin::BaseController
     def update
     @product = Product.find params[:id]
     if @product.update(product_params)
-      redirect_to root_url
+      redirect_to admin_products_path
     else
       render 'edit'
     end

@@ -85,6 +85,7 @@
       </div>
       <h1 style="background-color:#ad4095">  <%= t".onsale" %></h1>
       <div class="content-top1">
+        <% unless  @canpaign.nil? %>
         <%  @canpaign.products.each do |id|%>
           <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
             <div class="col-md1 simpleCart_shelfItem">
@@ -102,6 +103,7 @@
 
             </div>
           </div>
+          <% end %>
         <% end %>
       </div>
     <div class="clearfix"> </div>
@@ -218,7 +220,7 @@
    <a href="/products/<%= id.id%>">
  <%=  image_tag("lak6.png",  width: "300px") %>
          </a>
-         <h3><%= id.name %></h3>
+         <h3><%= link_to id.name, product_path(id.id) %></h3>
          <div class="price">
           <h5 class="item_price"><%= id.price %>  </h5>
           <a href="/products/<%= id%>" class="item_add"><%= t".addcart" %></a>
