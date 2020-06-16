@@ -8,39 +8,28 @@
   <%= link_to t("global.canpaigs.create2"), new_admin_product_path, class: 'btn btn-success' %>
 </div>
 
-<% @products.each do |i|%>
+<table class="table">
+  <caption>List Products</caption>
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product|%>
+      <tr>
+        <th scope="row"><%= product.id %></th>
+        <td><%= link_to product.name, products_path(product.id) %></td>
+        <td><%= product.price %></td>
+        <td><%= link_to t("global.canpaigs.delete"), product, method: :delete, data: { confirm: "You sure?" },class: 'btn btn-danger' %> </td>
+        <td><%= link_to t("global.canpaigs.edit"), edit_product_path(product),class: 'btn btn-info' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-  <div class="card mb-3" style="max-width: 540px;">
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <div class="alert alert-primary shadow-lg p-3 mb-5 bg-white rounded" role="alert">
-
-        <% i.images.each do |image| %>
-
-          <%= image_tag image.variant(resize_to_limit: [100, 100]) %>
-        <% end %>
-
-      </div>
-    </div>
-
-      <div class="col-md-8">
-        <div class="card-body">
-          <div class="alert alert-primary" role="alert">
-            <h1 class="card-title"><%= i.name %></h1>
-            <h3>$<%= i.price %></h3>
-            <p class="card-text"><small class="text-muted"><%= i.created_at %>ago</small></p>
-          </div>
-          <%= link_to t("global.canpaigs.delete"), i, method: :delete, data: { confirm: "You sure?" },class: 'btn btn-warning' %>
-          <%= link_to t("global.canpaigs.edit"), edit_admin_product_path(i),class: 'btn btn-info' %>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <% end %>
-
-</div>
 
 
 

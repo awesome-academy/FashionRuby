@@ -10,8 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< 60365c8474d5d07b35fa07d2d96c017c39469565
 ActiveRecord::Schema.define(version: 2020_06_09_075414) do
 
+=======
+ActiveRecord::Schema.define(version: 2020_06_09_142510) do
+>>>>>>> task 3
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -88,7 +92,7 @@ ActiveRecord::Schema.define(version: 2020_06_09_075414) do
     t.index ["order_status_id"], name: "index_ordercarts_on_order_status_id"
   end
 
-  create_table "orderdetails", force: :cascade do |t| 
+  create_table "orderdetails", force: :cascade do |t|
     t.integer "order_id", null: false
     t.integer "product_id", null: false
     t.integer "quantity"
@@ -149,14 +153,12 @@ ActiveRecord::Schema.define(version: 2020_06_09_075414) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.boolean "admin"
+    t.boolean "admin", default: false
     t.boolean "level"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "remember_digest"
     t.string "password_digest"
-    t.string "dob"
-    t.string "date"
     t.string "email"
     t.index ["email"], name: "index_users_on_email", unique: true
   end

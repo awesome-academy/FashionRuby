@@ -1,27 +1,30 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-<aside class="col-md-4">
-<section class="user_info">
-<h1>
-<%= gravatar_for @user %>
-<%= @user.name %>
-</h1>
-</section>
-</aside>
+	<aside class="col-md-4">
+		<section class="user_info">
+			<h1>
+				<% gravatar_for @user %>
+				<%= @user.name %>
+			</h1>
+		</section>
+	</aside>
 </div>
-   <nav>
-<br>
-<% if logged_in? %>
-<div><%= link_to t("global.header.set"), edit_user_path(current_user),class: 'acount-btn'  %></div>
-<br>
-<div>
-<%= link_to t("global.header.logout"), logout_path, method: :delete ,class: 'acount-btn' %>
-</div>
+
+<nav>
+	<br>
+	<% if logged_in? %>
+
+	<li><%= link_to t("global.header.set"), edit_user_path(current_user)  %></li>
+	<br>
+	<li>
+		<%= link_to t("global.header.logout"), logout_path, method: :delete  %>
+	</li>
 </ul>
-</div>
-<% else %> <div>
-<%= link_to t("global.header.login"), login_path ,class: 'acount-btn' %></div>
-<% end %>
+</li>
+<% else %> <li>
+	<%= link_to t("global.header.login"), login_path ,class: 'acount-btn' %></li>
+	<% end %>
+
 </ul>
 </nav>
 
