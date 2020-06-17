@@ -1,8 +1,8 @@
 <div class="col-md-3 product-bottom">
 	<div class=" rsidebar span_1_of_left">
-		<h3 class="cate">Categories</h3>
+		<h3 class="cate"><%= t("global.canpaigs.cate") %></h3>
 		<ul class="menu-drop">
-			<% @catelogies.each do |catelogy| %>	 	
+			<% @catelogies.each do |catelogy| %>
 				<li class="item1">
 					<%= link_to catelogy.name, all_path(id: catelogy.id) %>
 				</li>
@@ -11,7 +11,7 @@
 	</div>
 
 	<div class=" rsidebar span_1_of_left">
-		<h3 class="cate">Price</h3>
+		<h3 class="cate"><%= t("global.canpaigs.price") %></h3>
 			 <ul class="menu-drop">
 				<li class="item1"><%= link_to "0 - 1000",:price => "1000" %></li>
 				<li class="item1"><%= link_to "1000 - 3000",:price => "3000" %></li>
@@ -20,7 +20,7 @@
 				<li class="item1"><%= link_to "10000 - +oo",:price => "0"%></li>
 			</ul>
 	</div>
-					
+
 	<script type="text/javascript">
 		$(function() {
 		    var menu_ul = $('.menu-drop > li > ul'),
@@ -37,12 +37,12 @@
 		            $(this).next().stop(true,true).slideUp('normal');
 		        }
 		    });
-		
+
 		});
 	</script>
 
 	<div class="product-bottom">
-			<h3 class="cate">Best Sellers</h3>
+			<h3 class="cate"> <%= t("global.canpaigs.best") %> </h3>
 			<% (0..3).each do |seller| %>
 		      <div class="product-go">
 			    <div class=" fashion-grid">
@@ -53,13 +53,13 @@
 					     product_path(@bestseller[seller][:key].id) %>
 				      </h6>
 				      <span class=" price-in1"> $<%= @bestseller[seller][:key].price %></span>
-			      </div>	
+			      </div>
 			       <div class="clearfix"> </div>
 		      </div>
 			<% end %>
 	</div>
 
-	<div class="tag">	
+	<div class="tag">
 		<h3 class="cate">Hots</h3>
 			<div class="tags">
 				<ul>
@@ -70,6 +70,6 @@
 					<% end %>
 					<div class="clearfix"> </div>
 				</ul>
-			</div>					
+			</div>
 	</div>
-</div>	
+</div>

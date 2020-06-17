@@ -11,7 +11,18 @@
           </div>
           <div class="col-sm-2 number animated wow fadeInRight" data-wow-delay=".5s">
 
-            <span style="color:white" ><i style="color:white"  class="glyphicon glyphicon-phone"> </i > 089.999.999</span> <%= link_to t("global.canpaigs.cart") ,carts_path %>
+            <span style="color:white" ><i style="color:white"  class="glyphicon glyphicon-phone">
+            </i > 089.999.999</span>
+            <div>
+              <%= link_to t("global.canpaigs.cart") ,carts_path %>
+              <span class="badge badge-primary">
+                <% unless session[:carts].nil? %>
+                  <%= session[:carts].reject{|k| k == {} }.count %>
+                    <% else %>
+                    <%= 0 %>
+                    <% end %>
+                  </span>
+            </div>
             <p><%= t("global.header.call") %></p>
 
 
@@ -60,23 +71,25 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <%= t("global.header.account") %> <b class="'btn btn-info'"></b>  </a>
                       <ul class="dropdown-menu abc">
                 <% if logged_in? %>
- <div><%= link_to t("global.header.user"), users_path, class:"xyz" %></div>
-<br>
-<div><%= link_to t("global.header.profile"), current_user,class:"xyz"  %></div>
+                  <% if current_user.admin?  %>
+                  <div><%= link_to t("global.header.user"), users_path, class:"xyz" %></div>
+                  <br>
+                  <% end %>
+                  <div><%= link_to t("global.header.profile"), current_user,class:"xyz"  %></div>
 
-<div><%= link_to t("global.header.set"), edit_user_path(current_user),class:"xyz" %></li>
+                  <div><%= link_to t("global.header.set"), edit_user_path(current_user),class:"xyz" %></li>
 
-<div>
-<%= link_to t("global.header.logout"), logout_path, method: :delete ,class:"xyz" %>
-</div>
-</ul>
-</div>
-<% else %> <div>
-<%= link_to t("global.header.login"), login_path ,class:"xyz" %></div>
-<% end %>
-</ul>
-  </ul>
-</nav>
+                  <div>
+                  <%= link_to t("global.header.logout"), logout_path, method: :delete ,class:"xyz" %>
+                  </div>
+                  </ul>
+                  </div>
+                  <% else %> <div>
+                  <%= link_to t("global.header.login"), login_path ,class:"xyz" %></div>
+              <% end %>
+              </ul>
+                </ul>
+              </nav>
 
               </ul>
             </div><!-- /.navbar-collapse -->

@@ -1,34 +1,37 @@
 
             <div class="button-action">
-                <a title="Tiếp tục" class="cartContinue" href="/">Tiếp tục mua sắm</a>
+                <a title="Tiếp tục" class="cartContinue" href="/">   <%= t("global.canpaigs.continue") %>   </a>
             </div>
             <div class="container">
               <div class="check-out">
-                <h2>Checkout</h2>
+                <h2><%= t("global.canpaigs.cart") %></h2>
                 <p>
-                 <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Thanh Toan</a>
+                 <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><%= t("global.canpaigs.payment") %></a>
                 </p>
                 <%= form_for @order do |f| %>
                 <div class="row">
                   <div class="col">
                     <div class="collapse multi-collapse" id="multiCollapseExample1">
                       <div class="card card-body">
+                                <% if logged_in? %>
+                                    <%= f.hidden_field :user_id, value: current_user.id  %>
+                                <% else %>
+                                    <%= f.hidden_field :user_id, value: 1  %>
+                                <% end %>
 
-                             <%= f.hidden_field :user_id, value: 1 %>
-
-                                <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+                                <label for="fname"><i class="fa fa-user"></i> <%= t("global.canpaigs.name") %></label>
                                 <%= f.text_field :Name %>
 
                                 <label for="email"><i class="fa fa-envelope"></i> Email</label>
                                 <%= f.text_field :Email %>
 
-                                <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                                <label for="adr"><i class="fa fa-address-card-o"></i> <%= t("global.canpaigs.adress") %></label>
                                 <%= f.text_area :Address %>
 
-                                <label for="city"><i class="fa fa-institution"></i> Phone</label>
+                                <label for="city"><i class="fa fa-institution"></i> <%= t("global.canpaigs.phone") %></label>
                                 <%= f.text_field :Phone %>
 
-                                <%= f.submit 'Continue to checkout', class: 'btn'%>
+                                <%= f.submit t("global.canpaigs.continue") , class: 'btn'%>
                       </div>
                     </div>
                   </div>
@@ -36,10 +39,10 @@
 
                 <table >
                   <tr>
-                    <th>Item</th>
-                    <th>Qty</th>
-                    <th>Prices</th>
-                    <th>Sub total</th>
+                    <th><%= t("global.canpaigs.productname") %></th>
+                    <th><%= t("global.canpaigs.amount") %></th>
+                    <th><%= t("global.canpaigs.price") %></th>
+                    <th><%= t("global.canpaigs.total") %></th>
                 </tr>
                 <%= f.fields_for :orderdetails do |ff| %>
                 <tr>
@@ -55,18 +58,26 @@
                     <td><%= ff.object.product.price %></td>
 
                     <td><%= ff.object.product.price * ff.object.quantity  %></td>
-                    <td> <%= link_to 'delete', cart_path(ff.object.product.id), method: :delete, class: 'btn btn-primary'%></td>
+                    <td> <%= link_to t("global.canpaigs.delete"), cart_path(ff.object.product.id), method: :delete, remote: true, class: 'btn btn-primary destroy'%></td>
                     <td></td>
                 </tr>
                 <% end %>
             </table>
             <% end %>
             <hr>
-            <p>Total <span class="price" style="color:black"><b>
+            <p><%= t("global.canpaigs.total") %><span class="price" style="color:black"><b>
                 <%= @total %>
             </b></span></p>
             <div class="clearfix"> </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
 
 

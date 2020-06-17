@@ -49,7 +49,17 @@ en:
        pass1: "Password confirmation"
        name: "Name"
        search: "Search"
-
+       yousure1: "Warning deleted !"
+       options: "Options"
+       amount: "Amount"
+       continue: "Continue!"
+       list: "List"
+       payment: "Payment"
+       total: "Total"
+       count: "Count"
+       cate: "Categories"
+       best: "Best Seller"
+       more: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old"
 
 
     footer:

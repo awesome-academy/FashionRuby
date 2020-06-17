@@ -1,8 +1,9 @@
 <div class="breadcrumbs">
     <div class="container">
         <ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
-            <li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
-            <li class="active">San Pham</li>
+
+
+                   <%= link_to t("global.header.home1"), home_path %>
         </ol>
     </div>
 </div>
@@ -13,17 +14,15 @@
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
-    <!-- Wrapper for slides -->
+
+
+
     <div class="carousel-inner">
-        <div class="item active">
-            <%= link_to image_tag("lak2.png",  width: "500px") %>
-        </div>
-        <div class="item">
-            <%= link_to image_tag("lak3.png",  width: "500px") %>
-        </div>
-        <div class="item">
-            <%= link_to image_tag("lak4.png",  width: "500px") %>
-        </div>
+        <% @product.images.each do |image| %>
+            <div class="item active">
+                 <%= image_tag image.variant(resize_to_limit: [500, 200]) %>
+            </div>
+        <% end %>
     </div>
     <!-- Left and right controls -->
     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -40,49 +39,49 @@
         <h2>
             <%= @product.name %>
         </h2>
-        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
-        <div id="rating2">count:
+         <p><%=  t("global.canpaigs.more") %> </p>
+        <div id="rating1">🔢:
             <%= @product.ratings.count %>
         </div>
         </br>
-        <div class="rating"> avg:
+        <div id="rating2"> 🔣:
             <%= @product.ratings.average(:total) %>
         </div>
         <div class="star-on">
             <ul>
                 <li>
-                    <%= link_to "✰", product_ratings_path(@product, ratings: 1), remote: true %>
+                    <%= link_to "✰", product_ratings_path(@product, ratings: 1), method: :post, remote: true %>
                 </li>
                 <li>
-                    <%= link_to '✰',  product_ratings_path(@product, ratings: 2), remote: true %>
+                    <%= link_to '✰',  product_ratings_path(@product, ratings: 2), method: :post, remote: true %>
                 </li>
                 <li>
-                    <%= link_to '✰',  product_ratings_path(@product, ratings: 3) , remote: true %>
+                    <%= link_to '✰',  product_ratings_path(@product, ratings: 3) , method: :post, remote: true %>
                 </li>
                 <li>
-                    <%= link_to '✰',  product_ratings_path(@product, ratings: 4) , remote: true %>
+                    <%= link_to '✰',  product_ratings_path(@product, ratings: 4) , method: :post, remote: true %>
                 </li>
                 <li>
-                    <%= link_to '✰',  product_ratings_path(@product, ratings: 5) ,remote: true %>
+                    <%= link_to '✰',  product_ratings_path(@product, ratings: 5) , method: :post,remote: true %>
                 </li>
             </ul>
             <label class="add-to item_price">$
                 <%= @product.price %></label>
             <div class="available">
-                <h6>Available Options :</h6>
-                <li> So luong :
+                <h6> <%=  t("global.canpaigs.options") %> :</h6>
+                <li>  <%=  t("global.canpaigs.amount") %> :
                     <%= @amount %>
                 </li>
-                <li> Size:
+                <li> <%=  t("global.canpaigs.size") %> :
                     <%= @product.size %>
                 </li>
-                <%= link_to 'Thêm vào giỏ hàng', @cart_path, class: 'btn btn-primary' %>
+               <%= link_to t("global.canpaigs.addcart"), cart_path, class: 'btn btn-primary' %>
                 </button>
             </div>
         </div>
     </div>
 </div>
-<% @x.each do |product|%>
+<% @products.each do |product|%>
 <div class="clearfix"> </div>
 <div class="content-top1">
     <div class="col-md-4 col-md4">

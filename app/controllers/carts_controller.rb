@@ -1,16 +1,13 @@
 class CartsController < ApplicationController
   def show
     # @order_items = Order.order_items
-
     if  session[:carts].nil?
         session[:carts] = []
     end
               exist = false
               session[:carts].each do |cart|
                 if cart["id"] == params[:id]
-                  # so sanh trong cart co id san pham day chua neu ma co thi +1
                   cart["quantity"] += 1
-
                   exist = true
                 end
               end
@@ -23,8 +20,7 @@ end
 
 
   def index
-    #@product_cart = Product.find_by(params[:id])
-    @order = Order.new 
+    @order = Order.new
     unless session[:carts].nil?
       session[:carts].each do |cart|
        product = Product.find_by id: cart["id"]
@@ -32,7 +28,6 @@ end
          orderdetail = Orderdetail.new({product: product, quantity: cart["quantity"]})
          orderdetail.product = product
          @order.orderdetails << orderdetail
-
        end
       end
       @session = session[:carts].reject{|k| k == {} }
@@ -41,7 +36,7 @@ end
         @total = amount += (Product.find(n['id']).price * n['quantity'])
       end
     end
-    
+
   end
 
 
@@ -55,22 +50,17 @@ end
 
 
 def destroy
-              session[:carts].each do |cart|
-                if cart["id"] == params[:id]
-                  # so sanh trong cart co id san pham day chua neu ma co thi +1
-                  cart.delete("id")
-                  cart.delete("quantity")
-                end
-              end
+    session[:carts].each do |cart|
+      if cart["id"] == params[:id]
+        # so sanh trong cart co id san pham day chua neu ma co thi +1
+        cart.delete("id")
+        cart.delete("quantity")
 
-
-  redirect_to product_path(params[:id])
+      end
+    end
  end
 
-
-
 def update
-
     @product = Product.find(params[:id])
     if @product.update(product_params)
       redirect_to root_url
@@ -79,18 +69,7 @@ def update
     end
 end
 
-  def destroy
-    session[:carts].each do |cart|
-    if cart["id"] == params[:id]
-       cart.delete("id")
-       cart.delete("quantity")
-    end
-  end
-    redirect_to product_path(params[:id])
-  end
-
 private
-
   def product_params
     params.require(:product).permit(
     :name, :catelogy_id , :price, :size, images: [])

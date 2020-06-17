@@ -5,7 +5,7 @@
 			<%= f.label t("global.canpaigs.productname") %>
 			<%= f.text_field :name, placeholder: '....', class: 'form-control' %>
 		</div>
-		<%= f.select :catelogy_id, options_for_select(["....", "1", "2"]) 	 %>
+		<%= f.select :catelogy_id, options_from_collection_for_select(Catelogy.all, 'id', 'name') %>
 
 		<div class="form-group">
 			<%= f.label t("global.canpaigs.price") %>

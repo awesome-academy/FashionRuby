@@ -2,24 +2,26 @@
   <div class="form-group">
   <%= form_for @canpaign  do |f| %>
     <div class="form-group">
-      <%= f.label 'Canpaign-Name' %>
+      <%= f.label t("global.canpaigs.camname") %>
       <%= f.text_field :name, placeholder: "....", class: 'form-control' %>
     </div>
 
 
-
-    <div class="form-group">
-      <%= f.label 'Content' %>
+     <div class="form-group">
+      <%= f.label t("global.canpaigs.content") %>
       <%= f.text_field :content, placeholder: "....", class: 'form-control' %>
     </div>
 
-
-
-    <div class="form-group">
-      <%= f.label 'value' %>
+   <div class="form-group">
+      <%= f.label t("global.canpaigs.value") %>
       <%= f.number_field :value, placeholder: "....", class: 'form-control' %>
     </div>
 
+
+   <div class="form-group">
+      <%= f.label t("global.canpaigs.status") %>
+      <%= f.check_box :status, placeholder: "....", class: 'form-control'  %>
+    </div>
 
 
 

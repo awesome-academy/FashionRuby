@@ -1,31 +1,29 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
 
+      <th scope="col"><%= t("global.canpaigs.camname") %> </th>
+      <th scope="col"><%= t("global.canpaigs.content") %></th>
+      <th scope="col"><%= t("global.canpaigs.status") %></th>
 
-<% @canpaigns.each do |i|%>
-
-
-
-      <div class="col-md-8">
-        <div class="card-body">
-          <div class="alert alert-primary" role="alert">
-            <h4 class="card-title">➤<%= i.name %>:</h4>
-               <h1 style="border-style:double" class="card-title"><%= i.content %></h1>
-             <h1  class="ca"><%= i.status %> ✔</h1> <p class="card-text"><small class="text-muted"><%= i.created_at %>ago</small></p>
-
-
-          </div>
-          <%= link_to t("global.canpaigs.delete"), i, method: :delete, data: { confirm: "You sure?" } , class: "btn btn-warning" %>
-          <%= link_to t("global.canpaigs.edit"), edit_admin_canpaign_path(i) , class: "btn btn-info" %>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <% end %>
-
-
-
-</div>
-
+    </tr>
+  </thead>
+  <tbody>
+    <% @canpaigns.each_with_index do |canpaign, index|%>
+    <tr>
+      <td><%= index %></td>
+      <td><%=  link_to canpaign.name ,admin_canpaign_path(canpaign.id) %></td>
+      <td><%=  canpaign.content %></td>
+      <td><%= canpaign.status %></td>
+      <td>
+         <%= link_to t("global.canpaigs.delete"), admin_canpaign_path(canpaign.id), method: :delete, data: { confirm: t("global.canpaigs.yousure1") } , class: "btn btn-warning" %>
+      </td>
+      <td>
+        <%= link_to t("global.canpaigs.edit"), edit_admin_canpaign_path(canpaign) , class: "btn btn-info" %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 
 

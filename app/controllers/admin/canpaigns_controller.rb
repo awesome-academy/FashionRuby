@@ -1,5 +1,4 @@
 class Admin::CanpaignsController < Admin::BaseController
-
   def index
     @canpaigns = Canpaign.canpaigns
   end
@@ -12,7 +11,7 @@ class Admin::CanpaignsController < Admin::BaseController
   def create
     @canpaign = Canpaign.new canpaign_params
     if  @canpaign.save
-      redirect_to canpaigns_path
+      redirect_to  admin_canpaigns_path
     else
     @canpaign= Canpaign.new
      render 'new'
@@ -28,18 +27,19 @@ class Admin::CanpaignsController < Admin::BaseController
   def update
     @canpaigns = Canpaign.find params[:id]
     if  @canpaigns.update canpaign_params
-      redirect_to @canpaigns
+      redirect_to admin_canpaign_path
     else
       render 'edit'
     end
   end
 
   def show
-   @products = Canpaign.canpaigns
+    @canpaign = Canpaign.find params[:id]
+    @products = Product.all
    end
  def edit
-  @canpaign = Canpaign.find params[:id]
-  @products = Product.all
+   @canpaign = Canpaign.find params[:id]
+   @products = Product.all
 end
 
 private
