@@ -1,0 +1,35 @@
+<% provide(:title, 'Products') %>
+  <div class="container">
+  <%= link_to t("global.canpaigs.create1") , new_admin_canpaign_path, class: 'btn btn-success' %>
+</div> <br>
+
+<div class="container">
+  <%= link_to t("global.canpaigs.create2"), new_admin_product_path, class: 'btn btn-success' %>
+</div>
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Stt</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Setting</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each_with_index do |product,index|%>
+    <tr>
+      <td><%= index %></td>
+      <td><%= product.name %></td>
+      <td><%= product.price %></td>
+      <td>
+        <%= link_to t("global.canpaigs.delete"), product, method: :delete, data: { confirm: "You sure?", remote: true },class: 'btn btn-warning delete' %>
+        </td>
+      <td>
+        <%= link_to t("global.canpaigs.edit"), edit_admin_product_path(product),class: 'btn btn-info' %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

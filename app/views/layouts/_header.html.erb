@@ -1,0 +1,83 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="header">
+    <div class="header-top">
+      <div class="container">
+        <div class="col-sm-4 logo animated wow fadeInLeft" data-wow-delay=".5s">
+          <h1><%= link_to 'RuBY Fashion', home_path%></h1>
+        </div>
+        <div class="col-sm-4 world animated wow fadeInRight" data-wow-delay=".5s">
+
+          </div>
+          <div class="col-sm-2 number animated wow fadeInRight" data-wow-delay=".5s">
+
+    <%= link_to t("global.header.allpr"), products_path, class:"success" %>
+            <div>
+              <%= link_to t("global.canpaigs.cart")  ,carts_path %> &#128722;
+              <span class="badge badge-primary">
+                <% unless session[:carts].nil? %>
+                  <%= session[:carts].reject{|k| k == {} }.count %>
+                    <% else %>
+                    <%= 0 %>
+                    <% end %>
+                  </span>
+            </div>
+    <% if logged_in? %>
+                   <li class="dropdown ">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <%= t("global.header.account")  %> 👥<b class="'btn btn-info'"></b>  </a>
+                      <ul class="dropdown-menu">
+
+                  <% if current_user.admin?  %>
+                    <div>
+                      <%= link_to t("global.header.user"), users_path, class:"success" %>
+                    </div>
+                    <% end  %> <br>
+                        <br>
+                      <div>
+                      <%= link_to t("global.header.profile"), current_user,class:"success"%>
+                    </div>
+
+                    <br>
+                    <br>
+                    <div>
+                    <%= link_to t("global.header.logout"), logout_path, method: :delete ,class:"success" %>
+                    </div>
+
+                    </ul>
+                    </div>
+                    <% else %> <div>
+                    <%= link_to t("global.header.signin"), login_path ,class:"success" %></div>
+                    <% end %>
+                    </nav>
+            </ul>
+          </div>
+          <div class="clearfix"> </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="head-top">
+          <div class="n-avigation">
+
+            <nav class="navbar nav_bottom" role="navigation">
+
+             <!-- Brand and toggle get grouped for better mobile display -->
+             <div class="navbar-header nav_2">
+              <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#"></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+              <ul class="nav navbar-nav nav_1">
+
+
+
+
+
+
+              </ul>
+            </div><!-- /.navbar-collapse -->
+</header>

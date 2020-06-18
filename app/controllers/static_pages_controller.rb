@@ -6,9 +6,9 @@ class StaticPagesController < ApplicationController
     @bestseller =Product.best_saler
     end
   def products
-  	count_order=[]
+    count_order=[]
     Product.all.each do |product|
-	  count_order<< {key: product , value: product.orderdetails.count}
+    count_order<< {key: product , value: product.orderdetails.count}
     end
     sort = count_order.sort_by{|l| -l[:value]}
     @bestseller= sort.take(8)
@@ -27,9 +27,9 @@ class StaticPagesController < ApplicationController
           when '5000'
             @products = Product.price(3000,5000)
           when '10000'
-          	@products = Product.price(5000,10000)
+            @products = Product.price(5000,10000)
           when '0'
-          	@products = Product.price1
+            @products = Product.price1
           end
       else
         @products = Product.all

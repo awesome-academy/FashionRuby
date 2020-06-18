@@ -136,6 +136,17 @@ h1,h2,h3,h4,h5,h6,label,p{
 .dropdown-menu {
    /* right: 260px !important;*/
     left:inherit;
+        position: absolute;
+    top: 100%;
+    /*left: 0;*/
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: -webkit-center;
 }
 .nav_bottom{
   background:none;
@@ -442,7 +453,7 @@ ul.callbacks_tabs.callbacks1_tabs {
     color: #FFF;
     font-size: 0.8em;
     display: block;
-    background-color: #403b37;
+
     padding: 0.3em 0.6em;
     border-radius: 3px;
     text-decoration: none;
@@ -2860,3 +2871,37 @@ border-bottom: 1px solid $gray-lighter;
 }
 }
 
+
+.rslides img {
+    display: block;
+    height: 370px;
+    float: left;
+    width: 100%;
+    border: 0;
+}
+
+.number span {
+    color: #fa03bb;
+    font-size: 1em;
+}
+.logo h1 a {
+ color: #fa03bb;
+    font-size: 1em;
+    text-decoration: none;
+    font-family: 'Poiret One', cursive;
+    font-weight: 700;
+}
+
+
+a {
+    color: #fa03bb;
+    font-family: verdana;
+    font-size: 100%;
+    text-decoration: none;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #de0bce;
+    border-color: #060606;
+}
