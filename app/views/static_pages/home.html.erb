@@ -24,13 +24,16 @@
       <div class="slider">
         <div class="callbacks_container">
           <ul class="rslides" id="slider">
-            <li>
-                       <%= link_to image_tag("2.jpg",  width: "200px") %>
-            <div class="tes animated wow fadeInUp animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-                <h2> <%= t".title" %>  </h2>
 
-              <h4> <%= t".title2" %> </h4>
-              <p> <%= t".title3" %> </p>
+
+<li>
+                       <%= image_tag("2.jpg",  width: "200px") %>
+
+                </li>
+            <div class="tes animated wow fadeInUp animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+
+                           <h2> <%= t".title" %>  </h2>
+
             </div>
 
               </div>
@@ -46,41 +49,7 @@
     <div class="container">
  <div class="content-top">
         <div class="content-top1">
-          <% @buy1free.each do |id|%>
-          <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
-            <div class="col-md1 simpleCart_shelfItem">
-              <a href="/products/<%= id%>">
-              </a>
-              <h3><a href="/products/<%= id%>"> <%= id.name %> </a></h3>
-              <div class="price">
-                <h5 class="item_price"> <%= id.price %> </h5>
-                <a href="/products/<%= id%>" class="item_add"><%= t".addcart" %></a>
-                <div class="clearfix"> </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 animated wow fadeInDown animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
-            <div class="col-md3">
-              <div class="up-t">
-                <h3>
-                <%= t".buy" %></h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 col-md2 animated wow fadeInRight" data-wow-delay=".5s">
-            <div class="col-md1 simpleCart_shelfItem">
-               <a href="/products/<%= id%>">
-               <%=  %>
-             </a>
-             <h3>  <a href="/products/<%= id%>"><%= id.name %></a></h3>
-             <div class="price">
-              <h5 class="item_price"><%= id.price %></h5>
-              <a href="/products/<%= id%>" class="item_add"><%= t".addcart" %></a>
-              <div class="clearfix"> </div>
-            </div>
-          </div>
-        </div>
-         <% end %>
+
         <div class="clearfix"> </div>
       </div>
       <h1 style="background-color:#ad4095">  <%= t".onsale" %></h1>
@@ -97,7 +66,8 @@
               <h3> <a href="/products/<%= id.id%>"><%= id.name %></a></h3>
               <div class="price">
                 <h5 class="item_price">$<%= id.price %></h5>
-                <a href="/products/<%= id.id%>" class="item_add"><%= t".addcart" %></a>
+             <a href="/products/<%= id.id%>">
+               <%= link_to "Add To Cart", cart_path(id), class: 'btn btn-primary' %></a>
                 <div class="clearfix"> </div>
               </div>
 
@@ -110,103 +80,34 @@
   <h1 style="background-color:#ad4095"> <%= t".bestseller" %> </h1>
           <div class="col-md1 simpleCart_shelfItem">
   <div class="content-top1">
-    <% @bestseller.each do |product|%>
-      <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
-          <a href="/products/<%= product.id %>">
-         </a>
-         <h3><a href="/products/<%= product.id %>"><%= product.name %></a></h3>
-         <div class="price">
-          <h5 class="item_price"><%=product.price%></h5>
-          <a href="/products/<%= product.id%>" class="item_add"><%= t".addcart" %></a>
-          <div class="clearfix"> </div>
-        </div>
-      </div>
-    <%end%>
-  </div>
 
-<div class="clearfix"> </div>
-</div>
-</div>
-</div>
-</div>
-    <div class="clearfix"></div>
-    <div class="col-md-4 con-tp-lft animated wow fadeInLeft" data-wow-delay=".5s">
-      <a href="products.html">
-        <div class="content-grid-effect slow-zoom vertical">
-        <div class="img-box">  <%= link_to image_tag("lak7.png",  width: "900px") %></div>
-          <div class="info-box">
-            <div class="info-content simpleCart_shelfItem">
-              <h4><%= t".20offer" %></h4>
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="col-md-4 con-tp-lft animated wow fadeInUp animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-      <a href="products.html">
-        <div class="content-grid-effect slow-zoom vertical">
-        <div class="img-box">  <%= link_to image_tag("lak7.png",  width: "900px") %></div>
-          <div class="info-box">
-            <div class="info-content simpleCart_shelfItem">
-              <h4><%= t".20offer" %></h4>
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="col-md-4 con-tp-lft animated wow fadeInRight" data-wow-delay=".5s">
-      <a href="products.html">
-        <div class="content-grid-effect slow-zoom vertical">
-      <div class="img-box">  <%= link_to image_tag("lak7.png",  width: "900px") %></div>
-          <div class="info-box">
-            <div class="info-content simpleCart_shelfItem">
-              <h4><%= t".50offer" %></h4>
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="clearfix"></div>
   </div>
-</div>
 
    <div class="clearfix"></div>
+    <% @bestseller.each do |product|%>
     <div class="col-md-4 con-tp-lft animated wow fadeInLeft" data-wow-delay=".5s">
-      <a href="products.html">
+   <div class="col-md1 simpleCart_shelfItem">
         <div class="content-grid-effect slow-zoom vertical">
-     <div class="img-box">  <%= link_to image_tag("lak7.png",  width: "900px") %></div>
+    <% product.images.each do |image|%>
+        <%= image_tag image.variant(resize_to_limit: [100, 100]) %>
+    <% end %>
           <div class="info-box">
             <div class="info-content simpleCart_shelfItem">
-              <h4><%= t".30offer" %></h4>
+ <div class="price">
+        </div>
             </div>
           </div>
         </div>
       </a>
+      <h3><a href="/products/<%= product.id %>"><%= product.name %></a></h3>
+   <h5 class="item_price"> $<%=product.price%></h5>
+        <a href="/products/<%= product.id%>">
+         <%= link_to "Add To Cart", cart_path(product), class: 'btn btn-primary' %></a>
     </div>
-    <div class="col-md-4 con-tp-lft animated wow fadeInUp animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-      <a href="products.html">
-        <div class="content-grid-effect slow-zoom vertical">
-  <div class="img-box">  <%= link_to image_tag("lak7.png",  width: "900px") %></div>
-          <div class="info-box">
-            <div class="info-content simpleCart_shelfItem">
-              <h4><%= t".50offer" %></h4>
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="col-md-4 con-tp-lft animated wow fadeInRight" data-wow-delay=".5s">
-      <a href="products.html">
-        <div class="content-grid-effect slow-zoom vertical">
-        <div class="img-box">  <%= link_to image_tag("lak7.png",  width: "900px") %></div>
-          <div class="info-box">
-            <div class="info-content simpleCart_shelfItem">
-              <h4><%= t".50offer" %></h4>
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
+</div>
+<%end%>
+
+
     <div class="clearfix"></div>
   </div>
 </div>
@@ -218,12 +119,15 @@
       <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
    <div class="col-md1 simpleCart_shelfItem">
    <a href="/products/<%= id.id%>">
- <%=  image_tag("lak6.png",  width: "300px") %>
+    <% id.images.each do |image|%>
+            <%= image_tag image.variant(resize_to_limit: [100, 500]) %>
+<% end %>
          </a>
          <h3><%= link_to id.name, product_path(id.id) %></h3>
          <div class="price">
           <h5 class="item_price"><%= id.price %>  </h5>
-          <a href="/products/<%= id%>" class="item_add"><%= t".addcart" %></a>
+         <a href="/products/<%= id.id%>">
+               <%= link_to "Add To Cart", cart_path(id), class: 'btn btn-primary' %></a>
           <div class="clearfix"> </div>
         </div>
       </div>

@@ -15,42 +15,45 @@
 
 <!--content-->
 <div class="products">
-	<div class="container">
-		<% if params[:id] %>
-			<h2><%= @catelogy.name %></h2>
-		<% else %>
-			<h2><%=  t("global.header.product") %></h2>
-		<% end %>
+  <div class="container">
+    <% if params[:id] %>
+      <h2><%= @catelogy.name %></h2>
+    <% else %>
+      <h2><%=  t("global.header.product") %></h2>
+    <% end %>
 
-		<div class="col-md-9">
-			<div class="content-top1">
-				<% @products.each do |product| %>
-					<div class="col-md-4 col-md4" style="margin-bottom: 10px">
-						<div class="col-md1 simpleCart_shelfItem">
-
-							
-								<h3><%= link_to product.name, product_path(product.id) %></h3>
-								<div class="price">
-										<h5 class="item_price">$<%= product.price %></h5>
-										<a href="#" class="item_add">Add To Cart</a>
-
-								</div>
-						</div>
-
-					</div>
-				<% end %>
-			<div class="clearfix"> </div>
+    <div class="col-md-9">
+      <div class="content-top1">
+        <% @products.each do |product| %>
+          <div class="col-md-4 col-md4" style="margin-bottom: 10px">
+            <div class="col-md1 simpleCart_shelfItem">
 
 
-			</div>
-		</div>
+                <h3><%= link_to product.name, product_path(product.id) %></h3>
+                <div class="price">
+                    <h5 class="item_price">$<%= product.price %></h5>
+                    <div>
+                    <%= link_to "Add To Cart", cart_path(product), class: 'btn btn-primary' %>
+                    </div>
+                </div>
+            </div>
+
+          </div>
+        <% end %>
+      <div class="clearfix"> </div>
+
+
+      </div>
+    </div>
 
 
 
 
-		<% unless params[:search] %>
-			<%= render 'shared/filter' %>
-		<% end %>
-		<div class="clearfix"> </div>
-	</div>
+
+      <%= render 'shared/filter' %>
+
+    <div class="clearfix"> </div>
+  </div>
 </div>
+
+

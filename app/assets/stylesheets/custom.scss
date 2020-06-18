@@ -372,3 +372,78 @@ border-box;
   color: #fff;
   text-decoration: none;
 }
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+
+  z-index: 1;
+}
+
+.dropdown-menu {
+    /* right: 260px !important; */
+    left: inherit;
+    position: absolute;
+    top: 100%;
+    /* left: 0; */
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: -webkit-center;
+}
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #000000;
+    background-clip: padding initial;
+    border: 1px solid #6542a9;
+    border: 1px solid #100101;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0px 2px 12px 14px rgba(0, 0, 0, 0.175);
+}
+.rslides img {
+    display: block;
+    height: 300px;
+    float: left;
+    width: 100%;
+    border: 0;
+}

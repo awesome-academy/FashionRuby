@@ -2,8 +2,8 @@
 en:
   static_pages:
     home:
-      title: "Flashsale"
-      title2: "UPTO 50%"
+      title: " Welcome to Ruby Fashion!"
+      title2: "Buy now!"
       title3: "OFFER"
       addcart: "Add To Cart"
       buy: "Buy 1 get 1 free"
@@ -28,6 +28,7 @@ en:
        admin2: "Campaign management"
        res: "Register"
        adminmanager: "Management"
+       allpr: "All Products"
     canpaigs:
        create1: "Add - Canpaigns"
        view: "View - Canpaigns"

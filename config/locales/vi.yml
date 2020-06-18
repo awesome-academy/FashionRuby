@@ -2,8 +2,8 @@
 vi:
   static_pages:
     home:
-      title: "Giảm giá cực mạnh"
-      title2: "trên 50%"
+      title: "Kính Chào Quý Khách !"
+      title2: "Xin Mời !"
       title3: "Xin Mời "
       addcart: "Thêm vào giỏ"
       buy: "Mua 1 tặng 1"
@@ -31,6 +31,7 @@ vi:
       login: "Đăng Nhập"
       res: "Đăng kí"
       adminmanager: "Quản lí "
+      allpr: "Tất cả sản phẩm"
 
 
     canpaigs:

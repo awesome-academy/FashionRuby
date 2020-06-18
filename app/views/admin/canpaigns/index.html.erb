@@ -1,10 +1,8 @@
 
-
-
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">Id</th>
+      <th scope="col">Stt</th>
       <th scope="col">Name</th>
       <th scope="col">Content</th>
       <th scope="col">Status</th>
@@ -12,14 +10,14 @@
     </tr>
   </thead>
   <tbody>
-    <% @canpaigns.each do |canpaign|%>
+    <% @canpaigns.each_with_index do |canpaign,index|%>
     <tr>
-      <td><%= canpaign.id %></td>
-      <td><%= canpaign.name %></td>
+      <td><%= index %></td>
+      <td><%= link_to canpaign.name, admin_canpaign_path(canpaign.id) %></td>
       <td><%= canpaign.content %></td>
-      <td><%= canpaign.status %></td>
+      <td> <%= canpaign.status %></td>
       <td>
-         <%= link_to t("global.canpaigs.delete"), canpaign, method: :delete, data: { confirm: "You sure?" } , class: "btn btn-warning" %>
+         <%= link_to t("global.canpaigs.delete"), canpaign, method: :delete, data: { confirm: "You sure?", remote: true } , class: "btn btn-warning remove" %>
       </td>
       <td>
         <%= link_to t("global.canpaigs.edit"), edit_admin_canpaign_path(canpaign) , class: "btn btn-info" %>
@@ -28,5 +26,3 @@
     <% end %>
   </tbody>
 </table>
-
-

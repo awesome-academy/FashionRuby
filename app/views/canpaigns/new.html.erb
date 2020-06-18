@@ -1,57 +1,61 @@
 <div class="container">
+
+ <%= link_to  t("global.canpaigs.view"),admin_canpaigns_path, class: 'btn btn-info' %>
+  <%= link_to t("global.canpaigs.create2"), admin_products_path, class: 'btn btn-info' %>
+</div>
+<div class="container">
   <div class="form-group">
   <%= form_for @canpaign  do |f| %>
-    <div class="form-group">
-      <%= f.label 'Canpaign-Name' %>
+   <div class="form-group">
+      <%= f.label t("global.canpaigs.camname") %>
       <%= f.text_field :name, placeholder: "....", class: 'form-control' %>
     </div>
 
 
-
-    <div class="form-group">
-      <%= f.label 'Content' %>
+     <div class="form-group">
+      <%= f.label t("global.canpaigs.content") %>
       <%= f.text_field :content, placeholder: "....", class: 'form-control' %>
     </div>
 
-
-
-    <div class="form-group">
-      <%= f.label 'value' %>
+   <div class="form-group">
+      <%= f.label t("global.canpaigs.value") %>
       <%= f.number_field :value, placeholder: "....", class: 'form-control' %>
     </div>
 
 
-
-
-
    <div class="form-group">
-      <%= f.label 'status' %>
+      <%= f.label t("global.canpaigs.status") %>
       <%= f.check_box :status, placeholder: "....", class: 'form-control'  %>
     </div>
 
-    Products:
-    <ul>
+
+
+
+
+
+
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Product</th>
+      <th scope="col">Checkbox</th>
+    </tr>
+  </thead>
+  <tbody>
     <% @products.each do |product| %>
-      <li>
-        <label class="radio-inline"><%= product.name %>
-          <%= f.check_box :product_ids, {:multiple => true}, product.id, nil %>
-
-        </label>
-      </li>
+    <tr>
+      <td><%= product.name %></td>
+      <td> <%= f.check_box :product_ids, {:multiple => true}, product.id, nil %></td>
+    </tr>
     <% end %>
-    </ul>
-
-
-    <%= f.submit t("global.canpaigs.create1") , class: "btn btn-info" %>
+  </tbody>
+</table>
+ <%= f.submit t("global.canpaigs.create1") , class: "btn btn-info" %>
 
   <% end %>
   </div>
  <br>
-<div class="container">
 
-   <%= link_to  t("global.canpaigs.view"),admin_canpaigns_path, class: 'btn btn-info' %>
-  <%= link_to t("global.canpaigs.create2"), admin_products_path, class: 'btn btn-info' %>
-</div>
 </div>
 
 

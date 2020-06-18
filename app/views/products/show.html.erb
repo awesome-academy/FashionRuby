@@ -1,9 +1,5 @@
 <div class="breadcrumbs">
     <div class="container">
-        <ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
-            <li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
-            <li class="active">San Pham</li>
-        </ol>
     </div>
 </div>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -13,17 +9,12 @@
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
-    <!-- Wrapper for slides -->
     <div class="carousel-inner">
+        <% @product.images.each do |image| %>
         <div class="item active">
-            <%= link_to image_tag("lak2.png",  width: "500px") %>
+            <%= image_tag image.variant(resize_to_limit: [500, 200]) %>
         </div>
-        <div class="item">
-            <%= link_to image_tag("lak3.png",  width: "500px") %>
-        </div>
-        <div class="item">
-            <%= link_to image_tag("lak4.png",  width: "500px") %>
-        </div>
+        <% end %>
     </div>
     <!-- Left and right controls -->
     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -40,49 +31,51 @@
         <h2>
             <%= @product.name %>
         </h2>
-        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
-        <div id="rating2">count:
-            <%= @product.ratings.count %>
-        </div>
-        </br>
-        <div class="rating"> avg:
-            <%= @product.ratings.average(:total) %>
-        </div>
-        <div class="star-on">
-            <ul>
-                <li>
-                    <%= link_to "✰", product_ratings_path(@product, ratings: 1), remote: true %>
-                </li>
-                <li>
-                    <%= link_to '✰',  product_ratings_path(@product, ratings: 2), remote: true %>
-                </li>
-                <li>
-                    <%= link_to '✰',  product_ratings_path(@product, ratings: 3) , remote: true %>
-                </li>
-                <li>
-                    <%= link_to '✰',  product_ratings_path(@product, ratings: 4) , remote: true %>
-                </li>
-                <li>
-                    <%= link_to '✰',  product_ratings_path(@product, ratings: 5) ,remote: true %>
-                </li>
-            </ul>
+        <div class="available">
+            <h6>Available Options :</h6>
+            <li> Size:
+                <%= @product.size %>
+            </li>
+            <li>
+                So luong :
+                <%= @product.amount %>
+            </li>
+            <div id="rating1">count:
+                <%= @product.ratings.count %>
+            </div>
+            </br>
+            <div id="rating2"> avg:
+                <%= @product.ratings.average(:total) %>
+            </div>
+            <% if logged_in? %>
+            <div class="star-on">
+                <ul>
+                    <li>
+                        <%= link_to "✰", product_ratings_path(@product, ratings: 1), method: :post, method: :post, remote: true %>
+                    </li>
+                    <li>
+                        <%= link_to '✰',  product_ratings_path(@product, ratings: 2), method: :post, remote: true %>
+                    </li>
+                    <li>
+                        <%= link_to '✰',  product_ratings_path(@product, ratings: 3) , method: :post, remote: true %>
+                    </li>
+                    <li>
+                        <%= link_to '✰',  product_ratings_path(@product, ratings: 4) , method: :post, remote: true %>
+                    </li>
+                    <li>
+                        <%= link_to '✰',  product_ratings_path(@product, ratings: 5) , method: :post,remote: true %>
+                    </li>
+                </ul>
+            </div>
+            <% end %>
             <label class="add-to item_price">$
                 <%= @product.price %></label>
-            <div class="available">
-                <h6>Available Options :</h6>
-                <li> So luong :
-                    <%= @amount %>
-                </li>
-                <li> Size:
-                    <%= @product.size %>
-                </li>
-                <%= link_to 'Thêm vào giỏ hàng', cart_path, class: 'btn btn-primary' %>
-                </button>
-            </div>
+            <%= link_to "Add To Cart", cart_path, class: 'btn btn-primary' %>
+            </button>
         </div>
     </div>
 </div>
-<% @x.each do |product|%>
+<% @products.each do |product|%>
 <div class="clearfix"> </div>
 <div class="content-top1">
     <div class="col-md-4 col-md4">
@@ -90,7 +83,6 @@
             <a href="/products/<%= product.id %>">
                 <%= link_to image_tag("lak2.png",  width: "200px") %>
             </a>
-            <h3><a href="single.html">Trouser</a></h3>
             <div class="price">
                 <h5 class="item_price">$300</h5>
                 <a href="#" class="item_add">Add To Cart</a>
@@ -103,10 +95,9 @@
             <a href="/products/<%= product.id %>">
                 <%= link_to image_tag("lak5.png",  width: "200px") %>
             </a>
-            <h3><a href="single.html">Jeans</a></h3>
             <div class="price">
                 <h5 class="item_price">$300</h5>
-                <a href="#" class="item_add">Add To Cart</a>
+                <a class="item_add">Add To Cart</a>
                 <div class="clearfix"> </div>
             </div>
         </div>
@@ -115,3 +106,4 @@
 </div>
 </div>
 <%end%>
+9:05

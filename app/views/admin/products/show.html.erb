@@ -15,16 +15,12 @@
   </ol>
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
-      <div class="item active">
-          <%= link_to image_tag("lak2.png",  width: "500px") %>
-      </div>
-      <div class="item">
-          <%= link_to image_tag("lak3.png",  width: "500px") %>
-      </div>
-      <div class="item">
-          <%= link_to image_tag("lak4.png",  width: "500px") %>
-      </div>
-  </div>
+        <% @product.images.each do |image| %>
+        <div class="item active">
+            <%= image_tag image.variant(resize_to_limit: [500, 200]) %>
+        </div>
+        <% end %>
+    </div>
   <!-- Left and right controls -->
   <a class="left carousel-control" href="#myCarousel" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left"></span>

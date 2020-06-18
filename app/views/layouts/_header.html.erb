@@ -1,4 +1,3 @@
-
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="header">
     <div class="header-top">
@@ -11,10 +10,44 @@
           </div>
           <div class="col-sm-2 number animated wow fadeInRight" data-wow-delay=".5s">
 
-            <span style="color:white" ><i style="color:white"  class="glyphicon glyphicon-phone"> </i > 089.999.999</span> <%= link_to t("global.canpaigs.cart") ,carts_path %>
-            <p><%= t("global.header.call") %></p>
+    <%= link_to t("global.header.allpr"), products_path, class:"success" %>
+            <div>
+              <%= link_to t("global.canpaigs.cart")  ,carts_path %> &#128722;
+              <span class="badge badge-primary">
+                <% unless session[:carts].nil? %>
+                  <%= session[:carts].reject{|k| k == {} }.count %>
+                    <% else %>
+                    <%= 0 %>
+                    <% end %>
+                  </span>
+            </div>
+    <% if logged_in? %>
+                   <li class="dropdown ">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <%= t("global.header.account")  %> 👥<b class="'btn btn-info'"></b>  </a>
+                      <ul class="dropdown-menu">
 
+                  <% if current_user.admin?  %>
+                    <div>
+                      <%= link_to t("global.header.user"), users_path, class:"success" %>
+                    </div>
+                    <% end  %> <br>
+                        <br>
+                      <div>
+                      <%= link_to t("global.header.profile"), current_user,class:"success"%>
+                    </div>
 
+                    <br>
+                    <br>
+                    <div>
+                    <%= link_to t("global.header.logout"), logout_path, method: :delete ,class:"success" %>
+                    </div>
+
+                    </ul>
+                    </div>
+                    <% else %> <div>
+                    <%= link_to t("global.header.signin"), login_path ,class:"success" %></div>
+                    <% end %>
+                    </nav>
             </ul>
           </div>
           <div class="clearfix"> </div>
@@ -39,54 +72,12 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
               <ul class="nav navbar-nav nav_1">
-                <li>
-                  <%= link_to t("global.header.home1"), home_path %>
-                </li>
 
 
 
-                <li>
-                  <%= link_to t("global.header.product"), all_path %>
 
-                </li>
-                <li>
-                  <%= link_to t("global.header.signin"), login_path %>
-                </li>
-                <li class="last">
-                  <%= link_to t("global.header.contact"), contact_path %>
-                </li>
 
-                   <li class="dropdown ">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <%= t("global.header.account") %> <b class="'btn btn-info'"></b>  </a>
-                      <ul class="dropdown-menu abc">
-                <% if logged_in? %>
- <div><%= link_to t("global.header.user"), users_path, class:"xyz" %></div>
-<br>
-<div><%= link_to t("global.header.profile"), current_user,class:"xyz"  %></div>
-
-<div><%= link_to t("global.header.set"), edit_user_path(current_user),class:"xyz" %></li>
-
-<div>
-<%= link_to t("global.header.logout"), logout_path, method: :delete ,class:"xyz" %>
-</div>
-</ul>
-</div>
-<% else %> <div>
-<%= link_to t("global.header.login"), login_path ,class:"xyz" %></div>
-<% end %>
-</ul>
-  </ul>
-</nav>
 
               </ul>
             </div><!-- /.navbar-collapse -->
-
-
-          </nav>
-        </div>
-        <nav>
-
-
-
-
 </header>

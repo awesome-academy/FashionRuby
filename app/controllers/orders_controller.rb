@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
     if session[:carts].reject{|k| k == {} }.empty?
       redirect_to carts_path
     else
-      @order = Order.new 
+      @order = Order.new
     end
   end
 
@@ -17,17 +17,17 @@ class OrdersController < ApplicationController
       redirect_to root_path
       flash[:danger] = "Order successful"
       session[:carts] = nil
-    end	
+    end
   end
 private
   def order_params
     params.require(:order).permit( :user_id, :Name, :Email, :Address, :Phone,
-     orderdetails_attributes: [:product_id, :quantity]) 
+     orderdetails_attributes: [:product_id, :quantity])
   end
 
   def set_product
     session[:carts].each do |s|
       product = Product.find s['id']
-    end		
+    end
   end
 end

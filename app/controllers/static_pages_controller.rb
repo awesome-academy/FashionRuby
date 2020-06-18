@@ -1,15 +1,14 @@
 class StaticPagesController < ApplicationController
-  def home
-     @products = Product.all.limit(4)
+   def home
+    @products = Product.all.limit(4)
     @buy1free = Product.all.limit(1)
     @canpaign = Canpaign.where(status: true).first
     @bestseller =Product.best_saler
-    
-  end
+    end
   def products
-  	count_order=[]
+    count_order=[]
     Product.all.each do |product|
-	  count_order<< {key: product , value: product.orderdetails.count}
+    count_order<< {key: product , value: product.orderdetails.count}
     end
     sort = count_order.sort_by{|l| -l[:value]}
     @bestseller= sort.take(8)
@@ -18,7 +17,7 @@ class StaticPagesController < ApplicationController
     if params[:search]
       @products = Product.where(["lower(name) LIKE ?","%#{params[:search].downcase}%"])
       elsif params[:id]
-        @products = @catelogy.products 
+        @products = @catelogy.products
       elsif params[:price]
         case  params[:price]
           when '1000'
@@ -28,9 +27,9 @@ class StaticPagesController < ApplicationController
           when '5000'
             @products = Product.price(3000,5000)
           when '10000'
-          	@products = Product.price(5000,10000)
+            @products = Product.price(5000,10000)
           when '0'
-          	@products = Product.price1
+            @products = Product.price1
           end
       else
         @products = Product.all

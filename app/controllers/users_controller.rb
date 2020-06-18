@@ -37,7 +37,7 @@ before_action :admin_user, only: :destroy
 
     end
   end
-  
+
 def destroy
 User.find(params[:id]).destroy
 flash[:success] = "User deleted"
