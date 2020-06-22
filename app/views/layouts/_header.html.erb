@@ -13,12 +13,14 @@
     <%= link_to t("global.header.allpr"), products_path, class:"success" %>
             <div>
               <%= link_to t("global.canpaigs.cart")  ,carts_path %> &#128722;
-              <span class="badge badge-primary">
+   <span id="cartdetail" class="badge badge-primary">
+                <div id="deleteproduct">
                 <% unless session[:carts].nil? %>
                   <%= session[:carts].reject{|k| k == {} }.count %>
                     <% else %>
                     <%= 0 %>
                     <% end %>
+                  </div>
                   </span>
             </div>
     <% if logged_in? %>

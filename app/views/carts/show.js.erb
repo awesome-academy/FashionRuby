@@ -1,0 +1,4 @@
+$(".addcart").bind("ajax:success", function() {
+    $(this).closest("tr").fadeOut();
+})
+$("#cartdetail").html("<%= session[:carts].reject{|k| k == {} }.count %>")

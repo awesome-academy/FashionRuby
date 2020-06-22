@@ -50,6 +50,13 @@ en:
        pass1: "Password confirmation"
        name: "Name"
        search: "Search"
+       checkbox: "Select"
+       more: "More"
+       buy2: "BUY"
+       continue: "Continue"
+       quantity: "Quantity"
+       sub: "Total"
+       addc: "Add Cart"
 
 
 
@@ -72,12 +79,8 @@ en:
         create: "Create Account"
 
         res: "Register"
-
-
-
-
-
-
-
-
-
+  enums:
+    canpaign:
+      status:
+        open: "ON"
+        closed: "OFF"

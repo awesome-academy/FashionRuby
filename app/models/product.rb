@@ -10,9 +10,12 @@ class Product < ApplicationRecord
   has_many :ratings, dependent: :destroy
   has_many :users, through: :ratings
   has_many_attached :images
-  scope :best_saler, -> {where "id in (select product_id from orderdetails group by product_id order by count(product_id) limit 5)"}
+  scope :best_saler, -> {where "id in (select product_id
+    from orderdetails group by product_id order by count(product_id) limit 5)"}
   scope :cateloly_name, -> {order(:catelogy_name).limit(2)}
   scope :catelogy, -> (id){where catelogy: id}
+  idcate = "select catelogy_id from products where id = ?"
+  scope :prCatelogy, ->(id){Product.where("id in (#{idcate})", id).limit(4) }
   validates :images,
       content_type: { in: %w[image/jpeg image/gif image/png],
               message: "must be a valid image format" },
@@ -27,6 +30,6 @@ class Product < ApplicationRecord
   				message: "should be less than 5MB" }
     scope :price, -> (a,b){where("price >= #{a} AND price < #{b}")}
     scope :price1, -> {where("price >= 10000")}
-  
+
 end
 

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :orders, dependent: :destroy
   has_many :ratings, dependent: :destroy
+  has_many :product, through: :ratings
 attr_accessor :remember_token
 before_save { self.email = email.downcase }
 validates :name, presence: true, length: { maximum: 50 }

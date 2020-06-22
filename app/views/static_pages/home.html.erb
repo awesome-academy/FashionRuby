@@ -1,143 +1,140 @@
 <div class="clearfix"> </div>
-   </div>
-        <script>
-          $(document).ready(function() {
-            $('.popup-with-zoom-anim').magnificPopup({
-              type: 'inline',
-              fixedContentPos: false,
-              fixedBgPos: true,
-              overflowY: 'auto',
-              closeBtnInside: true,
-              preloader: false,
-              midClick: true,
-              removalDelay: 300,
-              mainClass: 'my-mfp-zoom-in'
-            });
-          });
-        </script>
-      </div>
-    </div>
-  </div>
-  <!--banner-->
-  <div class="banner">
+</div>
+<script>
+$(document).ready(function() {
+    $('.popup-with-zoom-anim').magnificPopup({
+        type: 'inline',
+        fixedContentPos: false,
+        fixedBgPos: true,
+        overflowY: 'auto',
+        closeBtnInside: true,
+        preloader: false,
+        midClick: true,
+        removalDelay: 300,
+        mainClass: 'my-mfp-zoom-in'
+    });
+});
+</script>
+</div>
+</div>
+</div>
+<!--banner-->
+<div class="banner">
     <div class="matter-banner">
-      <div class="slider">
-        <div class="callbacks_container">
-          <ul class="rslides" id="slider">
-
-
-<li>
-                       <%= image_tag("2.jpg",  width: "200px") %>
-
-                </li>
-            <div class="tes animated wow fadeInUp animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-
-                           <h2> <%= t".title" %>  </h2>
-
+        <div class="slider">
+            <div class="callbacks_container">
+                <ul class="rslides" id="slider">
+                    <li>
+                        <%= image_tag("2.jpg",  width: "200px") %>
+                    </li>
+                    <div class="tes animated wow fadeInUp animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+                        <h2>
+                            <%= t".title" %>
+                        </h2>
+                    </div>
             </div>
-
-              </div>
             </li>
-
-          </ul>
+            </ul>
         </div>
-      </div>
     </div>
-    <div class="clearfix"> </div>
-  </div>
-  <div class="content">
+</div>
+<div class="clearfix"> </div>
+</div>
+<div class="content">
     <div class="container">
- <div class="content-top">
-        <div class="content-top1">
-
-        <div class="clearfix"> </div>
-      </div>
-      <h1 style="background-color:#ad4095">  <%= t".onsale" %></h1>
-      <div class="content-top1">
-        <% unless  @canpaign.nil? %>
-        <%  @canpaign.products.each do |id|%>
-          <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
-            <div class="col-md1 simpleCart_shelfItem">
-              <a href="/products/<%= id.id%>">
-                <img class="img-responsive" src="images/pi3.png" alt="" />
-             <!--    <%=  image_tag("lak1.png",  width: "200px")%> -->
-              </a>
-
-              <h3> <a href="/products/<%= id.id%>"><%= id.name %></a></h3>
-              <div class="price">
-                <h5 class="item_price">$<%= id.price %></h5>
-             <a href="/products/<%= id.id%>">
-               <%= link_to "Add To Cart", cart_path(id), class: 'btn btn-primary' %></a>
+        <div class="content-top">
+            <div class="content-top1">
                 <div class="clearfix"> </div>
-              </div>
-
             </div>
-          </div>
-          <% end %>
-        <% end %>
-      </div>
-    <div class="clearfix"> </div>
-  <h1 style="background-color:#ad4095"> <%= t".bestseller" %> </h1>
-          <div class="col-md1 simpleCart_shelfItem">
-  <div class="content-top1">
-
-  </div>
-
-   <div class="clearfix"></div>
-    <% @bestseller.each do |product|%>
-    <div class="col-md-4 con-tp-lft animated wow fadeInLeft" data-wow-delay=".5s">
-   <div class="col-md1 simpleCart_shelfItem">
-        <div class="content-grid-effect slow-zoom vertical">
-    <% product.images.each do |image|%>
-        <%= image_tag image.variant(resize_to_limit: [100, 100]) %>
-    <% end %>
-          <div class="info-box">
-            <div class="info-content simpleCart_shelfItem">
- <div class="price">
-        </div>
+            <h1 style="background-color:#ad4095">
+                <%= t".onsale" %>
+            </h1>
+            <div class="content-top1">
+                <% unless  @canpaign.nil? %>
+                <%  @canpaign.products.each do |product|%>
+                <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
+                    <div class="col-md1 simpleCart_shelfItem">
+                        <% product.images.each do |image|%>
+                        <%= image_tag image.variant(resize_to_limit: [100, 100]) %>
+                        <% end %>
+                        </a>
+                        <h3>
+                            <%= link_to product.name, product_path(product.id) %>
+                        </h3>
+                        <div class="price">
+                            <h5 class="item_price">$
+                                <%= product.price %>
+                            </h5>
+                            <%= link_to t(".addcart"), cart_path(id),remote: true, class: 'btn btn-primary' %>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+                <% end %>
+                <% end %>
             </div>
-          </div>
-        </div>
-      </a>
-      <h3><a href="/products/<%= product.id %>"><%= product.name %></a></h3>
-   <h5 class="item_price"> $<%=product.price%></h5>
-        <a href="/products/<%= product.id%>">
-         <%= link_to "Add To Cart", cart_path(product), class: 'btn btn-primary' %></a>
-    </div>
-</div>
-<%end%>
-
-
-    <div class="clearfix"></div>
-  </div>
-</div>
- <h1 style="background-color:#ad4095"> <%= t".new" %> </h1>
-<div class="c-btm">
-  <div class="content-top1">
-    <% @products.each do |id|%>
-    <div class="container">
-      <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
-   <div class="col-md1 simpleCart_shelfItem">
-   <a href="/products/<%= id.id%>">
-    <% id.images.each do |image|%>
-            <%= image_tag image.variant(resize_to_limit: [100, 500]) %>
-<% end %>
-         </a>
-         <h3><%= link_to id.name, product_path(id.id) %></h3>
-         <div class="price">
-          <h5 class="item_price"><%= id.price %>  </h5>
-         <a href="/products/<%= id.id%>">
-               <%= link_to "Add To Cart", cart_path(id), class: 'btn btn-primary' %></a>
-          <div class="clearfix"> </div>
-        </div>
-      </div>
-    </div>
-   <% end %>
-  </div>
-  <div class="clearfix"> </div>
-</div>
-</div>
-</div>
-<!--footer-->
-
-<!--footer-->
+            <div class="clearfix"> </div>
+            <h1 style="background-color:#ad4095">
+                <%= t".bestseller" %>
+            </h1>
+            <div class="col-md1 simpleCart_shelfItem">
+                <div class="content-top1">
+                </div>
+                <div class="clearfix"></div>
+                <% @bestseller.each do |product|%>
+                <div class="col-md-4 con-tp-lft animated wow fadeInLeft" data-wow-delay=".5s">
+                    <div class="col-md1 simpleCart_shelfItem">
+                        <div class="content-grid-effect slow-zoom vertical">
+                            <% product.images.each do |image|%>
+                            <%= image_tag image.variant(resize_to_limit: [100, 100]) %>
+                            <% end %>
+                            <div class="info-box">
+                                <div class="info-content simpleCart_shelfItem">
+                                    <div class="price">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </a>
+                        <h3>
+                            <%= link_to product.name, product_path(product.id) %>
+                        </h3>
+                        <h5 class="item_price"> $
+                            <%=product.price%>
+                        </h5>
+                        <%= link_to t(".addcart"), cart_path(product),remote: true, class: 'btn btn-primary' %></a>
+                    </div>
+                </div>
+                <%end%>
+                <div class="clearfix"></div>
+                <h1 style="background-color:#ad4095">
+                    <%= t".new" %>
+                </h1>
+                <div class="c-btm">
+                    <div class="content-top1">
+                        <% @products.each do |product|%>
+                        <div class="container">
+                            <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
+                                <div class="col-md1 simpleCart_shelfItem">
+                                    <% product.images.each do |image|%>
+                                    <%= image_tag image.variant(resize_to_limit: [100, 500]) %>
+                                    <% end %>
+                                    </a>
+                                    <h3>
+                                        <%= link_to product.name, product_path(product.id) %>
+                                    </h3>
+                                    <div class="price">
+                                        <h5 class="item_price">
+                                            <%= product.price %>
+                                        </h5>
+                                        <%= link_to t(".addcart"), cart_path(product),remote: true, class: 'btn btn-primary' %></a>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <% end %>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>

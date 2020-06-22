@@ -1,3 +1,5 @@
 $('.destroy').bind('ajax:success', function() {
-  $(this).closest('tr').fadeOut();
+    $(this).closest('tr').fadeOut();
 })
+$("#deleteproduct").html("<%= session[:carts].reject{|k| k == {} }.count %>")
+$("#totaldetail").html("<%= @total %>")
