@@ -1,7 +1,5 @@
 <li>
-
 <% if current_user.admin? && !current_user?(user) %>
-
 <%= render 'show' %>
 <% end %>
 </li>

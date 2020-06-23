@@ -1,13 +1,10 @@
 class OrderItem < ActiveRecord::Base
   belongs_to :productcart
   belongs_to :ordercart
-
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validate :product_present
   validate :order_present
-
   before_save :finalize
-
   def unit_price
     if persisted?
       self[:unit_price]

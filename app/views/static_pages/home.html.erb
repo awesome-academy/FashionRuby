@@ -65,7 +65,7 @@ $(document).ready(function() {
                             <h5 class="item_price">$
                                 <%= product.price %>
                             </h5>
-                            <%= link_to t(".addcart"), cart_path(id),remote: true, class: 'btn btn-primary' %>
+                            <%= link_to t(".addcart"), cart_path(product),remote: true, class: 'btn btn-primary' %>
                             <div class="clearfix"> </div>
                         </div>
                     </div>

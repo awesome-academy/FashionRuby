@@ -1,0 +1,17 @@
+
+
+<table class="table table-hover">
+
+  <tbody>
+    <% @order.each do |order|%>
+    <tr>
+
+      <td><%= link_to order.Name, order_path(order.id) %></td>
+  <td><%= link_to order.Name, order_path(order.id) %></td>
+
+      <td>
+
+    </tr>
+    <% end %>
+  </tbody>
+</table>
