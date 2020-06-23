@@ -7,8 +7,6 @@
       </ol>
     </div>
   </div>
-
-
 <% provide(:title, "Log in") %>
 <h1><%= t("sessions.new.login") %> </h1>
 <div class="row">
@@ -18,13 +16,7 @@
 <%= f.email_field :email, class: 'form-control' %>
 <%= f.label :password,t("global.canpaigs.pass")  %>
 <%= f.password_field :password, class: 'form-control' %>
-
-
-
-
-
 <%= f.submit t("sessions.new.login"),class: 'acount-btn' %>
-
 <% end %>
 <p> <%= link_to t("sessions.new.signup"), signup_path %></p>
 </div>

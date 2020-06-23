@@ -7,7 +7,6 @@
       <%= f.text_field :name, placeholder: '....', class: 'form-control' %>
     </div>
     <%= f.select :catelogy_id, options_for_select(["....", "1", "2"])    %>
-
     <div class="form-group">
       <%= f.label t("global.canpaigs.price") %>
       <%= f.text_field :price, placeholder: "....", class: 'form-control' %>
@@ -18,13 +17,9 @@
     </div>
       <span class="image">
           <%= f.file_field :images,multiple: true, accept: "image/jpeg,image/gif,image/png" %>
-
         </span>
     <%= f.submit t("global.canpaigs.savechange"), method: :update, class: "btn btn-primary" %>
   <% end %>
-
-
   </div>
-
 </div>
 

@@ -32,6 +32,7 @@ vi:
       res: "Đăng kí"
       adminmanager: "Quản lí "
       allpr: "Tất cả sản phẩm"
+      
 
 
     canpaigs:
@@ -59,6 +60,10 @@ vi:
       mess: "Tin Nhắn"
       adress: "Địa chỉ"
       cart: "Giỏ Hàng"
+      addc: "Thêm giỏ hàng"
+      
+    products:
+      notication: "Dung lượng ảnh quá lớn đảm bảo dưới 5mb"
 
 
     footer:

@@ -55,12 +55,12 @@ end
 
 
 def destroy
-              session[:carts].each do |cart|
-                if cart["id"] == params[:id]
-                  cart.delete("id")
-                  cart.delete("quantity")
-                end
-              end
+    session[:carts].each do |cart|
+      if cart["id"] == params[:id]
+        cart.delete("id")
+        cart.delete("quantity")
+      end
+    end
  end
 
 

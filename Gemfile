@@ -1,14 +1,9 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
-
-
-
 gem "ransack"
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3'
 # Use sqlite3 as the database for Active Record
-
 gem 'active_storage_validations', '0.8.2'
 gem 'image_processing','1.9.3'
 gem 'mini_magick', '4.9.5'
@@ -23,7 +18,6 @@ gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
-
 gem 'mini_magick', '4.9.5'
 gem 'image_processing','1.9.3'
 # Use Redis adapter to run Action Cable in production
@@ -31,30 +25,19 @@ gem 'image_processing','1.9.3'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'will_paginate', '3.1.8'
-
 gem 'faker', '2.1.2'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootstrap-will_paginate', '1.0.0'
-
 gem 'bootstrap-sass', '3.4.1'
 gem 'bootsnap'
 gem 'bcrypt',    '3.1.13'
-
 gem 'rails-i18n'
-
-
-
-
 group :development, :test do
-
-
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
-
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
@@ -63,7 +46,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
@@ -71,6 +53,5 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
-
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

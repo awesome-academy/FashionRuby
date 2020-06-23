@@ -36,16 +36,13 @@ class Admin::CanpaignsController < Admin::BaseController
   def show
     @canpaign = Canpaign.find params[:id]
    end
- def edit
+  def edit
    @canpaign = Canpaign.find params[:id]
    @products = Product.all
+  end
+  private
+    def canpaign_params
+      params.require(:canpaign).permit(
+      :name, :content, :value, :status, product_ids: [])
+    end
 end
-
-private
- def canpaign_params
-  params.require(:canpaign).permit(
-    :name, :content, :value, :status, product_ids: [])
-   end
-end
-
-
