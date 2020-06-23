@@ -1,12 +1,11 @@
-
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">Stt</th>
-      <th scope="col">Name</th>
-      <th scope="col">Content</th>
-      <th scope="col">Status</th>
-      <th scope="col">More</th>
+      <th scope="col">🚩</th>
+      <th scope="col"><%= t("global.canpaigs.camname") %></th>
+      <th scope="col"><%= t("global.canpaigs.content") %></th>
+      <th scope="col"><%= t("global.canpaigs.status") %></th>
+      <th scope="col"><%= t("global.canpaigs.more") %></th>
     </tr>
   </thead>
   <tbody>
@@ -15,7 +14,7 @@
       <td><%= index %></td>
       <td><%= link_to canpaign.name, admin_canpaign_path(canpaign.id) %></td>
       <td><%= canpaign.content %></td>
-      <td> <%= canpaign.status %></td>
+      <td><%= canpaign.status_i18n %></td>
       <td>
          <%= link_to t("global.canpaigs.delete"), canpaign, method: :delete, data: { confirm: "You sure?", remote: true } , class: "btn btn-warning remove" %>
       </td>

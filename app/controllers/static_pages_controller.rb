@@ -1,9 +1,9 @@
 class StaticPagesController < ApplicationController
-   def home
+  def home
     @products = Product.all.limit(4)
-    @buy1free = Product.all.limit(1)
     @canpaign = Canpaign.where(status: true).first
     @bestseller =Product.best_saler
+
   end
 
   def products

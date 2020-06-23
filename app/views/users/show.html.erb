@@ -9,11 +9,10 @@
 		</section>
 	</aside>
 </div>
-
+<%= render 'orderhistory' %>
 <nav>
 	<br>
 	<% if logged_in? %>
-
 	<li><%= link_to t("global.header.set"), edit_user_path(current_user)  %></li>
 	<br>
 	<li>
@@ -24,7 +23,6 @@
 <% else %> <li>
 	<%= link_to t("global.header.login"), login_path ,class: 'acount-btn' %></li>
 	<% end %>
-
 </ul>
 </nav>
 

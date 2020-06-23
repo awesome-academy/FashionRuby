@@ -25,20 +25,13 @@
 
    <div class="form-group">
       <%= f.label t("global.canpaigs.status") %>
-      <%= f.check_box :status, placeholder: "....", class: 'form-control'  %>
+      <%= f.check_box :status, {placeholder: "....", class: 'form-control'}, "open", "closed"  %>
     </div>
-
-
-
-
-
-
-
     <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">Product</th>
-      <th scope="col">Checkbox</th>
+      <th scope="col"><%=  t("global.header.product") %></th>
+      <th scope="col"><%=  t("global.canpaigs.checkbox") %></th>
     </tr>
   </thead>
   <tbody>
