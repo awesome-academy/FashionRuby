@@ -1,19 +1,12 @@
 <% provide(:title, 'Products') %>
-
 <div class="col-md-6 top-footer1 animated wow fadeInRight" data-wow-delay=".5s">
-                <div>
-                  <%= form_for products_path, method: :get do |f| %>
-
-                    <%= text_field_tag :search, params[:search],
-                      placeholder: t("global.canpaigs.search") %>
-                    <%= submit_tag t("global.canpaigs.search") %>
-                  <% end %>
-                </div>
-                    <div class="clearfix"> </div>
-        </div>
-
-
-<!--content-->
+  <%= form_for products_path, method: :get do |f| %>
+    <%= text_field_tag :search, params[:search],
+    placeholder: t("global.canpaigs.search"), id: 'tags' %>
+    <%= submit_tag t("global.canpaigs.search") %>
+  <% end %>
+  <div class="clearfix"> </div>
+</div>
 <div class="products">
   <div class="container">
     <% if params[:id] %>
@@ -21,41 +14,47 @@
     <% else %>
       <h2><%=  t("global.header.product") %></h2>
     <% end %>
-
     <div class="col-md-9">
       <div class="content-top1">
         <% @products.each do |product| %>
-          <div class="col-md-4 col-md4" style="margin-bottom: 10px">
+          <div class="col-md-4 col-md4" style="margin-bottom: 10px" id="<%= product.id %>">
             <div class="col-md1 simpleCart_shelfItem">
-               <% product.images.each do |image|%>
-                  <%= image_tag image.variant(resize_to_limit: [100, 500]) %>
+              <% product.images.each do |image|%>
+              <%= image_tag image.variant(resize_to_limit: [100, 500]) %>
             <% end %>
                 <h3><%= link_to product.name, product_path(product.id) %></h3>
                 <div class="price">
                     <h5 class="item_price">$<%= product.price %></h5>
                     <div>
-
-                    <%= link_to t("global.canpaigs.addc"), cart_path(product), remote: true, class: 'btn btn-primary' %>
-
+                    <%= link_to t("global.canpaigs.addc"), cart_path(product),remote: true, class: 'btn btn-primary' %>        
                     </div>
                 </div>
-            </div>
-
+            </div>  
           </div>
         <% end %>
       <div class="clearfix"> </div>
-
-
       </div>
     </div>
       <%= render 'shared/filter' %>
     <div class="clearfix"> </div>
   </div>
 </div>
-
-
-
-
-
-
-
+<script type="text/javascript">
+  $('#tags').autocomplete({
+  source: function (request, response) {
+    $.ajax({
+      url: "/products",
+      data: { search: request.term },
+      dataType: 'json',
+      success: function (data) {
+        response($.map(data, function (dataItem) {
+          return {data: dataItem.id, value: dataItem.name };
+        }));
+      },
+    });
+  },
+  select: function(event, ui) {
+    window.location.assign('http://localhost:3000/products/' + ui.item.data);
+  },
+});
+</script>

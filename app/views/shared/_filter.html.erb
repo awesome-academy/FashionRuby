@@ -1,18 +1,20 @@
 <div class="col-md-3 product-bottom">
   <div class=" rsidebar span_1_of_left">
-    <h3 class="cate">   <%=  t("global.footer.category") %></h3>
-    <ul class="menu-drop">
-      <% @catelogies.each do |catelogy| %>
+    <h3 class="cate">Categories</h3>
+    <ul class="menu-drop active">
+      
         <li class="item1">
-          <%= link_to catelogy.name, all_path(id: catelogy.id) %>
+          <% @catelogies.each do |catelogy| %>
+            
+            <input type="checkbox" name="<%= catelogy.name%>" id="action" value='<%= catelogy.name %>' />
+          <% end %>
         </li>
-      <% end %>
+   
     </ul>
   </div>
-
   <div class=" rsidebar span_1_of_left">
-    <h3 class="cate"><%=t("global.canpaigs.price")%></h3>
-       <ul class="menu-drop">
+    <h3 class="cate">Price</h3>
+      <ul class="menu-drop">
         <li class="item1"><%= link_to "0 - 1000",:price => "1000" %></li>
         <li class="item1"><%= link_to "1000 - 3000",:price => "3000" %></li>
         <li class="item1"><%= link_to "3000 - 5000", :price => "5000"%></li>
@@ -20,25 +22,6 @@
         <li class="item1"><%= link_to "10000 - +oo",:price => "0"%></li>
       </ul>
   </div>
-
-  <script type="text/javascript">
-    $(function() {
-        var menu_ul = $('.menu-drop > li > ul'),
-               menu_a  = $('.menu-drop > li > a');
-        menu_ul.hide();
-        menu_a.click(function(e) {
-            // e.preventDefault();
-            if(!$(this).hasClass('active')) {
-                menu_a.removeClass('active');
-                menu_ul.filter(':visible').slideUp('normal');
-                $(this).addClass('active').next().stop(true,true).slideDown('normal');
-            } else {
-                $(this).removeClass('active');
-                $(this).next().stop(true,true).slideUp('normal');
-            }
-        });
-    });
-  </script>
   <div class="tag">
     <h3 class="cate">Hots</h3>
       <div class="tags">
@@ -53,3 +36,21 @@
       </div>
   </div>
 </div>
+<script type="text/javascript">
+  $('.active > li > input').click(function () {
+    if ($(this).prop('checked', true)){
+      var name = $(this).attr('value')
+      console.log(name);
+      $.ajax({
+        url: "/products",
+        type: "get",
+        data: {id: name}
+      })  
+    }  
+    else{
+      alert("no")
+    }
+  });  
+
+
+</script>

@@ -65,8 +65,10 @@ vi:
       quantity: "Số lượng"
       sub: "Tổng hóa đơn"
       addc: "Thêm vào giỏ"
-
-
+    products:
+      notication: "dung lượng ảnh quá lớn"
+      errorImage: "định dạng không hợp lệ"
+      dataImage: "đảm bảo dưới 5mb"
 
     footer:
       share: "Chia sẻ face book"

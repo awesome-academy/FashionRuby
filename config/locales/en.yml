@@ -56,7 +56,10 @@ en:
        quantity: "Quantity"
        sub: "Total"
        addc: "Add Cart"
-
+    products:
+      notication: "Maximum file size is 5MB. Please choose a smaller file."
+      errorImage: "must be a valid image format"
+      dataImage: "should be less than 5MB"
 
 
     footer:

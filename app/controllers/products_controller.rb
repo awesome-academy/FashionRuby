@@ -11,7 +11,11 @@ class ProductsController < ApplicationController
     @catelogy = Catelogy.find_by id: params[:id]
     @catelogies = Catelogy.all
     if params[:search]
-      @products = Product.where(["lower(name) LIKE ?","%#{params[:search].downcase}%"])
+      @products = Product.search(params[:search])
+      respond_to do |format|
+        format.html
+        format.json { render json: @products }
+      end
       elsif params[:id]
         @products = @catelogy.products
       elsif params[:price]
@@ -87,4 +91,3 @@ class ProductsController < ApplicationController
       redirect_to root_url if @product.nil?
   end
 end
-
