@@ -32,14 +32,21 @@
             <%= @product.name %>
         </h2>
         <div class="available">
-            <h6>Available Options :</h6>
-            <li> Size:
+            <li>
+                <%= t("global.canpaigs.size") %>:
                 <%= @product.size %>
             </li>
+            <% if @product.amount.to_i >= 1 %>
             <li>
-                So luong :
+                <%= t("global.canpaigs.quantity") %> :
                 <%= @product.amount %>
             </li>
+            <% else %>
+            <li>
+                <%= t("global.canpaigs.quantity") %> :
+                <%= 0 %>
+            </li>
+            <% end %>
             <div id="rating1">count:
                 <%= @product.ratings.count %>
             </div>
@@ -70,7 +77,7 @@
             <% end %>
             <label class="add-to item_price">$
                 <%= @product.price %></label>
-            <%= link_to "Add To Cart", cart_path, class: 'btn btn-primary' %>
+            <%= link_to t("global.canpaigs.addc"), cart_path, remote: true, class: 'btn btn-primary' %>
             </button>
         </div>
     </div>
@@ -85,7 +92,8 @@
             </a>
             <div class="price">
                 <h5 class="item_price">$300</h5>
-                <a href="#" class="item_add">Add To Cart</a>
+                <a href="#" class="item_add">
+                    <%= t("global.canpaigs.addc") %></a>
                 <div class="clearfix"> </div>
             </div>
         </div>
@@ -97,7 +105,8 @@
             </a>
             <div class="price">
                 <h5 class="item_price">$300</h5>
-                <a class="item_add">Add To Cart</a>
+                <a class="item_add">
+                    <%= t("global.canpaigs.addc") %></a>
                 <div class="clearfix"> </div>
             </div>
         </div>
@@ -106,4 +115,3 @@
 </div>
 </div>
 <%end%>
-9:05

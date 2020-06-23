@@ -4,7 +4,8 @@ class StaticPagesController < ApplicationController
     @buy1free = Product.all.limit(1)
     @canpaign = Canpaign.where(status: true).first
     @bestseller =Product.best_saler
-    end
+  end
+
   def products
     count_order=[]
     Product.all.each do |product|
