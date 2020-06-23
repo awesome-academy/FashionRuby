@@ -1,18 +1,13 @@
 <div class="col-md-8">
-        <div class="card-body">
-          <div class="alert alert-primary" role="alert">
-            <h4 class="card-title">➤<%= @canpaign.name %>:</h4>
-               <h1 style="border-style:double" class="card-title"><%= @canpaign.content %></h1>
-             <h1  class="ca"><%= @canpaign.status %> ✔</h1> <p class="card-text"><small class="text-muted"><%= @canpaign.created_at %></small></p>
-          </div>
-          <%= link_to t("global.canpaigs.delete"), @canpaign, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-warning" %>
-          <%= link_to t("global.canpaigs.edit"), edit_admin_canpaign_path(@canpaign.id),  class: "btn btn-info" %>
+      <div class="card-body">
+        <div class="alert alert-primary" role="alert">
+          <h4 class="card-title">➤<%= @canpaign.name %>:</h4>
+             <h1 style="border-style:double" class="card-title"><%= @canpaign.content %></h1>
+           <h1  class="ca"><%= @canpaign.status %> ✔</h1> <p class="card-text"><small class="text-muted"><%= @canpaign.created_at %></small></p>
         </div>
+        <%= link_to t("global.canpaigs.delete"), @canpaign, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-warning" %>
+        <%= link_to t("global.canpaigs.edit"), edit_admin_canpaign_path(@canpaign.id),  class: "btn btn-info" %>
       </div>
     </div>
   </div>
-
-
-
-
-
+</div>

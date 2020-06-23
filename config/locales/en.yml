@@ -50,6 +50,9 @@ en:
        pass1: "Password confirmation"
        name: "Name"
        search: "Search"
+       addc: "Add To Cart"
+    products:
+      notication: "Maximum file size is 5MB. Please choose a smaller file."
 
 
 

@@ -28,7 +28,6 @@ class RatingsController < ApplicationController
   end
 
 private
-
   def correct_user
     @rating = current_user.ratings.build product_id: @product.id
     redirect_to root_url if @rating.nil?

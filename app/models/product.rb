@@ -18,7 +18,6 @@ class Product < ApplicationRecord
               message: "must be a valid image format" },
       size: { less_than: 5.megabytes,
           message: "should be less than 5MB" }
-
   default_scope -> { order(created_at: :desc) }
   validates :images,
   		content_type: { in: %w[image/jpeg image/gif image/png],
@@ -27,6 +26,8 @@ class Product < ApplicationRecord
   				message: "should be less than 5MB" }
     scope :price, -> (a,b){where("price >= #{a} AND price < #{b}")}
     scope :price1, -> {where("price >= 10000")}
-  
+  def self.search(term)
+    where(["lower(name) LIKE ?","%#{term.downcase}%"])
+  end
 end
 
