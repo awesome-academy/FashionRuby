@@ -12,6 +12,7 @@ en:
       20offer: "25% offer"
       30offer: "35% offer"
       new: "New Deal"
+      registration: "registration"
   global:
     footer:
       share: "Share On Face Book"
@@ -28,6 +29,7 @@ en:
        res: "Register"
        adminmanager: "Management"
        allpr: "All Products"
+       adminmanager2: "Management Orders"
     canpaigs:
        create1: "Add - Canpaigns"
        view: "View - Canpaigns"
@@ -56,11 +58,17 @@ en:
        quantity: "Quantity"
        sub: "Total"
        addc: "Add Cart"
+       acct: "Accept"
+       acct1: "Accepted"
+       id: "ID"
+       name: "Name"
+       setting: "Setting"
+       statuss: "Status"
+
     products:
       notication: "Maximum file size is 5MB. Please choose a smaller file."
       errorImage: "must be a valid image format"
       dataImage: "should be less than 5MB"
-
 
     footer:
       share: "Share on face book"

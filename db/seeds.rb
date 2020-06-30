@@ -8,15 +8,16 @@
 
 
 
-['men', 'women', 'kisd', 'shoes'].each do |catelogy|
-  Catelogy.create(name: catelogy)
+# ['men', 'women', 'kisd', 'shoes'].each do |catelogy|
+#   Catelogy.create(name: catelogy)
+# end
+
+10.times do |n|
+  Product.create!(name: "Dolce gapagang#{n}" ,
+    catelogy_id: 1,
+    price: 1000,
+    size: 5)
 end
-
-Product.create!(name: 'Dolce gapagang',
-        catelogy_id: 1,
-        price: 1000,
-        size: 5)
-
 
 
 

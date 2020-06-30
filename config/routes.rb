@@ -27,9 +27,10 @@ Rails.application.routes.draw do
      resources  :canpaigns
      resources :orders
      namespace :admin do
-     resources :base
-     resources :products
-     resources  :canpaigns
+       resources :base
+       resources :products
+       resources :canpaigns
+       resources :orders
      end
   end
 end

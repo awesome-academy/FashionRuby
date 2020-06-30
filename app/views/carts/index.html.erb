@@ -1,72 +1,84 @@
 <div class="button-action">
-
-        <%= t("global.canpaigs.continue") %></a>
-
-            </div>
-            <div class="container">
-              <div class="check-out">
-                <h2><%= t("global.canpaigs.cart")%></h2>
-                <p>
-                 <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><%= t("global.canpaigs.buy2")%></a>
-                </p>
-                <%= form_for @order do |f| %>
-                <div class="row">
-                  <div class="col">
-                    <div class="collapse multi-collapse" id="multiCollapseExample1">
-                      <div class="card card-body">
-                            <% if logged_in?%>
-                                <%= f.hidden_field :user_id, value: current_user.id %>
-                            <% else%>
-                                <%= f.hidden_field :user_id, value: 1 %>
-                             <% end %>
-                                <label for="fname"><i class="fa fa-user"></i>   <%=  t("global.canpaigs.productname") %></label>
-                                <%= f.text_field :Name %>
-
-                                <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                                <%= f.text_field :Email %>
-
-                                <label for="adr"><i class="fa fa-address-card-o"></i> <%=  t("global.canpaigs.adress") %></label>
-                                <%= f.text_area :Address %>
-
-                                <label for="city"><i class="fa fa-institution"></i> <%=  t("global.canpaigs.phone") %></label>
-                                <%= f.text_field :Phone %>
-
-                                <%= f.submit t("global.canpaigs.continue") , class: 'btn'%>
-                      </div>
+    <%= link_to t("global.canpaigs.continue"), home_path %></a>
+</div>
+<div class="container">
+    <div class="check-out">
+        <h2>
+            <%= t("global.canpaigs.cart")%>
+        </h2>
+        <p>
+            <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                <%= t("global.canpaigs.buy2")%></a>
+        </p>
+        <%= form_for @order do |f| %>
+        <div class="row">
+            <div class="col">
+                <div class="collapse multi-collapse" id="multiCollapseExample1">
+                    <div class="card card-body">
+                        <% if logged_in?%>
+                        <%= f.hidden_field :user_id, value: current_user.id %>
+                        <% else%>
+                        <%= f.hidden_field :user_id, value: 1 %>
+                        <% end %>
+                        <label for="fname"><i class="fa fa-user"></i>
+                            <%=  t("global.canpaigs.productname") %></label>
+                        <%= f.text_field :Name %>
+                        <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                        <%= f.text_field :Email %>
+                        <label for="adr"><i class="fa fa-address-card-o"></i>
+                            <%=  t("global.canpaigs.adress") %></label>
+                        <%= f.text_area :Address %>
+                        <label for="city"><i class="fa fa-institution"></i>
+                            <%=  t("global.canpaigs.phone") %></label>
+                        <%= f.text_field :Phone %>
+                        <%= f.submit t("global.canpaigs.continue") , class: 'btn'%>
                     </div>
-                  </div>
-                  </div>
-
-                <table >
-                  <tr>
-                    <th>Item</th>
-                    <th><%=  t("global.canpaigs.quantity") %></th>
-                    <th><%=  t("global.canpaigs.price") %></th>
-                    <th><%=  t("global.canpaigs.sub") %></th>
-                </tr>
-                <%= f.fields_for :orderdetails do |ff| %>
-                <tr>
-                    <td class="ring-in">
-                      <div class="sed">
+                </div>
+            </div>
+        </div>
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>
+                    <%=  t("global.canpaigs.quantity") %>
+                </th>
+                <th>
+                    <%=  t("global.canpaigs.price") %>
+                </th>
+                <th>
+                    <%=  t("global.canpaigs.sub") %>
+                </th>
+            </tr>
+            <%= f.fields_for :orderdetails do |ff| %>
+            <tr>
+                <td class="ring-in">
+                    <div class="sed">
                         <%= ff.hidden_field :product_id %>
-                        <h5><%= ff.object.product.name %></h5>
-                      </div>
-                    <div class="clearfix"> </div></td>
-                    <td>
-                        <%= ff.text_field :quantity %>
-                    </td>
-                    <td><%= ff.object.product.price %></td>
-
-                    <td><%= ff.object.product.price * ff.object.quantity  %></td>
-                    <td> <%= link_to t("global.canpaigs.delete"), cart_path(ff.object.product.id), method: :delete,remote: true, class: 'btn btn-primary destroy'%></td>
-                    <td></td>
-                </tr>
-                <% end %>
-            </table>
+                        <h5>
+                            <%= ff.object.product.name %>
+                        </h5>
+                    </div>
+                    <div class="clearfix"> </div>
+                </td>
+                <td>
+                    <%= ff.text_field :quantity %>
+                </td>
+                <td>
+                    <%= ff.object.product.price %>
+                </td>
+                <td>
+                    <%= ff.object.product.price * ff.object.quantity  %>
+                </td>
+                <td>
+                    <%= link_to t("global.canpaigs.delete"), cart_path(ff.object.product.id), method: :delete,remote: true, class: 'btn btn-primary destroy'%>
+                </td>
+                <td></td>
+            </tr>
             <% end %>
-            <hr>
-
-            <p>
+        </table>
+        <% end %>
+        <hr>
+        <p>
             <%=  t("global.canpaigs.sub") %>
             <div id="totaldetail" class="price" style="color:black"><b>
                     <%= @total %>
