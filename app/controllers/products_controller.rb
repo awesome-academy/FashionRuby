@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
     @catelogy = Catelogy.find_by id: params[:id]
     @catelogies = Catelogy.all
     if params[:search]
-      @products = Product.search(params[:search])
+      @products = Product.search_one(params[:search])
       respond_to do |format|
         format.html
         format.json { render json: @products }

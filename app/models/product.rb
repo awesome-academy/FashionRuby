@@ -18,19 +18,19 @@ class Product < ApplicationRecord
   scope :prCatelogy, ->(id){Product.where("id in (#{idcate})", id).limit(4) }
   validates :images,
       content_type: { in: %w[image/jpeg image/gif image/png],
-              message: t("global.products.errorImage") },
+              message: 't("global.products.errorImage")' },
       size: { less_than: 5.megabytes,
-          message:t("global.products.dataImage") }
+          message: 't("global.products.dataImage")' }
 
   default_scope -> { order(created_at: :desc) }
   validates :images,
       content_type: { in: %w[image/jpeg image/gif image/png],
-              message: t("global.products.errorImage") },
+              message: 't("global.products.errorImage")' },
       size: { less_than: 5.megabytes,
-          message: t("global.products.dataImage") }
+          message: 't("global.products.dataImage")' }
     scope :price, -> (a,b){where("price >= #{a} AND price < #{b}")}
     scope :price1, -> {where("price >= 10000")}
-    scope :search, -> (term){where(["lower(name) LIKE ?","%#{term.downcase}%"])}
+    scope :search_one, -> (term){where(["lower(name) LIKE ?","%#{term.downcase}%"])}
 end
 
 

@@ -12,6 +12,7 @@ vi:
       20offer: "giảm 25%"
       30offer: "giảm 35%"
       new: "Hàng mới "
+      registration: "Đăng kí"
 
   global:
     header:
@@ -31,6 +32,7 @@ vi:
       res: "Đăng kí"
       adminmanager: "Quản lí "
       allpr: "Tất cả sản phẩm"
+      adminmanager2: "Quản lí Hóa Đơn"
 
 
     canpaigs:
@@ -65,10 +67,18 @@ vi:
       quantity: "Số lượng"
       sub: "Tổng hóa đơn"
       addc: "Thêm vào giỏ"
+      acct: "Chấp nhận"
+      acct1: "Đã chấp thuận"
+      id: "STT"
+      name: "Tên"
+      setting: "Cài đặt"
+      statuss: "Trạng thái"
+
     products:
       notication: "dung lượng ảnh quá lớn"
       errorImage: "định dạng không hợp lệ"
       dataImage: "đảm bảo dưới 5mb"
+
 
     footer:
       share: "Chia sẻ face book"

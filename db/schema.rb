@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 2020_06_09_142510) do
     t.text "Email"
     t.text "Address"
     t.integer "Phone"
+    t.boolean "status", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
