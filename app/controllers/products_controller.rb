@@ -11,15 +11,19 @@ class ProductsController < ApplicationController
     @bestseller= sort.take(8)
     @catelogy = Catelogy.find_by id: params[:id]
     @catelogies = Catelogy.all
+    @products = []
     if params[:search]
       @products = Product.search_one(params[:search])
       respond_to do |format|
         format.html
         format.json { render json: @products }
       end
-      elsif params[:id]
-        @products = @catelogy.products
-      elsif params[:price]
+    elsif params[:id]
+        catelogys = Catelogy.find params[:id]
+        catelogys.each do |catelogy|
+           @products += catelogy.products
+        end
+    elsif params[:price]
         case  params[:price]
           when '1000'
             @products = Product.price(0,1000)
@@ -32,7 +36,7 @@ class ProductsController < ApplicationController
           when '0'
             @products = Product.price1
           end
-      else
+    else
         @products = Product.all
     end
   end
@@ -44,10 +48,6 @@ class ProductsController < ApplicationController
     @comment = @product.comments.build
     @comments = @product.comments.paginate(page: params[:page], per_page: 5)
     @products = Product.prCatelogy(@product)
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def new

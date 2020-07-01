@@ -1,0 +1,16 @@
+<% @products.each do |product| %>
+          <div class="col-md-4 col-md4" style="margin-bottom: 10px" id="<%= product.id %>">
+            <div class="col-md1 simpleCart_shelfItem">
+              <% product.images.each do |image|%>
+              <%= image_tag image.variant(resize_to_limit: [100, 500]) %>
+            <% end %>
+                <h3><%= link_to product.name, product_path(product.id) %></h3>
+                <div class="price">
+                    <h5 class="item_price">$<%= product.price %></h5>
+                    <div>
+                    <%= link_to t("global.canpaigs.addc"), cart_path(product),remote: true, class: 'btn btn-primary' %>        
+                    </div>
+                </div>
+            </div>  
+          </div>
+        <% end %>
