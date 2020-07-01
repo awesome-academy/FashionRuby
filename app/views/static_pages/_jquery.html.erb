@@ -1,0 +1,168 @@
+<button class="open-button" onclick="openForm()">Open Form</button>
+
+<div class="form-popup" id="myForm">
+  <form action="/action_page.php" class="form-container">
+    <h1>VIP</h1>
+<div class="input-container">
+    <i class="fa fa-user icon"></i>
+    <input class="input-field" type="text" placeholder="Username" name="Name">
+  </div>
+
+  <div class="input-container">
+    <i class="fa fa-envelope icon"></i>
+    <input class="input-field" type="text" placeholder="Email" name="email">
+  </div>
+
+ <label for="" name="gender" >Gender</label>
+  <div class="input-container">
+  <input type="radio" name="gender"  value="0" > Nam<br>
+<input type="radio" name="gender" value="1"  > Nữ<br>
+</div>
+
+    <button  type="button" class="btn cancel"  value="Submit">Submit</button>
+
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+
+</body>
+</html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<!-- bêauty -->
+<form action="/action_page.php" style="max-width:500px;margin:auto">
+  <h2>Register Form</h2>
+  <br>
+  <hr>
+
+<button  id="default" type="button"  value="Random">Random</button>
+  <br> <hr>
+
+  <div class="input-container">
+    <i class="fa fa-user icon"></i>
+    <input class="input-field" type="text" placeholder="Username" name="Name">
+  </div>
+
+  <div class="input-container">
+    <i class="fa fa-envelope icon"></i>
+    <input class="input-field" type="text" placeholder="Email" name="email">
+  </div>
+
+ <label for="" name="gender" >Gender</label>
+  <div class="input-container">
+  <input type="radio" name="gender"  value="0" > Nam<br>
+<input type="radio" name="gender" value="1"  > Nữ<br>
+</div>
+ <label for="" >Langues</label>
+<select name="language" >
+  <option value="" selected disabled hidden>-------</option>
+  <option value="Anh" >English</option>
+  <option value="2">germany</option>
+  <option value="3">france</option>
+  <option value="4">japan</option>
+  <option value="5">korean</option>
+</select>
+    <label for="" name = "skills"> Skills
+
+        </label>
+  <div class="input-container">
+    <input type="checkbox" name="skills" value="1"  > Java
+    <hr>
+    <input type="checkbox" name="skills" value=".2"> .Net
+    <hr>
+    <input type="checkbox" name="skills" value="3"> PHP
+    <hr>
+    <input type="checkbox" name="skills" value="4" > RUBY
+    <hr>
+    <input type="checkbox" name="skills" value="5"> NodeJs
+</div>
+
+<hr>
+    <label for="">Admin</label>
+    <input name="Admin" type="checkbox" value="0"  >
+<hr>
+    <label for="">District</label>
+    <select id="cars" name="cars">
+        <option value="" selected disabled hidden>-------</option>
+      <option value="1">Ha Dong</option>
+      <option value="2">Me tri</option>
+      <option value="3">Hai Ba Trung</option>
+    </select>
+<hr>
+    <label for="">Precint</label>
+    <select id="cars" name="cars">
+        <option value="" selected disabled hidden>-------</option>
+      <option value="1">Nguyen Trai</option>
+      <option value="2">Me Tri Ha</option>
+      <option value="3">Minh Khai</option>
+    </select>
+</div>
+<br> <hr>
+  <button class="hello" type="button"  value="Submit">Submit</button>
+</form>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('.hello').bind('click', function(event) {
+    alert( $('input[name="Name"]').val() );
+    alert( $('input[name="email"]').val() );
+    alert( $('input[name="gender"]:checked').val() );
+    alert( $('select[name="language"]').val() );
+    alert( $('input[name="skills"]:checked').each(function(){
+    alert( $(this).val());
+    alert( $('input[name="Admin"]').prop('checked',0 ));
+    }));
+ });
+
+    });
+</script>
+
+<script type="text/javascript">
+  $('#default').bind('click', function(event) {
+    var persons = [{name: "Dinh Son",email:"son261197@gmail.com",gender:0,language:4,skills:[3,4,5],admin:0,cars:1}
+    ,{name: "Thai ",email:"thai261197@gmail.com",gender:1,language:'Anh',skills:[1],admin:0,cars:2},
+    {name: "Tung",email:"tungit@gmail.com",gender:0,language:'1',skills:[1,2],admin:0,cars:3}]
+
+    // var persons;
+    // var number =Math.floor((Math.random()* 10 ) + 1;
+    //   if (number > 0 & number <= 3) {
+    //     persons = 0;
+    //   }else if (number > 3 & number <= 6) {
+
+    //     persons = 1;
+    //   } else {
+    //     persons = 2;
+
+    //   };
+
+     $('input[name="Name"]').val(persons[0].name);
+     $('input[name="email"]').val(persons[0].email);
+     $('input[name="gender"][value="' + persons[0].gender + '"]').prop('checked',true);
+     $('select[name="language"]').val(persons[0].language);
+     persons[0].skills.forEach(function(a){
+     $('input[name="skills"][value="'+a+'"]').prop('checked',true);
+        if (persons[0].admin == 0) {
+        $('input[name="Admin"]').prop('checked',true );
+        } else {
+          $('input[name="Admin"]').prop('checked',false);
+
+        };
+         $('select[name="cars"]').val(persons[0].cars);
+
+     });
+
+    });
+
+</script>

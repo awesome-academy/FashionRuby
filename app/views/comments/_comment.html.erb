@@ -1,0 +1,17 @@
+<div id="comment-<%= comment.id %>">
+  <b><span  ><%= comment.user.name %>:</span></b>
+  <span class='form-control'  ><%= comment.content %>  </span>
+  <% if comment.user_id == current_user.id %>
+  <% if logged_in? %>
+<!--  <%= link_to t("global.canpaigs.delete"), "javascript:void(0);", datainput: { confirm: t("global.canpaigs.delete") },dataproduct: "#{comment.product.id}", data: "#{comment.id}", class: "btn btn-primary btn-xs" %>
+-->              <% end %>
+<% end %>
+<span class="timestamp" >
+  <br>
+  <i><%= t("global.canpaigs.send") %> <%= time_ago_in_words(comment.created_at) %>
+    <%= t("global.canpaigs.ago") %></i><hr>
+  </span>
+</div>
+
+
+

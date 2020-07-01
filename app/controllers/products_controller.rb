@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :logged_in?, only: [:create, :destroy]
   before_action :destroy_product, only: :destroy
   def index
     @catelogies = Catelogy.order :catelogy_name
@@ -37,7 +38,11 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find params[:id]
+    # @comment = Comment.new
+    @product= Product.find(params[:id])
+    @comments = @product.comments
+    @comment = @product.comments.build
+    @comments = @product.comments.paginate(page: params[:page], per_page: 5)
     @products = Product.prCatelogy(@product)
     respond_to do |format|
       format.html
@@ -51,6 +56,7 @@ class ProductsController < ApplicationController
   end
 
   def create
+    @product = current_user.products.build product_params
     @product = Product.new product_params
     @product.images.attach product_params[:images]
     if @product.save
@@ -80,7 +86,6 @@ class ProductsController < ApplicationController
   end
 
   private
-
   def product_params
     params.require(:product).permit(
       :name, :catelogy_id , :price, :size, images: [])

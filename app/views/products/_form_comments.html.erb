@@ -1,0 +1,47 @@
+<div class="panel panel-success">
+  <div class="panel-heading ">
+    <span>  <%= t("global.canpaigs.rating") %></span>
+    <%= render "comments/form_text_comment" %>
+    <% if @comments.empty? %>
+    <p>✏</p>
+    <% else %>
+    <div id="comment_count">
+      <%= @product.comments.count %>
+      <%= @product.comments.count == 1 ? t("index.comment") : t("index.comments") %>
+    </div>
+    <div id = "comments">
+      <%= render @comments %>
+    </div>
+    <% end %>
+  </div>
+  <%= will_paginate @comments %>
+</div>
+<!-- <script type="text/javascript">
+$(document).ready(function() {
+  $(" .btn").bind('click', function(event) {
+    var id = $(this).attr('data');
+    var ids = $(this).attr('dataproduct');
+
+    var token = $('meta[name=csrf-token]').attr( 'content' );
+      $.ajaxSetup( {
+        beforeSend: function ( xhr ) {
+        xhr.setRequestHeader( 'X-CSRF-Token', token );
+            }
+        });
+    $.ajax({
+      url: 'http://localhost:3000/en/products/' + ids + '/comments/' + id,
+      dataType: 'json',
+      method: 'POST',
+      data:{
+        _method: 'DELETE',
+        id: id
+      }
+    })
+      .done(function(e){
+        $('#comment-'+ id).remove();
+      });
+    });
+    });
+</script>
+-->
+

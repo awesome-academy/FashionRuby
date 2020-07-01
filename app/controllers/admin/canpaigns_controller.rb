@@ -21,7 +21,7 @@ class Admin::CanpaignsController < Admin::BaseController
   def destroy
     @canpaign = Canpaign.find params[:id]
     @canpaign.destroy
-    redirect_to canpaigns_path
+    redirect_to admin_canpaigns_path
   end
 
   def update
