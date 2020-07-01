@@ -6,7 +6,7 @@ vi:
       title3: "Xin Mời "
       addcart: "Thêm vào giỏ"
       buy: "Mua 1 tặng 1"
-      onsale: "Gỉam giá"
+      onsale: "Giảm giá"
       bestseller: "Bán chạy "
       50offer: "giảm 50%"
       20offer: "giảm 25%"
@@ -42,7 +42,7 @@ vi:
       delete: "Xóa"
       edit: "Sửa"
       update: "Chỉnh Sửa"
-      savechange: "Lưu Thay Đổi"
+      savechange: " 🖌 Lưu Thay đổi:"
       allusers: "Danh sách Khách"
       contact: "Liên hệ"
       camname: "Tên Khuyến Mại"
@@ -73,12 +73,16 @@ vi:
       name: "Tên"
       setting: "Cài đặt"
       statuss: "Trạng thái"
+      rating: "Đánh Giá Ngay!"
+      comment: "Viết bình luận..."
+      send: "Gửi "
+      ago: "trước"
+      cancel: "hủy bỏ"
 
     products:
       notication: "dung lượng ảnh quá lớn"
       errorImage: "định dạng không hợp lệ"
       dataImage: "đảm bảo dưới 5mb"
-
 
     footer:
       share: "Chia sẻ face book"
@@ -100,5 +104,5 @@ vi:
   enums:
     canpaign:
       status:
-        open: "Mở"
-        closed: "Đóng"
+        on1: "Mở"
+        off1: "Đóng"

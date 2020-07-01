@@ -5,7 +5,8 @@ Rails.application.routes.draw do
      get 'users/new'
      get '/help', to: 'static_pages#help'
      get '/home', to: 'static_pages#home'
-     get '/contact', to: 'static_pages#contact'
+
+     get '/about', to: 'static_pages#about'
      get '/all', to: 'static_pages#products'
      get '/signup', to: 'users#new'
      get'/login',to: 'sessions#new'
@@ -17,13 +18,15 @@ Rails.application.routes.draw do
      resources :order_items, only: [:create, :update, :destroy]
      resource :cart
      resources :products do
-     resource :ratings
+         resources :comments
+         resource :ratings
        end
      resources :catelogies, only: :show
      resources :users do
         member do
             end
         end
+
      resources  :canpaigns
      resources :orders
      namespace :admin do

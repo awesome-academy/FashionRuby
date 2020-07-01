@@ -37,7 +37,7 @@ en:
        delete: "Delete"
        edit: "Edit"
        update: "Update"
-       savechange: "Save change"
+       savechange: " 🖌 Save change:"
        allusers: "All Users"
        contact: "Contact"
        camname: "Campaigns Name"
@@ -64,6 +64,11 @@ en:
        name: "Name"
        setting: "Setting"
        statuss: "Status"
+       rating: "Rating Now!"
+       comment: "Compose new comment..."
+       send: "Send "
+       ago: "ago"
+       cancel: "cancel "
 
     products:
       notication: "Maximum file size is 5MB. Please choose a smaller file."
@@ -92,5 +97,5 @@ en:
   enums:
     canpaign:
       status:
-        open: "ON"
-        closed: "OFF"
+        on1: "ON"
+        off1: "OFF"

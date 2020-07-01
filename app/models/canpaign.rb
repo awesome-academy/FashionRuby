@@ -4,5 +4,5 @@ class Canpaign < ApplicationRecord
   accepts_nested_attributes_for :sales
   validates :name, presence: true
   scope :canpaigns, ->{order(created_at: :desc).limit 3}
-  enum status: {open: true, closed: false}
+  enum status: {on1: true, off1: false}
 end

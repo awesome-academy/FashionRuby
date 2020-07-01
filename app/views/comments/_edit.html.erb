@@ -1,0 +1,61 @@
+<div class="modal" id="myModal">
+  <%= form_for  [@comment.product, @comment] do |f| %>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body">
+        <%= label_tag t("global.canpaigs.savechange")  %>
+        <%= f.text_area :content, placeholder:  t("global.canpaigs.comment") %>
+        <%= f.hidden_field :id, value:  @comment.id %>
+        <%= f.hidden_field :product_id, value: @product.id %>
+      </div>
+      <div class="modal-footer" >
+        <div id="comment-<%= @comment.id %>">
+   <%= f.button t("global.canpaigs.send"),  class: "btn2 btn btn-primary" %>
+   <button type="button" class="btn btn-danger" data-dismiss="modal"> <%= t("global.canpaigs.cancel") %></button>
+ </div>
+      </div>
+    </div>
+  </div>
+</div>
+<a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal"> <%= t("global.canpaigs.edit") %></a>
+<% end %>
+
+     <script type="text/javascript">
+  $(document).ready(function() {
+  $(".btn2 ").on('click',function(event) {
+    event.preventDefault();
+    var comment_id = $('.modal-body [name="comment[id]"]').val();
+    var product_id = $('.modal-body [name="comment[product_id]"]').val();
+    var content    = $('.modal-body [name="comment[content]"]').val();
+    var token = $('meta[name=csrf-token]').attr( 'content' );
+  $.ajaxSetup( {
+        beforeSend: function ( xhr ) {
+        xhr.setRequestHeader( 'X-CSRF-Token', token );
+            }
+        });
+  $.ajax({
+      url: 'http://localhost:3000/en/products/' + product_id + '/comments/'+ comment_id  ,
+       url: 'http://localhost:3000/en/products/' + ids + '/comments/' + id,
+      dataType: 'html',
+      method: 'PATCH',
+      data:{
+          'comment[id]' :  comment_id
+          'comment[product_id]': product_id,
+          'comment[content]' :content,
+         }
+        })
+      .done(function(e){
+        //$('#comment-'+ create).val();
+        $('#comments-' + comment_id ).replace('data');
+
+      });
+
+   });
+   });
+
+
+</script>
+
+

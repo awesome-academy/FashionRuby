@@ -1,0 +1,49 @@
+$('#default').bind('click', function(event) {
+    var myname = [
+            "Nguyen dinh son",
+            "Nguyen dinh son 1",
+            "Nguyen dinh son 2",
+            "Nguyen dinh son 3",
+            "Nguyen dinh son 5",
+          ];
+    var myemail = [
+      "Nguyen dinh son@gmail.com1",
+      "hoangvantung.it@gmail.com12",
+      "hoangvantung.it@gmail.com13",
+      "hoangvantung.it@gmail.com14",
+      "hoangvantung.it@gmail.com15",
+      "hoangvantung.it@gmail.com16",
+      "hoangvantung.it@gmail.com17",
+    ];
+     var mygender = [
+     "male",
+     "female",
+      ];
+     var mylanguage = [
+     "Anh",
+     "2",
+     "3" ,
+     "4",
+     "5"
+      ];
+
+       var myskill= [ 1, 4, ];
+
+  var randomemail = myemail[Math.floor(Math.random()*myemail.length)];
+  var randomname = myname[Math.floor(Math.random()*myname.length)];
+  var randomlanguge = mylanguage[Math.floor(Math.random()*mylanguage.length)];
+   var randomgender = mygender[Math.floor(Math.random()*mygender.length)];
+   var randomskills = myskill[Math.floor(Math.random()*myskill.length)];
+
+    $('input[name="Name"]').val(randomname);
+    $('input[name="email"]').val(randomemail);
+    $('input[name="Gender"][value="'+randomgender+'"]').prop('checked',true);
+     $('select[name="Langues"]').val(randomlanguge);
+
+     myskill.forEach(function(randomskills){
+      $('input[name="skills"][value="'+randomskills+'"]').prop('checked',true);
+     });
+
+     });
+
+     });

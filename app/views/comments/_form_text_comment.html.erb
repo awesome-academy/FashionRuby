@@ -1,0 +1,39 @@
+<div id="comment-<%= @comment.id %>">
+  <%= form_for [@product, @comment] do |f| %>
+  <%= f.text_area :content, placeholder:  t("global.canpaigs.comment") %>
+  <%= f.button t("global.canpaigs.send"),  class: "btn1 btn btn-primary" %>
+  <%= f.hidden_field :id, value:  @comment.id %>
+  <%= f.hidden_field :product_id, value: @product.id %>
+  <% end %>
+</div>
+<%= render 'comments/edit' %>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".btn1 ").on('click',function(event) {
+      event.preventDefault();
+      var product_id = $('#new_comment [name="comment[product_id]"]').val();
+      var content = $('#new_comment [name="comment[content]"]').val();
+      var token = $('meta[name=csrf-token]').attr( 'content' );
+      $.ajaxSetup( {
+        beforeSend: function ( xhr ) {
+          xhr.setRequestHeader( 'X-CSRF-Token', token );
+        }
+      });
+      $.ajax({
+        url: 'http://localhost:3000/en/products/' + product_id + '/comments/' ,
+        dataType: 'html',
+        method: 'POST',
+        data:{
+          'comment[product_id]': product_id,
+          'comment[content]' :content
+        }
+      })
+      .done(function(data){
+        //$('#comment-'+ create).val();
+        $('#comments').prepend(data);
+        $('#new_comment [name="comment[content]"]').val("");
+      });
+    });
+  });
+</script>
+
