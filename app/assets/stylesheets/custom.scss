@@ -466,3 +466,23 @@ border-box;
     background-color: rgba(0,0,0,.075);
     border-color: #8c3490;
 }
+.onsale {
+    background: #B22222;
+    box-shadow: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    height: 50px;
+    line-height: normal;
+    min-height: auto;
+    min-width: auto;
+    position: absolute;
+    left: 0;
+    text-align: center;
+    top: 0;
+    width: 50px;
+    z-index: 3;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-top: 7px;
+}

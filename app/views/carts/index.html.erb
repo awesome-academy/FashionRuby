@@ -49,6 +49,9 @@
                     <%=  t("global.canpaigs.sub") %>
                 </th>
             </tr>
+
+
+
             <%= f.fields_for :orderdetails do |ff| %>
             <tr>
                 <td class="ring-in">
@@ -64,7 +67,9 @@
                     <%= ff.text_field :quantity %>
                 </td>
                 <td>
+
                     <%= ff.object.product.price %>
+
                 </td>
                 <td>
                     <%= ff.object.product.price * ff.object.quantity  %>

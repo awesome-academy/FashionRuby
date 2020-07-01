@@ -1,3 +1,4 @@
+
 /*Author: W3layouts
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -3038,4 +3039,50 @@ body {font-family: Arial, Helvetica, sans-serif;}
 /* Add some hover effects to buttons */
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
+}
+
+
+.dropdown-menu > li > a {
+    display: block;
+
+    clear: both;
+    font-weight: 400;
+    line-height: 1.428571429;
+    color: #e928b9;
+    white-space: nowrap;
+}
+
+.onsale {
+    background: #f9ff22f2;
+    box-shadow: none;
+    color: #bb0f0f;
+    font-size: x-small;
+    font-weight: bolder;
+    height: 60px;
+    line-height: normal;
+    min-height: auto;
+    min-width: auto;
+    position: absolute;
+    left: 0;
+    text-align: center;
+    top: 0;
+    width: 50px;
+    z-index: 3;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-top: 7px;
+}
+
+
+.content-top p {
+    font-size: 1.1em;
+    color: #fa03bb;
+    line-height: 1.6em;
+    margin: 0.5em 0;
+}
+
+html, body {
+    background: rgba(255, 255, 255, 0.15);
+    font-size: 100%;
+    font-family: -webkit-pictograph;
 }

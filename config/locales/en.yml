@@ -97,5 +97,5 @@ en:
   enums:
     canpaign:
       status:
-        on1: "ON"
-        off1: "OFF"
+        open: "ON"
+        closed: "OFF"

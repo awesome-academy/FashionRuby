@@ -1,12 +1,4 @@
-<div class="footer">
-  <div class="container">
-    <div class="footer-top">
-      <div class="col-md-6 top-footer animated wow fadeInLeft" data-wow-delay=".5s">
-<div class = "fb-share-button" data-href = "http: // localhost: 3000 /" data-layout = "button" data-size = "Large" > <svg class="bi bi-reply-all-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path d="M8.079 11.9l4.568-3.281a.719.719 0 0 0 0-1.238L8.079 4.1A.716.716 0 0 0 7 4.719V6c-1.5 0-6 0-7 8 2.5-4.5 7-4 7-4v1.281c0 .56.606.898 1.079.62z"/>
-  <path fill-rule="evenodd" d="M10.868 4.293a.5.5 0 0 1 .7-.106l3.993 2.94a1.147 1.147 0 0 1 0 1.946l-3.994 2.94a.5.5 0 0 1-.593-.805l4.012-2.954a.493.493 0 0 1 .042-.028.147.147 0 0 0 0-.252.496.496 0 0 1-.042-.028l-4.012-2.954a.5.5 0 0 1-.106-.699z"/>
-</svg> <a target = "_blank" href = " https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2F&src=sdkpreparse " class = " fb-xfbml-parse-ign " > <%= t"global.footer.share"%> </a>    </div>
-        <h3></h3>
+
         <!-- comment fb -->
         <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0&appId=2329080434067072&autoLogAppEvents=1"></script>
@@ -15,6 +7,7 @@
 
 <div class="fb-comments" data-href="https://your_rails_app.com" data-numposts="5"></div>
 <br>
+<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="box_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
       <div class="clearfix"> </div>
     </div>
   </div>
@@ -23,6 +16,8 @@
       <div class="col-md-3 footer-bottom-cate animated wow fadeInLeft" data-wow-delay=".5s">
     </div>
       <div class="col-md-3 footer-bottom-cate cate-bottom animated wow fadeInRight" data-wow-delay=".5s">
+
+
              <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     Languages🌐 <b class="'btn btn-info'"></b>
@@ -35,18 +30,42 @@
                   <br>
                   <br>
         <h6><%= t"global.footer.address"%></h6>
+
         <ul>
           <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Address : 12th Avenue, 5th block, <span>Sydney.</span></li>
           <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email : <a href="mailto:info@example.com">info@example.com</a></li>
           <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>Phone : +1234 567 567</li>
         </ul>
       </div>
+
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.4000975527147!2d105.77959715088414!3d21.016671285936262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454aad38b5685%3A0xd5e1b0d5abacb8f6!2sAwesome%20Academy!5e0!3m2!1svi!2s!4v1593838253169!5m2!1svi!2s" width="1050" height="250" frameborder="0" style="border:5;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
       <div class="clearfix"> </div>
-      <p class="footer-class animated wow fadeInUp animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;"> © 2016 Youth Fashion . All Rights Reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+      <p class="footer-class animated wow fadeInUp animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;"> © 2020 Ruby Fashion . All Rights Reserved | Design by <a href=https://www.facebook.com/profile.php?id=100005961422800 target="_blank"> Đình Sơn Nguyễn - Acedamy</a> </p>
     </div>
   </div>
 </div>
 
+<script src="https://apis.google.com/js/platform.js" async defer>
+  function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
 
 
 
+</script>
+
+
+<a href="#" onclick="signOut();">Sign out</a>
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>

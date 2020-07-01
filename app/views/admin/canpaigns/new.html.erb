@@ -19,8 +19,8 @@
 
    <div class="form-group">
       <%= f.label t("global.canpaigs.value") %>
-      <%= f.number_field :value, placeholder: "....", class: 'form-control' %>
-    </div>
+       <output class="output" for="canpaign_value" id="intensity"><%= @canpaign.value %></output>
+      <%= f.range_field(:value)%>
 
 
    <div class="form-group">
@@ -30,14 +30,37 @@
     <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col"><%=  t("global.header.product") %></th>
-      <th scope="col"><%=  t("global.canpaigs.checkbox") %></th>
+
     </tr>
   </thead>
+
+  <% provide(:title, 'Products') %>
+
+
+<div class="col-md-6 top-footer1 animated wow fadeInRight" data-wow-delay=".5s">
+
+  <%= form_for products_path, method: :get do |ff| %>
+
+    <%= text_field_tag :search, params[:search],
+    placeholder: t("global.canpaigs.checkbox"), id: 'tag' %>
+    <%= submit_tag t("global.canpaigs.checkbox") %>
+  <% end %>
+  <div class="clearfix"> </div>
+   <div class="clearfix"> </div>
+</div>
+
+  <div class="container">
+    <% if params[:id] %>
+      <h2><%= @catelogy.name %></h2>
+    <% else %>
+      <h2><%=  t("global.header.product") %></h2>
+    <% end %>
   <tbody>
     <% @products.each do |product| %>
     <tr>
+
       <td><%= product.name %></td>
+
       <td> <%= f.check_box :product_ids, {:multiple => true}, product.id, nil %></td>
     </tr>
     <% end %>
@@ -50,5 +73,36 @@
  <br>
 
 </div>
+
+
+  <script type="text/javascript">
+
+$('#canpaign_value').change(function(event) {
+    $('output').text(document.querySelector('#canpaign_value').value);
+
+});
+
+  </script>
+
+
+<script type="text/javascript">
+  $('#tag').autocomplete({
+  source: function (request, response) {
+    $.ajax({
+      url: "/products",
+      data: { search: request.term },
+      dataType: 'json',
+      success: function (data) {
+        response($.map(data, function (dataItem) {
+          return {data: dataItem.id, value: dataItem.name };
+        }));
+      },
+    });
+  },
+  select: function(event, ui) {
+    window.location.assign('http://localhost:3000/products/' + ui.item.data);
+  },
+});
+</script>
 
 

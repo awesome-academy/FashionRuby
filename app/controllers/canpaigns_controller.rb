@@ -6,12 +6,17 @@ class CanpaignsController < ApplicationController
   def new
     @canpaign = Canpaign.new
     @products = Product.all
+    @products = Product.prCatelogy(@product)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
     @canpaign = Canpaign.new canpaign_params
     if  @canpaign.save
-     redirect_to admin_canpaigns_path
+      redirect_to admin_canpaigns_path
     else
     @canpaign = Canpaign.new
      render 'new'
@@ -35,6 +40,11 @@ class CanpaignsController < ApplicationController
 
   def show
     @canpaign = Canpaign.find params[:id]
+@products = Product.prCatelogy(@product)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def edit
