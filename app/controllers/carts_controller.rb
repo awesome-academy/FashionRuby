@@ -1,5 +1,8 @@
 class CartsController < ApplicationController
   def index
+    @products = Product.all.limit(4)
+    @canpaign = Canpaign.where(status: true).first
+    @sales_product_ids = @canpaign.nil? ? [] : @canpaign.products.pluck(:id)
     @order = Order.new
     unless session[:carts].nil?
       session[:carts].each do |cart|
@@ -10,6 +13,8 @@ class CartsController < ApplicationController
           orderdetail.product = product
           @order.orderdetails << orderdetail
         end
+
+
       end
       carts = session[:carts].reject{|k| k == {} }
       @total = 0
@@ -17,6 +22,7 @@ class CartsController < ApplicationController
           @total += (Product.find(n['id']).price * n['quantity'])
         end
     end
+
   end
 
   def show

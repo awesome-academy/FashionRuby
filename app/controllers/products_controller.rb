@@ -12,6 +12,9 @@ class ProductsController < ApplicationController
     @catelogy = Catelogy.find_by id: params[:id]
     @catelogies = Catelogy.all
     @products = []
+    @canpaign = Canpaign.where(status: true).first
+    @sales_product_ids = @canpaign.nil? ? [] : @canpaign.products.pluck(:id)
+
     if params[:search]
       @products = Product.search_one(params[:search])
       respond_to do |format|
@@ -43,6 +46,8 @@ class ProductsController < ApplicationController
 
   def show
     # @comment = Comment.new
+    @canpaign = Canpaign.where(status: true).first
+    @sales_product_ids = @canpaign.nil? ? [] : @canpaign.products.pluck(:id)
     @product= Product.find(params[:id])
     @comments = @product.comments
     @comment = @product.comments.build

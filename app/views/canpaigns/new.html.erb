@@ -30,6 +30,9 @@
 
     <table class="table table-hover">
   <thead>
+
+
+
     <tr>
       <th scope="col">Product</th>
       <th scope="col">Checkbox</th>
@@ -53,3 +56,22 @@
 </div>
 
 
+<script type="text/javascript">
+  $('#tags').autocomplete({
+  source: function (request, response) {
+    $.ajax({
+      url: "/products",
+      data: { search: request.term },
+      dataType: 'json',
+      success: function (data) {
+        response($.map(data, function (dataItem) {
+          return {data: dataItem.id, value: dataItem.name };
+        }));
+      },
+    });
+  },
+  select: function(event, ui) {
+    window.location.assign('http://localhost:3000/products/' + ui.item.data);
+  },
+});
+</script>

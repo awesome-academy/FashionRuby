@@ -54,8 +54,18 @@
             <div id="rating2"> ½:
                 <%= @product.ratings.average(:total) %>
             </div>
-             <label class="add-to item_price">$
-                <%= @product.price %></label>
+            <div class="info-product-price">
+                         <h5 class="item_price">
+                        <% if @sales_product_ids.include?(@product.id) %>
+                                <br><%=number_to_currency @product.price*(100- @canpaign.value)/100 %>
+                                         <span class="onsale">
+                                 <p> <%= @canpaign.value  %>% <br> Discount</p> </span>
+                                <del><%= number_to_currency @product.price %></del>
+                        <% else %>
+                            <span> <%= number_to_currency @product.price %> </span>
+                        <%end%>
+                            </h5>
+                    </div>
             <%= link_to t("global.canpaigs.addc"), cart_path, remote: true, class: 'btn btn-primary' %>
             </button>
             <br>

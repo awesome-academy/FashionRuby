@@ -3,6 +3,7 @@ class Admin::ProductsController < Admin::BaseController
     def index
     @catelogies = Catelogy.order :catelogy_name
     @products = Product.paginate page: params[:page]
+
     end
     def new
     @product = Product.new

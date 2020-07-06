@@ -28,24 +28,30 @@
                       <ul class="dropdown-menu">
 
                   <% if current_user.admin?  %>
-                    <div>
+                      <li>
                       <%= link_to t("global.header.user"), users_path, class:"success" %>
-                    </div>
+                        </li>
+                    <br><br><br>
+                          <li>
+                      <%= link_to t("global.header.adminmanager"),new_admin_canpaign_path,class:"success"%>
+                        </li>
+                        <br><br>
+                        <li>
+                 <%= link_to t("global.header.adminmanager2"), admin_orders_path, class:"success" %>
+                    </li>
                     <% end  %>
-                         <br>
-                        <br>
-                      <div>
+                      <br><br><br>
+                      <li>
                       <%= link_to t("global.header.profile"), current_user,class:"success"%>
-                    </div>
-                    <br>
-                    <br>
-                    <div>
+                    </li>
+                      <br><br>
+                    <li>
                     <%= link_to t("global.header.logout"), logout_path, method: :delete ,class:"success" %>
-                    </div>
+                    </li>
                     </ul>
-                    </div>
-                    <% else %> <div>
-                    <%= link_to t("global.header.signin"), login_path ,class:"success" %></div>
+                    </li>
+                    <% else %> <li>
+                    <%= link_to t("global.header.signin"), login_path ,class:"success" %></li>
                     <% end %>
                     </nav>
             </ul>

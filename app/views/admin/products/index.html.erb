@@ -13,7 +13,7 @@
     <tr>
       <th scope="col">Stt</th>
       <th scope="col"><%=t("global.canpaigs.name") %></th>
-      <th scope="col">  <%= t("global.canpaigs.price") %></th>
+      <th scope="col"> <%= t("global.canpaigs.price") %></th>
       <th scope="col"><%=t("global.header.set")%></th>
     </tr>
   </thead>
@@ -22,7 +22,7 @@
     <tr>
       <td><%= index %></td>
       <td><%= product.name %></td>
-      <td><%= product.price %></td>
+
       <td>
         <%= link_to t("global.canpaigs.delete"), product, method: :delete, data: { confirm: "You sure?", remote: true },class: 'btn btn-warning delete' %>
         </td>

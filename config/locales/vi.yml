@@ -104,5 +104,5 @@ vi:
   enums:
     canpaign:
       status:
-        on1: "Mở"
-        off1: "Đóng"
+        open: "Mở"
+        closed: "Đóng"
