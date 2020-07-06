@@ -5,12 +5,15 @@
     placeholder: t("global.canpaigs.search"), id: 'tags' %>
     <%= submit_tag t("global.canpaigs.search") %>
   <% end %>
+  <img id="project-icon" class="ui-state-default" alt="">
+  <input type="hidden" id="project-id">
+  <p id="project-description"></p>
   <div class="clearfix"> </div>
 </div>
 <div class="products">
   <div class="container">
     <% if params[:id] %>
-      <h2><%= @catelogy.name %></h2>
+      <h2>Search Products</h2>
     <% else %>
       <h2><%=  t("global.header.product") %></h2>
     <% end %>
@@ -49,6 +52,45 @@
   </div>
 </div>
 <script type="text/javascript">
+  $(function() {
+  $('#tags').autocomplete({
+    source: function (request, response) {
+      $.ajax({
+        url: "/products",
+        data: { search: request.term },
+        dataType: 'json',
+        success: function (data) {
+          response($.map(data, function(dataItem) {
+            return {data: dataItem.id, value: dataItem.name };
+            
+          }));
+        },
+      });
+    },
+    focus: function(event,ui) {
+      $("#tags").val( ui.item.label );
+      return false;
+    },
+
+    select: function(event,ui) {
+      $("#tags").val(ui.item.label);
+      $( "#project-id" ).val( ui.item.value );
+      $( "#project-description" ).html( ui.item.price );
+      $( "#project-icon" ).attr( "src", "images/" + ui.item.icon );
+      return false;
+    }
+  }).autocomplete("instance")._renderItem = function(ul,item) {
+    return $("<li>")
+    .append( "<div>" + item.value + "<br>" + item.price + "</div>" )
+    .appendTo( ul );
+    };
+  } );
+</script>
+
+
+
+
+<!-- <script type="text/javascript">
   $('#tags').autocomplete({
   source: function (request, response) {
     $.ajax({
@@ -67,3 +109,4 @@
   },
 });
 </script>
+

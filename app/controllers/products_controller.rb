@@ -22,6 +22,7 @@ class ProductsController < ApplicationController
         format.json { render json: @products }
       end
     elsif params[:id]
+      
         catelogys = Catelogy.find params[:id]
         catelogys.each do |catelogy|
            @products += catelogy.products
@@ -67,8 +68,9 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = current_user.products.build product_params
+ 
     @product = Product.new product_params
+    @product = current_user.products.build product_params
     @product.images.attach product_params[:images]
     if @product.save
       redirect_to root_url

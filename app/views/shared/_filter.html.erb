@@ -2,14 +2,27 @@
   <div class=" rsidebar span_1_of_left">
     <h3 class="cate">Categories</h3>
     <ul class="menu-drop active">
-        <li class="item1">
-          <%= form_tag( products_path, method: :get )do %>
+      <%= form_tag( products_path, method: :get )do %>
             <% @catelogies.each do |catelogy| %>
-               <%= check_box_tag 'id[]', catelogy.id %>
+              <label>
+                <%= catelogy.name %>
+                <% unless params[:id].nil? %>
+                        <li>
+                          <% if params[:id].include?(catelogy.id.to_s)%>
+                            <%= check_box_tag 'id[]', catelogy.id, class: 'active' %>
+                          <% else %>
+                            <%= check_box_tag 'id[]', catelogy.id %>
+                          <% end %>
+                        </li>
+                <% else %>
+                  <li> 
+                    <%= check_box_tag 'id[]', catelogy.id %>
+                  </li>
+                <% end %>
+              </label>
             <% end %>
-                 <%= submit_tag 'Submit' %>
-          <% end %>
-        </li>
+              <%= submit_tag 'Submit' %>
+      <% end %>
     </ul>
   </div>
   <div class=" rsidebar span_1_of_left">
@@ -36,32 +49,3 @@
       </div>
   </div>
 </div>
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('.aaa').click( () => {
-      var arr = [];
-      $('#action:checked').each( function() {
-         var id =  $(this).attr('value');
-         console.log(id)
-            $.ajax({
-              url: "/products",
-              method: "POST",
-              dataType: "json",
-              data: {id: id},
-              success:function(data, textStatus) {
-                console.log(data);
-                document.getElementById('item5').replaceWith(data);
-                // document.getElementById('item5').html(data)
-              }
-            })
-      });
-    })
-  });
-</script>
-
-
-
-
-
-
-

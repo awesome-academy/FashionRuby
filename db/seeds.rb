@@ -8,12 +8,12 @@
 
 
 
-# ['men', 'women', 'kisd', 'shoes'].each do |catelogy|
-#   Catelogy.create(name: catelogy)
-# end
-User.create! name:"DSon", admin: true, level: true ,email: "aaaaa@gmail.com",password:"123456"
+['men', 'women', 'kisd', 'shoes'].each do |catelogy|
+  Catelogy.create(name: catelogy)
+end
+User.create! name:"DSon", admin: true, level: true ,email: "qqqqqq@gmail.com",password:"123456"
 Catelogy.create(name: "thai")
-Canpaign.create!(name: 'Sale 50%', content: 'salr all products', value: 1, status: true )
+Canpaign.create!(name: 'Sale 50%', content: 'sale all products', value: 1, status: true )
 10.times do |n|
   Product.create!(name: "Shirt Gucci#{n}" ,
     catelogy_id: 1,
