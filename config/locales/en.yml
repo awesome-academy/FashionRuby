@@ -69,6 +69,8 @@ en:
        send: "Send "
        ago: "ago"
        cancel: "cancel "
+       discout: "Discount"
+       upload: "Upload"
 
     products:
       notication: "Maximum file size is 5MB. Please choose a smaller file."

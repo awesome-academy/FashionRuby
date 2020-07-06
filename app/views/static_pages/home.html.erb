@@ -13,12 +13,7 @@
 //         removalDelay: 300,
 //         mainClass: 'my-mfp-zoom-in'
 //     });
-<<
-<< << < HEAD
 
-    ===
-    === = >>>
-    >>> > onchange
 // });
 </script>
 </div>
@@ -68,20 +63,19 @@
                             <%= link_to product.name, product_path(product.id) %>
                         </h3>
                         <div class="price">
-                            <h5 class="item_price">
-                                <% if @sales_product_ids.include?(product.id) %>
-                                <br>
-                                <%=number_to_currency product.price*(100- @canpaign.value)/100 %>
-                                <br><br> <span class="onsale">
-                                    <p>
-                                        <%= @canpaign.value  %>% <br> Discount</p>
-                                </span>
-                                <del>
-                                    <%= number_to_currency product.price %></del>
-                                <% else %>
-                                <span>
-                                    <%= number_to_currency product.price %> </span>
-                                <%end%>
+
+
+                             <h5 class="item_price">
+                        <% if @sales_product_ids.include?(product.id) %>
+                                <br><%=number_to_currency product.price*(100- @canpaign.value)/100 %>
+                         <br><br> <span class="onsale">
+                            <p>
+                                <%= @canpaign.value  %>%    <br>  <%= t("global.canpaigs.discout") %></p> </span>
+                                <del><%= number_to_currency product.price %></del>
+                        <% else %>
+                            <span> <%= number_to_currency product.price %> </span>
+                        <%end%>
+
                             </h5>
                             <%= link_to t(".addcart"), cart_path(product),remote: true, class: 'btn btn-primary' %>
                             <div class="clearfix"> </div>
@@ -118,20 +112,17 @@
                             <%= link_to product.name, product_path(product.id) %>
                         </h3>
                         <h5 class="item_price">
-                            <% if @sales_product_ids.include?(product.id) %>
-                            <br>
-                            <%=number_to_currency product.price*(100- @canpaign.value)/100 %>
-                            <span class="onsale">
-                                <p>
-                                    <%= @canpaign.value  %>% <br> Discount</p>
-                            </span>
-                            <del>
-                                <%= number_to_currency product.price %></del>
-                            <% else %>
-                            <span>
-                                <%= number_to_currency product.price %> </span>
-                            <%end%>
-                        </h5>
+
+                        <% if @sales_product_ids.include?(product.id) %>
+                                <br><%=number_to_currency product.price*(100- @canpaign.value)/100 %>
+                          <span class="onsale">
+                                 <p> <%= @canpaign.value  %>% <br> <%= t("global.canpaigs.discout") %></p> </span>
+                                <del><%= number_to_currency product.price %></del>
+                        <% else %>
+                            <span> <%= number_to_currency product.price %> </span>
+                        <%end%>
+                            </h5>
+
                         <%= link_to t(".addcart"), cart_path(product),remote: true, class: 'btn btn-primary' %></a>
                     </div>
                 </div>
@@ -154,22 +145,19 @@
                                         <%= link_to product.name, product_path(product.id) %>
                                     </h3>
                                     <div class="price">
-                                        </h3>
-                                        <h5 class="item_price">
-                                            <% if @sales_product_ids.include?(product.id) %>
-                                            <br>
-                                            <%=number_to_currency product.price*(100- @canpaign.value)/100 %>
-                                            <span class="onsale">
-                                                <p>
-                                                    <%= @canpaign.value  %>% <br> Discount</p>
-                                            </span>
-                                            <del>
-                                                <%= number_to_currency product.price %></del>
-                                            <% else %>
-                                            <span>
-                                                <%= number_to_currency product.price %> </span>
-                                            <%end%>
-                                        </h5>
+
+                                         </h3>
+                        <h5 class="item_price">
+                        <% if @sales_product_ids.include?(product.id) %>
+                                <br><%=number_to_currency product.price*(100- @canpaign.value)/100 %>
+                                 <span class="onsale">
+                                 <p> <%= @canpaign.value  %>% <br> <%= t("global.canpaigs.discout") %></p> </span>
+                                <del><%= number_to_currency product.price %></del>
+                        <% else %>
+                            <span> <%= number_to_currency product.price %> </span>
+                        <%end%>
+                            </h5>
+
                                         <%= link_to t(".addcart"), cart_path(product),remote: true, class: 'btn btn-primary' %></a>
                                         <div class="clearfix"> </div>
                                     </div>

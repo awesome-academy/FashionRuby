@@ -4,7 +4,7 @@
             <h4 class="card-title">➤<%= @canpaign.name %>:</h4>
                <h1 style="border-style:double" class="card-title"><%= @canpaign.content %></h1>
              <h1  class="ca"><%= @canpaign.status_i18n %> ✔</h1> <p class="card-text"><small class="text-muted"><%= @canpaign.created_at %></small></p>
-              <h1  class="ca"><%= @canpaign.value %> ✔</h1>
+              <h1  class="ca"><%= @canpaign.value %> %⇓</h1>
           </div>
           <%= link_to t("global.canpaigs.delete"), @canpaign, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-warning" %>
           <%= link_to t("global.canpaigs.edit"), edit_admin_canpaign_path(@canpaign.id),  class: "btn btn-info" %>

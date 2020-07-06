@@ -41,7 +41,7 @@ class ProductsController < ApplicationController
             @products = Product.price1
           end
     else
-        @products = Product.all
+      @products = Product.all
     end
   end
 

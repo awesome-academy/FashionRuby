@@ -1,3 +1,4 @@
+  <% provide(:title, 'Products') %>
 <div class="container">
 
  <%= link_to  t("global.canpaigs.view"),admin_canpaigns_path, class: 'btn btn-info' %>
@@ -5,7 +6,7 @@
 </div>
 <div class="container">
   <div class="form-group">
-  <%= form_for @canpaign  do |f| %>
+  <%= form_for @canpaignNew  do |f| %>
    <div class="form-group">
       <%= f.label t("global.canpaigs.camname") %>
       <%= f.text_field :name, placeholder: "....", class: 'form-control' %>
@@ -19,7 +20,7 @@
 
    <div class="form-group">
       <%= f.label t("global.canpaigs.value") %>
-       <output class="output" for="canpaign_value" id="intensity"><%= @canpaign.value %></output>
+       <output class="output" for="canpaign_value" id="intensity"><%= @canpaignNew.value %></output>
       <%= f.range_field(:value)%>
 
 
@@ -27,14 +28,6 @@
       <%= f.label t("global.canpaigs.status") %>
       <%= f.check_box :status, {placeholder: "....", class: 'form-control'}, "open", "closed"  %>
     </div>
-    <table class="table table-hover">
-  <thead>
-    <tr>
-
-    </tr>
-  </thead>
-
-  <% provide(:title, 'Products') %>
 
 
 <div class="col-md-6 top-footer1 animated wow fadeInRight" data-wow-delay=".5s">
@@ -43,35 +36,16 @@
 
     <%= text_field_tag :search, params[:search],
     placeholder: t("global.canpaigs.checkbox"), id: 'tag' %>
-    <%= submit_tag t("global.canpaigs.checkbox") %>
+    <%= submit_tag t("global.canpaigs.upload") %>
   <% end %>
-  <div class="clearfix"> </div>
-   <div class="clearfix"> </div>
-</div>
-
-  <div class="container">
-    <% if params[:id] %>
-      <h2><%= @catelogy.name %></h2>
-    <% else %>
-      <h2><%=  t("global.header.product") %></h2>
-    <% end %>
-  <tbody>
-    <% @products.each do |product| %>
+  <table class="table table-hover">
     <tr>
 
-      <td><%= product.name %></td>
-
-      <td> <%= f.check_box :product_ids, {:multiple => true}, product.id, nil %></td>
     </tr>
-    <% end %>
-  </tbody>
-</table>
- <%= f.submit t("global.canpaigs.create1") , class: "btn btn-info" %>
-
+  </table>
   <% end %>
-  </div>
- <br>
 
+   <div class="clearfix"> </div>
 </div>
 
 
@@ -99,10 +73,20 @@ $('#canpaign_value').change(function(event) {
       },
     });
   },
-  select: function(event, ui) {
-    window.location.assign('http://localhost:3000/products/' + ui.item.data);
+   select: function(event, ui) {
+    var exist = false;
+    $('[name="canpaign[product_ids][]"]').each(function() {
+      var value = $(this).val();
+      if (value == ui.item.data ) {
+        exist = true;
+      }
+    });
+    if (exist == true ) {
+      alert("already exist");
+    } else{
+          $('table').append('<tr><td>'+ui.item.value+'</td><td> <input type="checkbox" value="'+ui.item.data+'" checked="checked" name="canpaign[product_ids][]" id="canpaign_product_ids_'+ui.item.data+'"></td></tr>');
+    }
+
   },
 });
 </script>
-
-
