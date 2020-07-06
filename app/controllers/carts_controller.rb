@@ -78,6 +78,10 @@ class CartsController < ApplicationController
       else
     render 'edit'
       end
+    respond_to do |format|
+        format.html
+        format.json {render json: @product}
+      end
   end
 
   private

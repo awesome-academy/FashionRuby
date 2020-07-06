@@ -53,6 +53,12 @@ class ProductsController < ApplicationController
     @comment = @product.comments.build
     @comments = @product.comments.paginate(page: params[:page], per_page: 5)
     @products = Product.prCatelogy(@product)
+     @rating_users = []
+      @rating_products = []
+    Rating.all.each do |ratingClick|
+      @rating_users << ratingClick.user_id
+      @rating_products << ratingClick.product_id
+    end
   end
 
   def new

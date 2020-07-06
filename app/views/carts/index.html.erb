@@ -18,7 +18,7 @@
                         <% if logged_in?%>
                         <%= f.hidden_field :user_id, value: current_user.id %>
                         <% else%>
-                        <%= f.hidden_field :user_id, value: 1 %>
+                        <%= f.hidden_field :user_id, value: 9 %>
                         <% end %>
                         <label for="fname"><i class="fa fa-user"></i>
                             <%=  t("global.canpaigs.productname") %></label>
@@ -64,14 +64,15 @@
                     <div class="clearfix"> </div>
                 </td>
                 <td>
-                    <%= ff.text_field :quantity %>
+                    <%= ff.number_field :quantity, class: "quantity" %>
+                    <%= hidden_field_tag "", ff.object.product.price %>
                 </td>
                 <td>
 
                     <%= ff.object.product.price %>
 
                 </td>
-                <td>
+                <td class="total">
                     <%= ff.object.product.price * ff.object.quantity  %>
                 </td>
                 <td>
@@ -85,11 +86,25 @@
         <hr>
         <p>
             <%=  t("global.canpaigs.sub") %>
-            <div id="totaldetail" class="price" style="color:black"><b>
-                    <%= @total %>
-                </b></div>
+            <div id="totaldetail" class="price" style="color:black">
+                <%= @total %>
+            </div>
         </p>
         <div class="clearfix"> </div>
-
     </div>
 </div>
+<script>
+$(document).ready(function() {
+    $(".quantity").change('keyup mouseup', function() {
+        var price = parseInt($(this).parent().find('[type="hidden"]').val());
+        var quantity = parseInt($(this).val());
+        var total = quantity * price;
+        $(this).parent().parent().find('.total').html(total);
+        var totaldetail = 0;
+        $('.total').each(function() {
+            totaldetail += parseInt($(this).html());
+        });
+        $('#totaldetail').html(totaldetail);
+    });
+});
+</script>
