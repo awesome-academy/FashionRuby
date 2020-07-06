@@ -20,6 +20,7 @@ Rails.application.routes.draw do
      resources :products do
          resources :comments
          resource :ratings
+
        end
      resources :catelogies, only: :show
      resources :users do

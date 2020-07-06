@@ -69,25 +69,26 @@
             <%= link_to t("global.canpaigs.addc"), cart_path, remote: true, class: 'btn btn-primary' %>
             </button>
             <br>
-            <% if logged_in? %>
+            <% if logged_in?  %>
+
 
                   <br>
             <div class="star-on">
                 <ul>
                     <li>
-                        <%= link_to "♥", product_ratings_path(@product, ratings: 1), method: :post, method: :post, remote: true %>
+                        <%= link_to "♥", product_ratings_path(@product, ratings: 1), method: :post, method: :post, remote: true, data: { confirm: "You sure?"} %>
                     </li>
                     <li>
-                        <%= link_to '♥',  product_ratings_path(@product, ratings: 2), method: :post, remote: true %>
+                        <%= link_to '♥',  product_ratings_path(@product, ratings: 2), method: :post, remote: true, data: { confirm: "You sure?"} %>
                     </li>
                     <li>
-                        <%= link_to '♥',  product_ratings_path(@product, ratings: 3) , method: :post, remote: true %>
+                        <%= link_to '♥',  product_ratings_path(@product, ratings: 3) , method: :post, remote: true, data: { confirm: "You sure?"} %>
                     </li>
                     <li>
-                        <%= link_to '♥',  product_ratings_path(@product, ratings: 4) , method: :post, remote: true %>
+                        <%= link_to '♥',  product_ratings_path(@product, ratings: 4) , method: :post, remote: true, data: { confirm: "You sure?"} %>
                     </li>
                     <li>
-                        <%= link_to '♥',  product_ratings_path(@product, ratings: 5) , method: :post,remote: true %>
+                        <%= link_to '♥',  product_ratings_path(@product, ratings: 5) , method: :post,remote: true, data: { confirm: "You sure?"} %>
                     </li>
                 </ul>
             </div>

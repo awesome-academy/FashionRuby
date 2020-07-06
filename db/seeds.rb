@@ -11,10 +11,9 @@
 # ['men', 'women', 'kisd', 'shoes'].each do |catelogy|
 #   Catelogy.create(name: catelogy)
 # end
-
-User.create! name:"DdSon", admin: true, level: true ,email: "aaaaa@gmail.com",password:"123456"
+User.create! name:"DSon", admin: true, level: true ,email: "aaaaa@gmail.com",password:"123456"
+Catelogy.create(name: "thai")
 Canpaign.create!(name: 'Sale 50%', content: 'salr all products', value: 1, status: true )
-Catelogy.create!(name:"gucci")
 10.times do |n|
   Product.create!(name: "Shirt Gucci#{n}" ,
     catelogy_id: 1,
