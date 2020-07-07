@@ -4,11 +4,11 @@ class Admin::CanpaignsController < Admin::BaseController
   end
 
   def new
-    @canpaign = Canpaign.new
+    @canpaignNew = Canpaign.new
     @products = Product.all
     @canpaign = Canpaign.where(status: true).first
     @sales_product_ids = @canpaign.nil? ? [] : @canpaign.products.pluck(:id)
-     @products = Product.prCatelogy(@product)
+    @products = Product.prCatelogy(@product)
     respond_to do |format|
       format.html
       format.js
@@ -52,6 +52,7 @@ class Admin::CanpaignsController < Admin::BaseController
   def edit
     @canpaign = Canpaign.find params[:id]
     @products = Product.all
+
   end
 
  private

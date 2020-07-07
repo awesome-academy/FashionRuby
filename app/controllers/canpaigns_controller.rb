@@ -6,11 +6,6 @@ class CanpaignsController < ApplicationController
   def new
     @canpaign = Canpaign.new
     @products = Product.all
-    @products = Product.prCatelogy(@product)
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def create
@@ -40,16 +35,11 @@ class CanpaignsController < ApplicationController
 
   def show
     @canpaign = Canpaign.find params[:id]
-@products = Product.prCatelogy(@product)
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def edit
     @canpaign = Canpaign.find params[:id]
-    @products = Product.all
+
   end
 
   private

@@ -13,6 +13,7 @@ class Product < ApplicationRecord
   has_many :users, through: :ratings
   has_many :comments, dependent: :destroy
   has_many_attached :images
+  accepts_nested_attributes_for :sales
   scope :best_saler, -> {where "id in (select product_id
     from orderdetails group by product_id order by count(product_id))"}
   scope :cateloly_name, -> {order(:catelogy_name).limit(2)}

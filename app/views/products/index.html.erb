@@ -31,7 +31,7 @@
                         <% if @sales_product_ids.include?(product.id) %>
                                 <br><%=number_to_currency product.price*(100- @canpaign.value)/100 %>
                                   <span class="onsale">
-                                 <p> <%= @canpaign.value  %>% <br> Discount</p> </span>
+                                 <p> <%= @canpaign.value  %>% <br> <%= t("global.canpaigs.discout") %></p> </span>
                                 <del><%= number_to_currency product.price %></del>
                         <% else %>
                             <span> <%= number_to_currency product.price %> </span>
