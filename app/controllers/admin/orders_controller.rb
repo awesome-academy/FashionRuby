@@ -1,6 +1,10 @@
 class Admin::OrdersController < Admin::BaseController
   def index
     @orders = Order.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @orders.to_csv, filename: "orders-#{Date.today}.csv" }
+    end
   end
 
   def show
