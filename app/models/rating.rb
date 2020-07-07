@@ -5,6 +5,6 @@ class Rating < ApplicationRecord
 
   def duplicate_rating
     rating = Rating.where("user_id = ? and product_id = ?", user.id, product.id)
-    errors.add(:product_id, "duplicate rating") unless rating.nil?
+    errors.add(:product_id, "duplicate rating") unless rating.empty?
   end
 end

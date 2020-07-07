@@ -1,5 +1,6 @@
 <% provide(:title, 'Products') %>
 <div class="container">
+    <%= link_to "export", admin_orders_path(format: :csv),class: 'btn btn-warning' %>
     <table class="table table-hover">
         <thead>
             <tr>
