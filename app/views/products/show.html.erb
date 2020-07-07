@@ -55,45 +55,54 @@
                 <%= @product.ratings.average(:total) %>
             </div>
             <div class="info-product-price">
-                         <h5 class="item_price">
-                        <% if @sales_product_ids.include?(@product.id) %>
-                                <br><%=number_to_currency @product.price*(100- @canpaign.value)/100 %>
-                                         <span class="onsale">
-                                 <p> <%= @canpaign.value  %>% <br> Discount</p> </span>
-                                <del><%= number_to_currency @product.price %></del>
-                        <% else %>
-                            <span> <%= number_to_currency @product.price %> </span>
-                        <%end%>
-                            </h5>
-                    </div>
-            <%= link_to t("global.canpaigs.addc"), cart_path, remote: true, class: 'btn btn-primary' %>
+                <h5 class="item_price">
+                    <% if @sales_product_ids.include?(@product.id) %>
+                    <br>
+                    <%=number_to_currency @product.price*(100- @canpaign.value)/100 %>
+                    <span class="onsale">
+                        <p>
+                            <%= @canpaign.value  %>% <br> Discount</p>
+                    </span>
+                    <del>
+                        <%= number_to_currency @product.price %></del>
+                    <% else %>
+                    <span>
+                        <%= number_to_currency @product.price %> </span>
+                    <%end%>
+                </h5>
+            </div>
+            <%= link_to t("global.canpaigs.addc"), cart_path, remote: true,
+             class: 'btn btn-primary' %>
             </button>
             <br>
             <% if logged_in?  %>
-
-
-                  <br>
+            <br>
             <div class="star-on">
                 <ul>
                     <li>
-                        <%= link_to "♥", product_ratings_path(@product, ratings: 1), method: :post, method: :post, remote: true, data: { confirm: "You sure?"} %>
+                        <%= link_to "♥", product_ratings_path(@product, ratings: 1),
+                 method: :post, remote: true %>
                     </li>
                     <li>
-                        <%= link_to '♥',  product_ratings_path(@product, ratings: 2), method: :post, remote: true, data: { confirm: "You sure?"} %>
+                        <%= link_to '♥',  product_ratings_path(@product, ratings: 2),
+                method: :post, remote: true %>
                     </li>
                     <li>
-                        <%= link_to '♥',  product_ratings_path(@product, ratings: 3) , method: :post, remote: true, data: { confirm: "You sure?"} %>
+                        <%= link_to '♥',  product_ratings_path(@product, ratings: 3) ,
+                 method: :post, remote: true%>
                     </li>
                     <li>
-                        <%= link_to '♥',  product_ratings_path(@product, ratings: 4) , method: :post, remote: true, data: { confirm: "You sure?"} %>
+                        <%= link_to '♥',  product_ratings_path(@product, ratings: 4) ,
+                 method: :post, remote: true %>
                     </li>
                     <li>
-                        <%= link_to '♥',  product_ratings_path(@product, ratings: 5) , method: :post,remote: true, data: { confirm: "You sure?"} %>
+                        <%= link_to '♥',  product_ratings_path(@product, ratings: 5) ,
+                 method: :post,remote: true %>
                     </li>
                 </ul>
             </div>
-              <!-- ----comments --><br>
-        <%= render 'form_comments' %>
+            <!-- ----comments --><br>
+            <%= render 'form_comments' %>
             <% end %>
         </div>
     </div>
@@ -108,10 +117,8 @@
             </a>
             <div class="price">
                 <h5 class="item_price">$300</h5>
-
                 <a href="#" class="item_add">
                     <%= t("global.canpaigs.addc") %></a>
-
                 <div class="clearfix"> </div>
             </div>
         </div>
@@ -123,10 +130,8 @@
             </a>
             <div class="price">
                 <h5 class="item_price">$300</h5>
-
                 <a class="item_add">
                     <%= t("global.canpaigs.addc") %></a>
-
                 <div class="clearfix"> </div>
             </div>
         </div>
@@ -135,5 +140,3 @@
 </div>
 </div>
 <%end%>
-
-
