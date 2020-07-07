@@ -6,10 +6,15 @@ class RatingsController < ApplicationController
     @product = Product.find params[:product_id]
     total = params[:ratings]
     @rating = current_user.ratings.build({product_id: @product.id, total: total})
-      if @rating.save
-        respond_to do |format|
+    if @rating.save
+      respond_to do |format|
         format.html
         format.js
+      end
+    else
+      respond_to do |format|
+        format.html
+        format.js {render :fail}
       end
     end
   end
