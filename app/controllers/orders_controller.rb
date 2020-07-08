@@ -11,10 +11,14 @@ class OrdersController < ApplicationController
     user = User.find_by id: order_params[:user_id]
     @order = user.orders.build order_params
     if @order.save
-      redirect_to root_path
       flash[:danger] = "Order successful"
       session[:carts] = nil
-    end
+      redirect_to order_path(@order.id)
+    end 
+  end
+
+  def show
+    @order = Order.find params[:id]
   end
 private
   def order_params

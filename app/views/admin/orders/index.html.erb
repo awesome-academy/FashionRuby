@@ -26,7 +26,7 @@
                         <%= order.id %>
                     </td>
                     <td>
-                        <%= order.Name %>
+                        <%= link_to order.Name, admin_order_path(order.id) %>
                     </td>
                     <div name="ccc">
                         <td>

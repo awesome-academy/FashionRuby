@@ -1,0 +1,4 @@
+<h1><%= @order.Name %></h1>
+<% @order.products.each do |product| %>
+		<p><%=link_to product.name, product_path(product.id) %></p><br>
+<%end%>

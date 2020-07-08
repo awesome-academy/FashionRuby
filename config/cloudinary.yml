@@ -1,0 +1,18 @@
+development:
+  cloud_name: "ruby-fashions"
+  api_key: "338794581558764"
+  api_secret: "6-EqMbG0XW8lXZtmod2JYAwnmJw"
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: "ruby-fashions"
+  api_key: "338794581558764"
+  api_secret: "6-EqMbG0XW8lXZtmod2JYAwnmJw"
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: "ruby-fashions"
+  api_key: "338794581558764"
+  api_secret: "6-EqMbG0XW8lXZtmod2JYAwnmJw"
+  enhance_image_tag: true
+  static_file_support: false

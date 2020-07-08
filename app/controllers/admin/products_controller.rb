@@ -13,9 +13,9 @@ class Admin::ProductsController < Admin::BaseController
 
     def create
     @product = Product.new product_params
-    @product.images.attach product_params[:images]
-  if @product.save
-      redirect_to product
+    # @product.images.attach product_params[:images]
+    if @product.save
+      redirect_to @product
     else
       render 'show'
     end
@@ -60,5 +60,6 @@ class Admin::ProductsController < Admin::BaseController
         @product = Product.find_by id: params[:id]
         redirect_to root_url if @product.nil?
     end
+
   end
 

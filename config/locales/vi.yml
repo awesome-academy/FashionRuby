@@ -80,6 +80,8 @@ vi:
       cancel: "hủy bỏ"
       discout: "Giảm"
       upload: "Tải lên"
+    order:
+      sucess: "Thành Công!"
 
     products:
       notication: "dung lượng ảnh quá lớn"
