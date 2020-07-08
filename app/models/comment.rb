@@ -5,5 +5,6 @@ class Comment < ApplicationRecord
   validates :product_id,  presence: true
   validates :user_id,    presence: true
   validates :content,    presence: true
+  delegate :name, :to => :user, :allow_nil => true
 end
 

@@ -11,11 +11,22 @@
 ['men', 'women', 'kisd', 'shoes'].each do |catelogy|
   Catelogy.create(name: catelogy)
 end
-User.create! name:"DSon", admin: true, level: true ,email: "qqqqqq@gmail.com",password:"123456"
+User.create! name:"DSon", admin: true, level: true ,email: "ss3@gmail.com",password:"123456"
+User.create! name:"DSon", admin: false, level: true ,email: "3@gmail.com",password:"123456"
 Catelogy.create(name: "thai")
 Canpaign.create!(name: 'Sale 50%', content: 'sale all products', value: 1, status: true )
-10.times do |n|
-  Product.create!(name: "Shirt Gucci#{n}" ,
+Orderdetail.create! order_id: 1, product_id: 7, quantity: 10
+Orderdetail.create! order_id: 1, product_id: 6, quantity: 10
+Orderdetail.create! order_id: 2, product_id: 30, quantity: 11
+Orderdetail.create! order_id: 3, product_id: 7, quantity: 11
+Orderdetail.create! order_id: 4, product_id: 30, quantity: 11
+Orderdetail.create! order_id: 5, product_id: 7, quantity: 11
+Orderdetail.create! order_id: 6, product_id: 7, quantity: 11
+Orderdetail.create! order_id: 7, product_id: 6, quantity: 11
+Orderdetail.create! order_id: 6, product_id: 29, quantity: 11
+Orderdetail.create! order_id: 7, product_id: 29, quantity: 11
+5.times do |n|
+  Product.create!(name: "Vest Dior#{n}" ,
     catelogy_id: 1,
     price: 1000,
     size: 5)

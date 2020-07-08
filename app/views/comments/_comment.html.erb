@@ -1,5 +1,5 @@
 <div id="comment-<%= comment.id %>">
-  <b><span  ><%= comment.user.name %>:</span></b>
+  <b><span  ><%= comment.name %>:</span></b>
   <span class='form-control'  ><%= comment.content %>  </span>
   <% if comment.user_id == current_user.id %>
   <% if logged_in? %>
