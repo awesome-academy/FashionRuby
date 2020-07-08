@@ -55,9 +55,7 @@
                 <%  @canpaign.products.each do |product|%>
                 <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
                     <div class="col-md1 simpleCart_shelfItem">
-                        <% product.images.each do |image|%>
-                        <%= image_tag image.variant(resize_to_limit: [100, 100]) %>
-                        <% end %>
+                         <%= image_tag product.images.first.variant(resize_to_limit: [200, 500]) %>
                         </a>
                         <h3>
                             <%= link_to product.name, product_path(product.id) %>
@@ -97,9 +95,7 @@
                 <div class="col-md-4 con-tp-lft animated wow fadeInLeft" data-wow-delay=".5s">
                     <div class="col-md1 simpleCart_shelfItem">
                         <div class="content-grid-effect slow-zoom vertical">
-                            <% product.images.each do |image|%>
-                            <%= image_tag image.variant(resize_to_limit: [100, 100]) %>
-                            <% end %>
+                             <%= image_tag product.images.first.variant(resize_to_limit: [200, 500]) %>
                             <div class="info-box">
                                 <div class="info-content simpleCart_shelfItem">
                                     <div class="price">
@@ -137,9 +133,7 @@
                         <div class="container">
                             <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
                                 <div class="col-md1 simpleCart_shelfItem">
-                                    <% product.images.each do |image|%>
-                                    <%= image_tag image.variant(resize_to_limit: [100, 500]) %>
-                                    <% end %>
+                                     <%= image_tag product.images.first.variant(resize_to_limit: [200, 500]) %>
                                     </a>
                                     <h3>
                                         <%= link_to product.name, product_path(product.id) %>

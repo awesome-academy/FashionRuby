@@ -71,6 +71,9 @@ en:
        cancel: "cancel "
        discout: "Discount"
        upload: "Upload"
+    order:
+      sucess: "Sucess!"
+
 
     products:
       notication: "Maximum file size is 5MB. Please choose a smaller file."

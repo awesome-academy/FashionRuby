@@ -18,7 +18,7 @@ gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
-
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'mini_magick', '4.9.5'
 gem 'image_processing','1.9.3'
 # Use Redis adapter to run Action Cable in production
@@ -27,6 +27,7 @@ gem 'image_processing','1.9.3'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'will_paginate', '3.1.8'
 gem 'faker', '2.1.2'
+gem 'cloudinary'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 # Reduces boot times through caching; required in config/boot.rb

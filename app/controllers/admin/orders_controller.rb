@@ -9,7 +9,7 @@ class Admin::OrdersController < Admin::BaseController
 
   def show
     @order = Order.find params[:id]
-  end
+  end   
 
   def update
     @order = Order.find params[:id]
@@ -30,4 +30,5 @@ class Admin::OrdersController < Admin::BaseController
       format.json{render json: {result: "OK"} }
     end
   end
+
 end

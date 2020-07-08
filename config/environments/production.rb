@@ -112,4 +112,5 @@ Rails.application.configure do
 
 
   config.force_ssl = true
+  config.active_storage.service = :cloudinary
 end
