@@ -79,7 +79,7 @@ $('#canpaign_value').change(function(event) {
         exist = true;
       }
     });
-    if (exist == true ) {
+    if (exist ) {
       alert("already exist");
     } else{
           $('table').append('<tr><td>'+ui.item.value+'</td><td> <input type="checkbox" value="'+ui.item.data+'" checked="checked" name="canpaign[product_ids][]" id="canpaign_product_ids_'+ui.item.data+'"></td></tr>');

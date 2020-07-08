@@ -4,15 +4,8 @@ class Admin::CanpaignsController < Admin::BaseController
   end
 
   def new
-    @canpaignNew = Canpaign.new
+    @canpaign = Canpaign.new
     @products = Product.all
-    @canpaign = Canpaign.where(status: true).first
-    @sales_product_ids = @canpaign.nil? ? [] : @canpaign.products.pluck(:id)
-    @products = Product.prCatelogy(@product)
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def create

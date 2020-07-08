@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    @products = Product.all.limit(4)
+    @products = Product.all.limit(Settings.newproduct)
     @canpaign = Canpaign.where(status: true).first
     @bestseller =Product.best_saler
     @sales_product_ids = @canpaign.nil? ? [] : @canpaign.products.pluck(:id)
@@ -12,7 +12,7 @@ class StaticPagesController < ApplicationController
     count_order<< {key: product , value: product.orderdetails.count}
     end
     sort = count_order.sort_by{|l| -l[:value]}
-    @bestseller= sort.take(8)
+    @bestseller= sort.take(Settings.number)
     @catelogy = Catelogy.find_by id: params[:id]
     @catelogies = Catelogy.all
     if params[:search]
