@@ -2,29 +2,46 @@
     <div class="container">
     </div>
 </div>
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+ <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
+
+    <!-- Wrapper for slides -->
     <div class="carousel-inner">
-        <% @product.images.each do |image| %>
-        <div class="item active">
-            <%= image_tag image.variant(resize_to_limit: [700, 700]) %>
+      <% dem = 0%>
+    <% @product.images.each do |image| %>
+    <% dem +=1 %>
+    <% if dem ==1 %>
+        <div class="item active ">
+            <%= image_tag image ,class: "img-with"%>
+            </div>
+    <% elsif dem == 2%>
+        <div class="item">
+            <%= image_tag image ,class: "img-with"%>
+            </div>
+    <% elsif dem == 3 %>
+      <div class="item">
+            <%= image_tag image ,class: "img-with"%>
         </div>
         <% end %>
-    </div>
+    <% end %>
+  </div>
+
     <!-- Left and right controls -->
     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-        <span class="sr-only"></span>
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
     </a>
     <a class="right carousel-control" href="#myCarousel" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-        <span class="sr-only"></span>
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
     </a>
+  </div>
 </div>
 <div class="col-md-7 single-top-in">
     <div class="single-para simpleCart_shelfItem">
@@ -47,35 +64,40 @@
                 <%= 0 %>
             </li>
             <% end %>
-            <div id="rating1">⊕:
-                <%= @product.ratings.count %>
+            <div class="info-product-price">
+                <h5 class="item_price">
+                    <li>
+                        <% if @sales_product_ids.include?(@product.id) %>
+                        <br>
+                        <%=number_to_currency @product.price*(100- @canpaign.value)/100 %>
+                    </li>
+                    <span class="onsale">
+                        <p>
+                            <%= @canpaign.value  %>% <br>
+                            <%= t("global.canpaigs.discout") %>
+                        </p>
+                    </span>
+                    <del>
+                        <%= number_to_currency @product.price %></del>
+                    <% else %>
+                    <span>
+                        <%= number_to_currency @product.price %> </span>
+                    <%end%>
+                </h5>
             </div>
             </br>
-            <div id="rating2"> ½:
-                <%= @product.ratings.average(:total) %>
-            </div>
-            <div class="info-product-price">
-
-                         <h5 class="item_price">
-                        <% if @sales_product_ids.include?(@product.id) %>
-                                <br><%=number_to_currency @product.price*(100- @canpaign.value)/100 %>
-                                         <span class="onsale">
-                                 <p> <%= @canpaign.value  %>% <br> <%= t("global.canpaigs.discout") %></p> </span>
-                                <del><%= number_to_currency @product.price %></del>
-                        <% else %>
-                            <span> <%= number_to_currency @product.price %> </span>
-                        <%end%>
-                            </h5>
-                    </div>
             <%= link_to t("global.canpaigs.addc"), cart_path, remote: true, class: 'btn btn-primary' %>
-
-            </button>
-            <br>
             <% if logged_in?  %>
             <br>
             <div class="star-on">
                 <ul>
                     <li>
+                <div id="rating1">⊕:
+                    <%= @product.ratings.count %>
+                </div>
+                <div id="rating2"> ½:
+                    <%= @product.ratings.average(:total) %>
+                </div>
                         <%= link_to "♥", product_ratings_path(@product, ratings: 1),
                  method: :post, remote: true %>
                     </li>
@@ -108,26 +130,24 @@
 <div class="content-top1">
     <div class="col-md-4 col-md4">
         <div class="col-md1 simpleCart_shelfItem">
-            <a href="/products/<%= product.id %>">
-                <%= link_to image_tag("lak2.png",  width: "200px") %>
+            <a href="/products/<%= product.catelogy_id %>">
+                <%= image_tag product.images.first.variant(resize_to_limit: [200, 500]) %>
             </a>
             <div class="price">
-                <h5 class="item_price">$300</h5>
-                <a href="#" class="item_add">
-                    <%= t("global.canpaigs.addc") %></a>
+                <h5 class="item_price"><%= @product.price %></h5>
+                <%= link_to t("global.canpaigs.addc"), cart_path, remote: true, class: 'btn btn-primary' %>
                 <div class="clearfix"> </div>
             </div>
         </div>
     </div>
     <div class="col-md-4 col-md4">
         <div class="col-md1 simpleCart_shelfItem">
-            <a href="/products/<%= product.id %>">
-                <%= link_to image_tag("lak5.png",  width: "200px") %>
+            <a href="/products/<%= product.catelogy_id %>">
+                <%= image_tag product.images.first.variant(resize_to_limit: [200, 500]) %>
             </a>
             <div class="price">
-                <h5 class="item_price">$300</h5>
-                <a class="item_add">
-                    <%= t("global.canpaigs.addc") %></a>
+                <h5 class="item_price"><%= @product.price %></h5>
+                <%= link_to t("global.canpaigs.addc"), cart_path, remote: true, class: 'btn btn-primary' %>
                 <div class="clearfix"> </div>
             </div>
         </div>

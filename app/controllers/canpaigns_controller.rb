@@ -2,11 +2,13 @@ class CanpaignsController < ApplicationController
  before_action :logged_in_user, only: [:edit, :update,:new, :index]
   def index
     @canpaigns = Canpaign.canpaigns
+
   end
 
   def new
     @canpaign = Canpaign.new
     @products = Product.all
+
   end
 
   def create
@@ -14,8 +16,8 @@ class CanpaignsController < ApplicationController
     if  @canpaign.save
       redirect_to admin_canpaigns_path
     else
-    @canpaign = Canpaign.new
-     render 'new'
+      flash[:success] = "Account activated!"
+      redirect_to @canpaign
     end
   end
 

@@ -1,4 +1,3 @@
-
 /*Author: W3layouts
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -464,9 +463,7 @@ ul.callbacks_tabs.callbacks1_tabs {
 .content-top {
   padding: 4em 0;
 }
-.content-top1 {
-  padding: 1em 0;
-}
+
 .col-md1 {
     padding: 1em;
     background-color: #eee;
@@ -3091,4 +3088,26 @@ html, body {
     padding: 1em;
     background-color: rgba(255, 255, 255, 0.15);
 }
+
+<style>body {
+padding-top: 0px;
+}
+.carousel-indicators {
+bottom:15px;
+left:10px;
+width:auto;
+margin-left:0;
+}
+.carousel-indicators li {
+border-radius:0;
+width:8px;
+height:8px;
+background:#fff;
+}
+.carousel-indicators .active {
+width:10px;
+height:10px;
+background:#3276b1;
+border-color:#3276b1;
+}</style>
 
