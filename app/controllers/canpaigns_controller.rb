@@ -1,4 +1,5 @@
 class CanpaignsController < ApplicationController
+ before_action :logged_in_user, only: [:edit, :update,:new, :index]
   def index
     @canpaigns = Canpaign.canpaigns
   end
@@ -47,5 +48,6 @@ class CanpaignsController < ApplicationController
   params.require(:canpaign).permit(:name, :content,
     :value, :status, product_ids: [])
   end
+
 end
 

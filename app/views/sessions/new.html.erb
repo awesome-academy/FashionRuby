@@ -7,8 +7,6 @@
       </ol>
     </div>
   </div>
-
-
 <% provide(:title, "Log in") %>
 <h1><%= t("sessions.new.login") %> </h1>
 <div class="row">
@@ -19,13 +17,9 @@
 <%= f.label :password,t("global.canpaigs.pass")  %>
 <%= f.password_field :password, class: 'form-control' %>
 
-
-
-
-
 <%= f.submit t("sessions.new.login"),class: 'acount-btn' %>
-
 <% end %>
+<p> <%= link_to t("sessions.new.signup"), signup_path ,class: 'acount-btn' %></p>
 
 <script>
 
@@ -60,10 +54,20 @@
       statusChangeCallback(response);        // Returns the login status.
     });
   };
+
 </script>
 <!-- Load the JS SDK asynchronously -->
+
+  <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0&appId=2329080434067072&autoLogAppEvents=1">
+
+</script>
+<br>
 <div class="fb-login-button" data-size="medium" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="true" data-use-continue-as="false" data-width=""></div>
 </body>
 </html>
+
+<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="box_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+
 
 

@@ -29,18 +29,22 @@
 
                   <% if current_user.admin?  %>
                       <li>
-                      <%= link_to t("global.header.user"), users_path, class:"success" %> 
+                      <%= link_to t("global.header.user"), users_path, class:"success" %>
                         </li>
                     <br><br><br>
-                          <li>
-                      <%= link_to t("global.header.adminmanager"),new_admin_canpaign_path,class:"success"%>
+                        <li class="dropdown-submenu">
+                          <%= link_to t("global.header.adminmanager"), class:"success"%>
+                          <ul class="dropdown-menu">
+                            <li><a ><%= link_to t("global.header.adminmanager2"), admin_orders_path, class:"success" %></a></li>
+                            <li><a > <%= link_to t("global.header.admin2"),admin_canpaigns_path,class:"success" %></a></li>
+                            <li><a >  <%= link_to t("global.header.admin1"), admin_products_path, class:"success" %></a></li>
+                          </ul>
                         </li>
                         <br><br>
                         <li>
-                 <%= link_to t("global.header.adminmanager2"), admin_orders_path, class:"success" %>
                     </li>
                     <% end  %>
-                      <br><br><br>
+
                       <li>
                       <%= link_to t("global.header.profile"), current_user,class:"success"%>
                     </li>
@@ -81,3 +85,31 @@
               </ul>
             </div><!-- /.navbar-collapse -->
 </header>
+
+
+<!-- <div class="container">
+  <div class="row">
+        <h2>Multi level dropdown menu in Bootstrap 3</h2>
+        <hr>
+        <div class="dropdown">
+            <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" href="/page.html">
+                Dropdown <span class="caret"></span>
+            </a>
+        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+              <li><a href="#">Some action</a></li>
+              <li><a href="#">Some other action</a></li>
+              <li class="divider"></li>
+              <li class="dropdown-submenu">
+                <a tabindex="-1" href="#">Hover me for more options</a>
+                <ul class="dropdown-menu">
+                  <li><a tabindex="-1" href="#">Second level</a></li>
+                  <li><a href="#">Second level</a></li>
+                  <li><a href="#">Second level</a></li>
+                </ul>
+              </li>
+            </ul>
+        </div>
+  </div>
+</div>
+ -->
+

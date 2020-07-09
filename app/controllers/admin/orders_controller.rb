@@ -1,6 +1,6 @@
 class Admin::OrdersController < Admin::BaseController
   def index
-    @orders = Order.all
+    @orders = Order.all.paginate(page: params[:page], per_page: Settings.number)
     respond_to do |format|
       format.html
       format.csv { send_data @orders.to_csv, filename: "orders-#{Date.today}.csv" }
@@ -9,7 +9,7 @@ class Admin::OrdersController < Admin::BaseController
 
   def show
     @order = Order.find params[:id]
-  end   
+  end
 
   def update
     @order = Order.find params[:id]

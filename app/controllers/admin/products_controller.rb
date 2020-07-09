@@ -2,7 +2,7 @@ class Admin::ProductsController < Admin::BaseController
     before_action :destroy_product, only: :destroy
     def index
     @catelogies = Catelogy.order :catelogy_name
-    @products = Product.paginate page: params[:page]
+    @products = Product.paginate(page: params[:page], per_page: Settings.number)
 
     end
     def new
@@ -17,7 +17,7 @@ class Admin::ProductsController < Admin::BaseController
     if @product.save
       redirect_to @product
     else
-      render 'show'
+      render 'home'
     end
   end
 

@@ -2,7 +2,7 @@ class StaticPagesController < ApplicationController
   def home
     @products = Product.all.limit(Settings.newproduct)
     @canpaign = Canpaign.where(status: true).first
-    @bestseller =Product.best_saler
+    @bestseller =Product.best_saler.limit(Settings.best)
     @sales_product_ids = @canpaign.nil? ? [] : @canpaign.products.pluck(:id)
   end
 
