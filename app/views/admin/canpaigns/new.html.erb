@@ -1,9 +1,4 @@
-  <% provide(:title, 'Products') %>
-<div class="container">
-
- <%= link_to  t("global.canpaigs.view"),admin_canpaigns_path, class: 'btn btn-info' %>
-  <%= link_to t("global.canpaigs.create2"), admin_products_path, class: 'btn btn-info' %>
-</div>
+  <% provide(:title, 'Create Campaigns') %>
 <div class="container">
   <div class="form-group">
   <%= form_for @canpaign  do |f| %>

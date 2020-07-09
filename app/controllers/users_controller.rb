@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :admin_user, only: :destroy
   def index
-    @users = User.paginate page: params[:page]
+    @users = User.all.paginate(page: params[:page], per_page: Settings.number)
   end
 
   def show
@@ -44,6 +44,14 @@ class UsersController < ApplicationController
   end
 
   private
+
+   def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = "Please log in."
+      redirect_to login_url
+    end
+  end
 
   def user_params
   params.require(:user).permit(:name, :email,  :admin, :level, :password,

@@ -1,3 +1,4 @@
+<% provide(:title, 'Ruby Home') %>
 <div class="clearfix"> </div>
 </div>
 <script>
@@ -16,33 +17,79 @@
 
 // });
 </script>
+
+
+
 </div>
 </div>
+</div>
+
+
+<input type="radio" id="s-1" name="slider-control" checked="checked">
+<input type="radio" id="s-2" name="slider-control">
+<input type="radio" id="s-3" name="slider-control">
+<div class="js-slider">
+  <figure class="js-slider_item img-1">
+    <figcaption class="wo-caption">
+      <h3 class="wo-h3">
+        <div class="c-label"> <%= t".title" %></div>
+        <br class="view-sm mb-s">津和野藩伝来摺物</h3>
+      <ul class="wo-credit">
+        <li>摺物118枚 寛政元-12年 (1789-1800)</li>
+        <li>島根県立美術館(永田コレクション)</li>
+        <li>通期展示
+          <span class="c-txt-s"> <%= t".title" %></span></li>
+      </ul>
+    </figcaption>
+    <div class="js-slider_img">
+      <img class="c-img-w-full" src="3.jpg" alt="">
+              <%= image_tag("2.jpg",  width: "1500px") %>
+    </div>
+  </figure>
+  <figure class="js-slider_item img-2">
+    <div class="js-slider_img">
+      <img class="c-img-h-full" > <%= image_tag("3.jpg",  width: "1500px") %></div>
+    <figcaption class="wo-caption">
+      <h3 class="wo-h3"> <%= t".title" %></h3>
+      <ul class="wo-credit">
+        <li>大判 享和年間 (1801-04)</li>
+        <li>リー・ダークス・コレクション</li>
+        <li>展示期間：1月30日 (水) ～ 2月18日 (月)</li></ul>
+    </figcaption>
+  </figure>
+  <figure class="js-slider_item img-3">
+    <div class="js-slider_img">
+      <img class="c-img-h-full" > <%= image_tag("1.jpg",  width: "1500px") %></div>
+    <figcaption class="wo-caption">
+      <h3 class="wo-h3">「風流無くてなゝくせ」ほおずき</h3>
+      <ul class="wo-credit">
+        <li>大判 享和年間 (1801-04)</li>
+        <li>米・個人蔵</li>
+        <li>展示期間：1月30日 (水) ～ 2月18日 (月)</li></ul>
+    </figcaption>
+  </figure>
+  <div class="js-slider_nav">
+    <label class="js-slider_nav_item s-nav-1 prev" for="s-3"></label>
+    <label class="js-slider_nav_item s-nav-1 next" for="s-2"></label>
+    <label class="js-slider_nav_item s-nav-2 prev" for="s-1"></label>
+    <label class="js-slider_nav_item s-nav-2 next" for="s-3"></label>
+    <label class="js-slider_nav_item s-nav-3 prev" for="s-2"></label>
+    <label class="js-slider_nav_item s-nav-3 next" for="s-1"></label>
+  </div>
+  <div class="js-slider_indicator">
+    <div class="js-slider-indi indi-1"></div>
+    <div class="js-slider-indi indi-2"></div>
+    <div class="js-slider-indi indi-3"></div>
+  </div>
 </div>
 <!--banner-->
-<div class="banner">
-    <div class="matter-banner">
-        <div class="slider">
-            <div class="callbacks_container">
-                <ul class="rslides" id="slider">
-                    <li>
-                        <%= image_tag("2.jpg",  width: "200px") %>
-                    </li>
-                    <div class="tes animated wow fadeInUp animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-                        <h2>
-                            <%= t".title" %>
-                        </h2>
-                    </div>
-            </div>
-            </li>
-            </ul>
-        </div>
+<
     </div>
 </div>
 <div class="clearfix"> </div>
 </div>
 <div class="content">
-    <div class="container">
+
         <div class="content-top">
             <div class="content-top1">
                 <div class="clearfix"> </div>
@@ -53,9 +100,14 @@
             <div class="content-top1">
                 <% unless  @canpaign.nil? %>
                 <%  @canpaign.products.each do |product|%>
+
                 <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
                     <div class="col-md1 simpleCart_shelfItem">
-                         <%= image_tag product.images.first.variant(resize_to_limit: [200, 500]) %>
+                        <a href="<%= product_path(product.id) %>">
+                            <% product.images.each do |image|%>
+                            <%= image_tag image.variant(resize_to_limit: [250, 500]) %>
+                            <% end %>
+
                         </a>
                         <h3>
                             <%= link_to product.name, product_path(product.id) %>
@@ -87,53 +139,58 @@
             <h1 style="background-color:#ad4095">
                 <%= t".bestseller" %>
             </h1>
-            <div class="col-md1 simpleCart_shelfItem">
+
                 <div class="content-top1">
                 </div>
                 <div class="clearfix"></div>
+            </div>
+            </div>
                 <% @bestseller.each do |product|%>
-                <div class="col-md-4 con-tp-lft animated wow fadeInLeft" data-wow-delay=".5s">
+                        <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
                     <div class="col-md1 simpleCart_shelfItem">
                         <div class="content-grid-effect slow-zoom vertical">
-                             <%= image_tag product.images.first.variant(resize_to_limit: [200, 500]) %>
-                            <div class="info-box">
-                                <div class="info-content simpleCart_shelfItem">
-                                    <div class="price">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        </a>
-                        <h3>
-                            <%= link_to product.name, product_path(product.id) %>
-                        </h3>
-                        <h5 class="item_price">
+                             <a href="<%= product_path(product.id) %>">
+                            <% product.images.each do |image|%>
+                              <div class="img-box">
+                             <%= image_tag image.variant(resize_to_limit: [450, 600]) %>
 
-                        <% if @sales_product_ids.include?(product.id) %>
-                                <br><%=number_to_currency product.price*(100- @canpaign.value)/100 %>
-                          <span class="onsale">
-                                 <p> <%= @canpaign.value  %>% <br> <%= t("global.canpaigs.discout") %></p> </span>
+                            <% end %>  </a>
+                             </div>
+                       <div class="info-box">
+
+                                <div class="info-content simpleCart_shelfItem">
+                   <h4> <%= link_to product.name, product_path(product.id) %> </h4>
+                       <br>
+                  <h4>
+                <% if @sales_product_ids.include?(product.id) %>
+                                 <p> <%= @canpaign.value  %>% <br> <%= t("global.canpaigs.discout") %></p>
                                 <del><%= number_to_currency product.price %></del>
                         <% else %>
                             <span> <%= number_to_currency product.price %> </span>
-                        <%end%>
-                            </h5>
-
+                        <%end%> </h4>
+                                    </div>
+                                </div>
+                            </div>
                         <%= link_to t(".addcart"), cart_path(product),remote: true, class: 'btn btn-primary' %></a>
+                        </div>
                     </div>
                 </div>
                 <%end%>
+
                 <div class="clearfix"></div>
                 <h1 style="background-color:#ad4095">
                     <%= t".new" %>
                 </h1>
                 <div class="c-btm">
-                    <div class="content-top1">
+
                         <% @products.each do |product|%>
-                        <div class="container">
+
                             <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
                                 <div class="col-md1 simpleCart_shelfItem">
-                                     <%= image_tag product.images.first.variant(resize_to_limit: [200, 500]) %>
+                                        <a href="<%= product_path(product.id) %>">
+                                    <% product.images.each do |image|%>
+                              <%= image_tag image.variant(resize_to_limit: [250, 500]) %>
+                                    <% end %>
                                     </a>
                                     <h3>
                                         <%= link_to product.name, product_path(product.id) %>
@@ -159,10 +216,22 @@
                             </div>
                             <% end %>
                         </div>
+                    </div>
                         <div class="clearfix"> </div>
                     </div>
                 </div>
             </div>
+
+ <!-- comment fb -->
+        <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0&appId=2329080434067072&autoLogAppEvents=1"></script>
+
+<div class="fb-comments" data-href="http://localhost:3000/" data-numposts="1" data-width="full"></div>
+
+<div class="fb-comments" data-href="https://your_rails_app.com" data-numposts="5"></div>
+<br>
+
+
             <script type="text/javascript">
             $(document).ready(function() {
                 $.ajax({
@@ -176,3 +245,6 @@
                 });
             });
             </script>
+
+
+<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="box_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>

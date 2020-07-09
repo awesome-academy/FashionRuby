@@ -11,7 +11,8 @@
 ['men', 'women', 'kisd', 'shoes'].each do |catelogy|
   Catelogy.create(name: catelogy)
 end
-User.create! name:"DSon", admin: true, level: true ,email: "aa3@gmail.com",password:"123456"
+User.create! name:"DSon", admin: true, level: true ,email: "son261197@gmail.com",password:"123456"
+User.create! name:"Awesome", admin: false, level: true ,email: "sun@gmail.com",password:"123456"
 # User.create! name:"DSon", admin: false, level: true ,email: "aaaaaa3@gmail.com",password:"123456"
 # Catelogy.create(name: "thai")
 # Canpaign.create!(name: 'Sale 50%', content: 'sale all products', value: 1, status: true )

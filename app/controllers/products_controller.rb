@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
         format.json { render json: @products }
       end
     elsif params[:id]
-      
+
         catelogys = Catelogy.find params[:id]
         catelogys.each do |catelogy|
            @products += catelogy.products
@@ -41,7 +41,7 @@ class ProductsController < ApplicationController
             @products = Product.price1
           end
     else
-      @products = Product.all
+      @products = Product.all.paginate(page: params[:page], per_page: Settings.best)
     end
   end
 
@@ -68,7 +68,7 @@ class ProductsController < ApplicationController
   end
 
   def create
- 
+
     @product = Product.new product_params
     @product = current_user.products.build product_params
     @product.images.attach product_params[:images]

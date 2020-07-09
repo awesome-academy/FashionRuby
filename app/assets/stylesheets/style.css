@@ -3086,3 +3086,9 @@ html, body {
     font-size: 100%;
     font-family: -webkit-pictograph;
 }
+
+.col-md1 {
+    padding: 1em;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+

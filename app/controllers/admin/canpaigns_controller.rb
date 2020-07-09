@@ -1,6 +1,7 @@
 class Admin::CanpaignsController < Admin::BaseController
+
   def index
-    @canpaigns = Canpaign.canpaigns
+    @canpaigns = Canpaign.all.paginate(page: params[:page], per_page: Settings.number)
   end
 
   def new
@@ -35,11 +36,7 @@ class Admin::CanpaignsController < Admin::BaseController
 
   def show
     @canpaign = Canpaign.find params[:id]
-     @products = Product.prCatelogy(@product)
-    respond_to do |format|
-      format.html
-      format.js
-    end
+     @products = Product.all
   end
 
   def edit
@@ -53,6 +50,7 @@ class Admin::CanpaignsController < Admin::BaseController
     params.require(:canpaign).permit(
     :name, :content, :value, :status, product_ids: [])
   end
+
 end
 
 
