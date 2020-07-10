@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
     @bestseller= sort.take(8)
     @catelogy = Catelogy.find_by id: params[:id]
     @catelogies = Catelogy.all
-    @products = []
+    catelogyProducts = []
     @canpaign = Canpaign.where(status: true).first
     @sales_product_ids = @canpaign.nil? ? [] : @canpaign.products.pluck(:id)
 
@@ -21,25 +21,20 @@ class ProductsController < ApplicationController
         format.html
         format.json { render json: @products }
       end
+    elsif params[:id] && params[:price][0]!= "" && params[1] != ""
+        priceProducts = Product.price(params[:price][0],params[:price][1])
+        catelogys = Catelogy.find params[:id]
+        catelogys.each do |catelogy|
+           catelogyProducts += catelogy.products
+        end
+        @products = priceProducts & catelogyProducts
     elsif params[:id]
-
         catelogys = Catelogy.find params[:id]
         catelogys.each do |catelogy|
            @products += catelogy.products
         end
     elsif params[:price]
-        case  params[:price]
-          when '1000'
-            @products = Product.price(0,1000)
-          when '3000'
-            @products = Product.price(1000,3000)
-          when '5000'
-            @products = Product.price(3000,5000)
-          when '10000'
-            @products = Product.price(5000,10000)
-          when '0'
-            @products = Product.price1
-          end
+        @products = Product.price(params[:price][0],params[:price][1])
     else
       @products = Product.all.paginate(page: params[:page], per_page: Settings.best)
     end

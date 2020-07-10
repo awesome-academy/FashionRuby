@@ -82,6 +82,8 @@ vi:
       upload: "Tải lên"
     order:
       sucess: "Thành Công!"
+      price: "Khoảng giá"
+      category: "Thể loại"
 
     products:
       notication: "dung lượng ảnh quá lớn"
