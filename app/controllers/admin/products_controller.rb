@@ -34,9 +34,9 @@ class Admin::ProductsController < Admin::BaseController
     def update
     @product = Product.find params[:id]
     if @product.update(product_params)
-      redirect_to admin_products_path
+      redirect_to admin_product_path @product.id
     else
-      render 'edit'
+      redirect_to root_url if @product.nil?
     end
   end
 

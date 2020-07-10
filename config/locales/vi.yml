@@ -80,6 +80,9 @@ vi:
       cancel: "hủy bỏ"
       discout: "Giảm"
       upload: "Tải lên"
+      ordername: " Tên Hóa Đơn"
+      count: "Lượt Đánh Giá"
+      point: "Điểm Đánh Giá"
     order:
       sucess: "Thành Công!"
       price: "Khoảng giá"

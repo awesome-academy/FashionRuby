@@ -491,12 +491,6 @@ border-box;
   display: inline-block;
 }
 
-.img-with{
-  width: 100%;
-}
-
-
-
 .dropdown-submenu {
     position: relative;
 }
@@ -725,7 +719,4 @@ figcaption {
 #s-2:checked ~ .js-slider .js-slider_indicator .indi-2:after,
 #s-3:checked ~ .js-slider .js-slider_indicator .indi-3:after {
   transform: translate3d(-50%, -50%, 0) scale(2.5);
-}
-.price {
-  width: 40%;
 }

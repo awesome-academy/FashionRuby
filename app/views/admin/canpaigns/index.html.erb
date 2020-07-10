@@ -19,7 +19,7 @@
       <td><%= canpaign.status_i18n %></td>
 
       <td>
-         <%= link_to t("global.canpaigs.delete"), canpaign, method: :delete, data: { confirm: "You sure?" } , class: "btn btn-warning remove" %>
+         <%= link_to t("global.canpaigs.delete"), [:admin, canpaign], method: :delete, data: { confirm: "You sure?" } , class: "btn btn-warning remove" %>
       </td>
       <td>
         <%= link_to t("global.canpaigs.edit"), edit_admin_canpaign_path(canpaign) , class: "btn btn-info" %>

@@ -1,5 +1,5 @@
-<% provide(:title, '💎 Ruby Fashion') %>
-
+<% provide(:title, '💒Home Fashion') %>
+<% provide(:title, 'Ruby Home') %>
 <div class="clearfix"> </div>
 </div>
 <script>
@@ -56,9 +56,7 @@
                 <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
                     <div class="col-md1 simpleCart_shelfItem">
                         <a href="<%= product_path(product.id) %>">
-                            <% product.images.each do |image|%>
-                            <%= image_tag image.variant(resize_to_limit: [250, 500]) %>
-                            <% end %>
+                             <%= image_tag product.images.first.variant(resize_to_limit: [250, 500]) %>
                         </a>
                         <h3>
                             <%= link_to product.name, product_path(product.id) %>
@@ -78,7 +76,8 @@
                         <%end%>
 
                             </h5>
-                                <%= link_to t(".addcart"), cart_path(product),remote: true, class: 'btn btn-primary' %>
+                            <%= link_to t(".addcart"), cart_path(product),remote: true, class: 'btn btn-primary' %>
+                            <div class="clearfix"> </div>
                         </div>
                     </div>
                 </div>
@@ -105,9 +104,7 @@
                         <div class="content-grid-effect slow-zoom vertical">
                              <a href="<%= product_path(product.id) %>">
                               <div class="img-box">
-                            <% product.images.each do |image|%>
-                             <%= image_tag image.variant(resize_to_limit: [450, 600]) %>
-                            <% end %>
+                             <%= image_tag product.images.first.variant(resize_to_limit: [250, 500]) %>
                              </a>
                              </div>
                        <div class="info-box">
@@ -144,9 +141,9 @@
                             <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
                                 <div class="col-md1 simpleCart_shelfItem">
                                         <a href="<%= product_path(product.id) %>">
-                                    <% product.images.each do |image|%>
-                              <%= image_tag image.variant(resize_to_limit: [250, 500]) %>
-                                    <% end %>
+
+                                      <%= image_tag product.images.first.variant(resize_to_limit: [250, 500]) %>
+
                                     </a>
                                     <h3>
                                         <%= link_to product.name, product_path(product.id) %>
