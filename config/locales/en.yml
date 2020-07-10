@@ -71,6 +71,9 @@ en:
        cancel: "cancel "
        discout: "Discount"
        upload: "Upload"
+       ordername: "Order Name"
+       count: "Rated"
+       point: "Point"
     order:
       sucess: "Sucess!"
       price: "Price"
@@ -88,7 +91,7 @@ en:
       category: "Categories"
       feature: " Feature Products "
       topbrands: "Top brands"
-      address: "Adress"
+      address: "Address"
 
   sessions:
     new:

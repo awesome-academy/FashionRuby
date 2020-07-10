@@ -1,7 +1,7 @@
   <% provide(:title, 'Create Campaigns') %>
 <div class="container">
   <div class="form-group">
-  <%= form_for @canpaign  do |f| %>
+  <%= form_for [:admin, @canpaign] do |f| %>
    <div class="form-group">
       <%= f.label t("global.canpaigs.camname") %>
       <%= f.text_field :name, placeholder: "....", class: 'form-control' %>

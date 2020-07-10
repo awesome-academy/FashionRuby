@@ -13,7 +13,7 @@ class Product < ApplicationRecord
   has_many :comments, dependent: :destroy
   scope :best_saler, -> {where "id in (select product_id
     from orderdetails group by product_id order by count(product_id))"}
-
+  scope :product_new, ->{order(created_at: :desc).limit 4}
   scope :cateloly_name, -> {order(:catelogy_name).limit(2)}
   scope :catelogy, -> (id){where catelogy: id}
   idcate = "select catelogy_id from products where id = ?"
@@ -26,6 +26,6 @@ class Product < ApplicationRecord
   scope :price, -> (a,b){where("price >= #{a} AND price < #{b}")}
   scope :price1, -> {where("price >= 10000")}
   scope :search_one, -> (term){where(["lower(name) LIKE ?","%#{term.downcase}%"])}
-  
+
 end
 

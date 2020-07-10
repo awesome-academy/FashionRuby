@@ -1,6 +1,5 @@
 <% provide(:title, 'Products') %>
 
-<%= will_paginate %>
 
 <div class="container">
   <%= link_to t("global.canpaigs.create2"), new_admin_product_path, class: 'btn btn-success' %>
@@ -23,7 +22,7 @@
       <td><%= product.name %></td>
 
       <td>
-        <%= link_to t("global.canpaigs.delete"), product, method: :delete, data: { confirm: "You sure?", remote: true },class: 'btn btn-warning delete' %>
+        <%= link_to t("global.canpaigs.delete"), product, method: :delete, data: { confirm: "You sure?"},class: 'btn btn-warning delete' %>
         </td>
       <td>
         <%= link_to t("global.canpaigs.edit"), edit_admin_product_path(product),class: 'btn btn-info' %>
@@ -32,3 +31,5 @@
     <% end %>
   </tbody>
 </table>
+
+<%= will_paginate %>

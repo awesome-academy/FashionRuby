@@ -8,7 +8,9 @@ class Canpaign < ApplicationRecord
   validate :duplicate_canpaign, on: :create
 
   def duplicate_canpaign
-    canpaign = Canpaign.where("status = true")
-    errors.add(:canpaign_id, "duplicate canpaign") unless canpaign.empty?
+    if self.open?
+      canpaign = Canpaign.where("status = true")
+      errors.add(:canpaign_id, t("global.canpaigs.ordername")) unless canpaign.empty?
+    end
   end
 end

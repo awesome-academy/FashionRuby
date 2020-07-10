@@ -11,11 +11,11 @@ class Admin::CanpaignsController < Admin::BaseController
 
   def create
     @canpaign = Canpaign.new canpaign_params
-    if  @canpaign.save
+    if @canpaign.save
       redirect_to admin_canpaigns_path
     else
-    @canpaign = Canpaign.new
-     render 'new'
+      flash[:error] = @canpaign.errors[:canpaign_id][0]
+      render 'new'
     end
   end
 

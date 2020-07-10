@@ -1,3 +1,4 @@
+<% provide(:title, 'Products') %>
 <div class="breadcrumbs">
     <div class="container">
     </div>
@@ -10,7 +11,25 @@
       <li data-target="#myCarousel" data-slide-to="1"></li>
       <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
-
+ <h5 class="item_price">
+                    <h2>
+                        <% if @sales_product_ids.include?(@product.id) %>
+                        <br>
+                        <%=number_to_currency @product.price*(100- @canpaign.value)/100 %>
+                    </h2>
+                    <span class="onsale">
+                        <p>
+                            <%= @canpaign.value  %>% <br>
+                            <%= t("global.canpaigs.discout") %>
+                        </p>
+                    </span>
+                    <del>
+                        <%= number_to_currency @product.price %></del>
+                    <% else %>
+                    <span>
+                        <%= number_to_currency @product.price %> </span>
+                    <%end%>
+                </h5>
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <% dem = 0%>
@@ -26,7 +45,7 @@
             </div>
     <% elsif dem == 3 %>
       <div class="item">
-            <%= image_tag image ,class: "img-with"%>
+            <%= image_tag image ,class: "img-with"%>h2
         </div>
         <% end %>
     <% end %>
@@ -49,55 +68,40 @@
             <%= @product.name %>
         </h2>
         <div class="available">
-            <li>
-                <%= t("global.canpaigs.size") %>:
-                <%= @product.size %>
-            </li>
+        Size:
+          <h2>
+            <%= t("global.canpaigs.size") %>
+            <%= @product.size %>
+            </h2>
+                 <h2>
             <% if @product.amount.to_i >= 1 %>
-            <li>
+            <h2>
                 <%= t("global.canpaigs.quantity") %> :
                 <%= @product.amount %>
-            </li>
+            </h2>
             <% else %>
-            <li>
+            <h2>
                 <%= t("global.canpaigs.quantity") %> :
                 <%= 0 %>
-            </li>
+            </h2>
             <% end %>
             <div class="info-product-price">
-                <h5 class="item_price">
-                    <li>
-                        <% if @sales_product_ids.include?(@product.id) %>
-                        <br>
-                        <%=number_to_currency @product.price*(100- @canpaign.value)/100 %>
-                    </li>
-                    <span class="onsale">
-                        <p>
-                            <%= @canpaign.value  %>% <br>
-                            <%= t("global.canpaigs.discout") %>
-                        </p>
-                    </span>
-                    <del>
-                        <%= number_to_currency @product.price %></del>
-                    <% else %>
-                    <span>
-                        <%= number_to_currency @product.price %> </span>
-                    <%end%>
-                </h5>
+
             </div>
             </br>
-            <%= link_to t("global.canpaigs.addc"), cart_path, remote: true, class: 'btn btn-primary' %>
+             <h2><%= link_to t("global.canpaigs.addc"), cart_path, remote: true, class: 'btn btn-primary' %></h2>
             <% if logged_in?  %>
             <br>
             <div class="star-on">
                 <ul>
                     <li>
-                <div id="rating1">⊕:
-                    <%= @product.ratings.count %>
+                <div id="rating1"><h3> <%=  t("global.canpaigs.count") %>:
+                    <%= @product.ratings.count %> </h3>
                 </div>
-                <div id="rating2"> ½:
-                    <%= @product.ratings.average(:total) %>
+                <div id="rating2"> <h3><%=  t("global.canpaigs.point") %>:
+                    <%= @product.ratings.average(:total) %></h3>
                 </div>
+                     <li>
                         <%= link_to "♥", product_ratings_path(@product, ratings: 1),
                  method: :post, remote: true %>
                     </li>
@@ -120,11 +124,12 @@
                 </ul>
             </div>
             <!-- ----comments --><br>
-            <%= render 'form_comments' %>
+          <%= render 'form_comments' %>
             <% end %>
         </div>
     </div>
 </div>
+
 <% @products.each do |product|%>
 <div class="clearfix"> </div>
 <div class="content-top1">
@@ -134,27 +139,30 @@
                 <%= image_tag product.images.first.variant(resize_to_limit: [200, 500]) %>
             </a>
             <div class="price">
-                <h5 class="item_price"><%= @product.price %></h5>
+                 <h5 class="item_price">
+                    <h2>
+                        <% if @sales_product_ids.include?(@product.id) %>
+                        <br>
+                        <%=number_to_currency @product.price*(100- @canpaign.value)/100 %>
+                    </h2>
+                    <span class="onsale">
+                        <p>
+                            <%= @canpaign.value  %>% <br>
+                            <%= t("global.canpaigs.discout") %>
+                        </p>
+                    </span>
+                    <del>
+                        <%= number_to_currency @product.price %></del>
+                    <% else %>
+                    <span>
+                        <%= number_to_currency @product.price %> </span>
+                    <%end%>
+                </h5>
                 <%= link_to t("global.canpaigs.addc"), cart_path, remote: true, class: 'btn btn-primary' %>
                 <div class="clearfix"> </div>
             </div>
         </div>
     </div>
-    <div class="col-md-4 col-md4">
-        <div class="col-md1 simpleCart_shelfItem">
-            <a href="/products/<%= product.catelogy_id %>">
-                <%= image_tag product.images.first.variant(resize_to_limit: [200, 500]) %>
-            </a>
-            <div class="price">
-                <h5 class="item_price"><%= @product.price %></h5>
-                <%= link_to t("global.canpaigs.addc"), cart_path, remote: true, class: 'btn btn-primary' %>
-                <div class="clearfix"> </div>
-            </div>
-        </div>
-    </div>
-    <div class="clearfix"> </div>
-</div>
-</div>
 <%end%>
 
 

@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
     @catelogy = Catelogy.find_by id: params[:id]
     @catelogies = Catelogy.all
     catelogyProducts = []
+    @products = []
     @canpaign = Canpaign.where(status: true).first
     @sales_product_ids = @canpaign.nil? ? [] : @canpaign.products.pluck(:id)
 
