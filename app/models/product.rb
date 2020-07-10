@@ -26,5 +26,6 @@ class Product < ApplicationRecord
   scope :price, -> (a,b){where("price >= #{a} AND price < #{b}")}
   scope :price1, -> {where("price >= 10000")}
   scope :search_one, -> (term){where(["lower(name) LIKE ?","%#{term.downcase}%"])}
+  
 end
 

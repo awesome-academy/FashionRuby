@@ -73,6 +73,8 @@ en:
        upload: "Upload"
     order:
       sucess: "Sucess!"
+      price: "Price"
+      category: "Categories"
 
 
     products:

@@ -10,7 +10,9 @@ class OrdersController < ApplicationController
   def create
     user = User.find_by id: order_params[:user_id]
     @order = user.orders.build order_params
+
     if @order.save
+      OrderMailer.welCome(@order).deliver_now
       flash[:danger] = "Order successful"
       session[:carts] = nil
       redirect_to order_path(@order.id)

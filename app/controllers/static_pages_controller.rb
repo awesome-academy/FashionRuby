@@ -16,7 +16,7 @@ class StaticPagesController < ApplicationController
     @catelogy = Catelogy.find_by id: params[:id]
     @catelogies = Catelogy.all
     if params[:search]
-      @products = Product.where(["lower(name) LIKE ?","%#{params[:search].downcase}%"])
+      @products = Product.where(["lower(name) LIKE ?","%#{params[:search].downcase}%"]).price()
       elsif params[:id]
         @products = @catelogy.products
       elsif params[:price]
