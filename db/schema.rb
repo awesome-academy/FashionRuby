@@ -106,7 +106,6 @@ ActiveRecord::Schema.define(version: 2020_06_23_105249) do
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
     t.text "Name"
     t.text "Email"
     t.text "Address"
@@ -114,7 +113,6 @@ ActiveRecord::Schema.define(version: 2020_06_23_105249) do
     t.boolean "status", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "productcarts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -174,7 +172,6 @@ ActiveRecord::Schema.define(version: 2020_06_23_105249) do
   add_foreign_key "ordercarts", "order_statuses"
   add_foreign_key "orderdetails", "orders"
   add_foreign_key "orderdetails", "products"
-  add_foreign_key "orders", "users"
   add_foreign_key "products", "catelogies"
   add_foreign_key "ratings", "products"
   add_foreign_key "ratings", "users"
