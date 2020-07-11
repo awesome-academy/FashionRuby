@@ -1,5 +1,5 @@
 class Admin::ProductsController < Admin::BaseController
-    before_action :destroy_product, only: :destroy
+    before_action :destroy_product, only: [:destroy, :edit, :update]
     def index
     @catelogies = Catelogy.order :catelogy_name
     @products = Product.paginate(page: params[:page], per_page: Settings.number)
@@ -24,7 +24,14 @@ class Admin::ProductsController < Admin::BaseController
     def destroy
     @product= Product.find params[:id]
     @product.destroy
-    redirect_to admin_product_path
+    unless session[:carts].nil?
+      session[:carts].each do |product|
+        if product['id'] == params[:id]
+          session[:carts].delete(product)
+        end
+      end
+    end
+    redirect_to admin_products_path
   end
 
     def edit
@@ -53,7 +60,7 @@ class Admin::ProductsController < Admin::BaseController
 
     def product_params
        params.require(:product).permit(
-       :name, :catelogy_id , :price, :size, images: [] )
+       :name, :catelogy_id , :price, :size, :description,  images: [] )
     end
 
     def destroy_product

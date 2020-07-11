@@ -1,0 +1,13 @@
+<%= form_for [:admin, @catelogy] do |f| %>
+   <div class="form-group">
+      <%= f.label t("global.Catelogies.name") %>
+      <%= f.text_field :name, placeholder: "....", class: 'form-control' %>
+    </div>
+
+
+     <div class="form-group">
+      <%= f.label t("global.Catelogies.content") %>
+      <%= f.text_field :catelogy, placeholder: "....", class: 'form-control' %>
+    </div>
+     <%= f.submit t("global.canpaigs.create2"), class: "btn btn-primary" %>
+<% end %>

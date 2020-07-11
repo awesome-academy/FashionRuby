@@ -1,0 +1,2 @@
+module Admin::CatelogiesHelper
+end

@@ -30,6 +30,7 @@ en:
        adminmanager: "Management"
        allpr: "All Products"
        adminmanager2: "Orders"
+       admin3: "Catelogies"
     canpaigs:
        create1: "Add - Canpaigns"
        view: "View - Canpaigns"
@@ -74,11 +75,15 @@ en:
        ordername: "Order Name"
        count: "Rated"
        point: "Point"
+       description: "Description"
     order:
       sucess: "Sucess!"
       price: "Price"
       category: "Categories"
-
+    Catelogies:
+      name: "Name"
+      content: "Content"
+      create: "Add-Catelogy"
 
     products:
       notication: "Maximum file size is 5MB. Please choose a smaller file."

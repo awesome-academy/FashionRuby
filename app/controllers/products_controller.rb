@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :logged_in?, only: [:create, :destroy]
-  before_action :destroy_product, only: :destroy
+  before_action :destroy_product, only: [:destroy, :show, :edit, :update]
   def index
     @catelogies = Catelogy.order :catelogy_name
     count_order=[]
@@ -45,7 +45,7 @@ class ProductsController < ApplicationController
     # @comment = Comment.new
     @canpaign = Canpaign.where(status: true).first
     @sales_product_ids = @canpaign.nil? ? [] : @canpaign.products.pluck(:id)
-    @product= Product.find(params[:id])
+    @product= Product.find params[:id]
     @comments = @product.comments
     @comment = @product.comments.build
     @comments = @product.comments.paginate(page: params[:page], per_page: 5)
@@ -104,4 +104,5 @@ class ProductsController < ApplicationController
     @product = Product.find_by(id: params[:id])
       redirect_to root_url if @product.nil?
   end
+
 end

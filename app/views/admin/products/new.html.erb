@@ -3,18 +3,22 @@
   <%= form_for [:admin, @product]  do |f| %>
         <div class="form-group">
       <%= f.label t("global.canpaigs.productname") %>
-      <%= f.text_field :name, placeholder: '....', class: 'form-control' %>
+      <%= f.text_field :name, placeholder: 'name....', class: 'form-control' %>
     </div>
     <%= f.select :catelogy_id, options_from_collection_for_select(
       Catelogy.all, 'id', 'name') %>
 
     <div class="form-group">
       <%= f.label t("global.canpaigs.price") %>
-      <%= f.text_field :price, placeholder: "....", class: 'form-control' %>
+      <%= f.text_field :price, placeholder: "price....", class: 'form-control' %>
     </div>
     <div class="form-group">
       <%= f.label t("global.canpaigs.size")%>
-      <%= f.text_field :size, placeholder: "....", class: 'form-control' %>
+      <%= f.text_field :size, placeholder: "size....", class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label t("global.canpaigs.description")%>
+      <%= f.text_field :description, placeholder: "description....", class: 'form-control' %>
     </div>
       <span class="image">
           <%= f.file_field :images,multiple: true, accept: "image/jpeg,image/gif,image/png" %>

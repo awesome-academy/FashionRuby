@@ -1,0 +1,31 @@
+<% provide(:title, 'Catelogies') %>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">🚩</th>
+      <th scope="col"><%= t("global.catelogies.name") %></th>
+      <th scope="col"><%= t("global.catelogies.content") %></th>
+      <th scope="col"><%= t("global.canpaigs.status") %></th>
+      <th scope="col"><%= t("global.canpaigs.more") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @catelogies.each_with_index do |catelogi,index|%>
+    <tr>
+      <td><%= index %></td>
+      <td><%= link_to catelogi.name, admin_catelogy_path(catelogi.id) %></td>
+      <td><%= catelogi.catelogy %></td>
+
+      <td>
+         <%= link_to t("global.canpaigs.delete"), [:admin, catelogi], method: :delete, data: { confirm: "You sure?" } , class: "btn btn-warning remove" %>
+      </td>
+      <td>
+        <%= link_to t("global.canpaigs.edit"), edit_admin_catelogy_path(catelogi) , class: "btn btn-info" %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to t("global.Catelogies.create"),new_admin_catelogy_path, class: "btn btn-info"%>
+<%= will_paginate %>
