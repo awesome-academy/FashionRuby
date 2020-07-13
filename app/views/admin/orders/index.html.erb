@@ -30,17 +30,17 @@
                     </td>
                     <div name="ccc">
                         <td>
-                            <%= link_to t("global.canpaigs.delete"), "javascript:void(0);", dataa: { confirm: "You sure?" },data: "#{order.id}",class: 'btn btn-warning' , class:"btn1" %>
+                            <%= link_to t("global.canpaigs.delete"), "javascript:void(0);", data: { confirm: "You sure?" },data: "#{order.id}",class: 'btn btn-warning' , class:"btn1 " %>
                         </td>
                     </div>
                     <% if order.status == false %>
-                    <td>
-                        <%= link_to t("global.canpaigs.acct"), "javascript:void(0);" ,dataa: { confirm: "You sure?" },data: "#{order.id}" , class: "btn2 #{order.id}" %>
+                    <td id="mailer">
+                        <%= link_to t("global.canpaigs.acct"), "javascript:void(0);" ,data: { confirm: "You sure?" },data: "#{order.id}" , class: "btn2 #{order.id}" %>
                     </td>
                     <% else %>
-                    <td>
-                        <%= t("global.canpaigs.acct1")  %>
-                    </td>
+                        <td>
+                            <%= t("global.canpaigs.acct1")  %>
+                        </td>
                     <% end %>
                 </tr>
             </div>
@@ -85,6 +85,7 @@
                     xhr.setRequestHeader('X-CSRF-Token', token);
                 }
             });
+
             $.ajax({
                     url: 'http://localhost:3000/en/admin/orders/' + ids,
                     dataType: 'json',
@@ -94,10 +95,9 @@
                     }
                 })
                 .done(function(e) {
-                    if ($('a[class="btn2 ' + ids + '"]').text().toString() == 'Accept') {
-                        $('a[class="btn2 ' + ids + '"]').text("Accepted");
-                    } else {
-                        $('a[class="btn2 ' + ids + '"]').text("Đã chấp thuận");
+                    if ($('a[class="btn2 ' + ids + '"]').text().toString() === 'Accept') {
+                        $('#mailer').html(`<%= t("global.canpaigs.acct1")  %>`);
+
                     };
                 });
         });

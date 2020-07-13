@@ -3,3 +3,11 @@ $('.destroy').bind('ajax:success', function() {
 })
 $("#deleteproduct").html("<%= session[:carts].reject{|k| k == {} }.count %>")
 $("#totaldetail").html("<%= @total %>")
+if ($('#totaldetail').text() === "0"){
+        $('#hihihi').html(`<h1>Xin mời chọn sản phẩm để thanh toán</h1>
+        	<h2>
+    			<%= link_to t("global.canpaigs.continue"), root_path, class: "btn btn-primary stretched-link" %>
+    		</h2> 
+        	`
+    )
+};

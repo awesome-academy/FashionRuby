@@ -1,19 +1,20 @@
 <% provide(:title, 'Products') %>
 
-<div class="col-md-6 top-footer1 animated wow fadeInRight" data-wow-delay=".5s">
-  <%= form_for products_path, method: :get do |f| %>
-    <%= text_field_tag :search, params[:search],
-    placeholder: t("global.canpaigs.search"), id: 'tags' %>
-    <%= submit_tag t("global.canpaigs.search") %>
-  <% end %>
-  <img id="project-icon" class="ui-state-default" alt="">
-  <input type="hidden" id="project-id">
-  <p id="project-description"></p>
-  <div class="clearfix"> </div>
-</div>
+ <div class="col-md-6 top-footer1 animated wow fadeInRight" data-wow-delay=".5s">
+                <div>
+                  <%= form_for products_path, method: :get do |f| %>
+
+                    <%= text_field_tag :search, params[:search],
+                      placeholder: t("global.canpaigs.search") %>
+                    <%= submit_tag t("global.canpaigs.search") %>
+                  <% end %>
+                </div>
+                    <div class="clearfix"> </div>
+        </div>
+
 <div class="products">
   <div class="container">
-    <% if params[:id] %>
+    <% if params[:id] || params[:price] %>
       <h2>Search Products</h2>
     <% else %>
       <h2><%=  t("global.header.product") %></h2>
@@ -53,7 +54,7 @@
 <% unless params[:id] || params[:price] %>
   <%= will_paginate %>
 <% end %>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   $(function() {
   $('#tags').autocomplete({
     source: function (request, response) {
@@ -87,12 +88,12 @@
     .appendTo( ul );
     };
   } );
-</script>
+</script> -->
 
 <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="box_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
 
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
   $('#tags').autocomplete({
   source: function (request, response) {
     $.ajax({
@@ -111,4 +112,3 @@
   },
 });
 </script>
-

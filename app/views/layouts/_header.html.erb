@@ -7,12 +7,17 @@
           <h1><%= link_to 'RuBY Fashion', home_path%></h1>
         </div>
         <div class="col-sm-4 world animated wow fadeInRight" data-wow-delay=".5s">
+            
           </div>
+
           <div class="col-sm-2 number animated wow fadeInRight" data-wow-delay=".5s">
-    <%= link_to t("global.header.allpr"), products_path, class:"success" %><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-  <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-</svg>
+
+    <%= link_to t("global.header.allpr"), products_path, class:"success" %>
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+          <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+        </svg>
+
             <div>
               <%= link_to t("global.canpaigs.cart")  ,carts_path %> &#128722;
    <span id="cartdetail" class="badge badge-primary">
@@ -41,6 +46,7 @@
                             <li><a ><%= link_to t("global.header.adminmanager2"), admin_orders_path, class:"success" %></a></li>
                             <li><a > <%= link_to t("global.header.admin2"),admin_canpaigns_path,class:"success" %></a></li>
                             <li><a >  <%= link_to t("global.header.admin1"), admin_products_path, class:"success" %></a></li>
+                            <li><a >  <%= link_to t("global.header.admin3"), admin_catelogies_path, class:"success" %></a></li>
                           </ul>
                         </li>
                         <br><br>
@@ -66,52 +72,8 @@
           <div class="clearfix"> </div>
         </div>
       </div>
-
-          <div class="n-avigation">
-
-            <nav class="navbar nav_bottom" role="navigation">
-
-             <!-- Brand and toggle get grouped for better mobile display -->
-             <div class="navbar-header nav_2">
-              <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#"></a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-              <ul class="nav navbar-nav nav_1">
-              </ul>
-            </div><!-- /.navbar-collapse -->
 </header>
 
 
-<!-- <div class="container">
-  <div class="row">
-        <h2>Multi level dropdown menu in Bootstrap 3</h2>
-        <hr>
-        <div class="dropdown">
-            <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" href="/page.html">
-                Dropdown <span class="caret"></span>
-            </a>
-        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-              <li><a href="#">Some action</a></li>
-              <li><a href="#">Some other action</a></li>
-              <li class="divider"></li>
-              <li class="dropdown-submenu">
-                <a tabindex="-1" href="#">Hover me for more options</a>
-                <ul class="dropdown-menu">
-                  <li><a tabindex="-1" href="#">Second level</a></li>
-                  <li><a href="#">Second level</a></li>
-                  <li><a href="#">Second level</a></li>
-                </ul>
-              </li>
-            </ul>
-        </div>
-  </div>
-</div>
- -->
+
 

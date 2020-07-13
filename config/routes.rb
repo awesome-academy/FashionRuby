@@ -22,7 +22,7 @@ Rails.application.routes.draw do
          resource :ratings
 
        end
-     resources :catelogies, only: :show
+     
      resources :users do
         member do
             end
@@ -34,6 +34,7 @@ Rails.application.routes.draw do
        resources :products
        resources :canpaigns
        resources :orders
+       resources :catelogies
      end
   end
 end

@@ -14,6 +14,7 @@ class Admin::OrdersController < Admin::BaseController
   def update
     @order = Order.find params[:id]
     @order.update_attributes(status: true)
+    OrderMailer.doneOrder(@order).deliver_now
     respond_to do |format|
       format.html
       format.js

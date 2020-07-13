@@ -33,6 +33,7 @@ vi:
       adminmanager: "Quản lí "
       allpr: "Tất cả sản phẩm"
       adminmanager2: "Quản lí Hóa Đơn"
+      admin3: "Quản lý Thể loại"
 
 
     canpaigs:
@@ -83,10 +84,16 @@ vi:
       ordername: " Tên Hóa Đơn"
       count: "Lượt Đánh Giá"
       point: "Điểm Đánh Giá"
+      description: "Mô tả"
     order:
       sucess: "Thành Công!"
       price: "Khoảng giá"
       category: "Thể loại"
+    Catelogies:
+      name: "Tên"
+      content: "Nội dung"
+      create: "Tạo Thể loại"
+
 
     products:
       notication: "dung lượng ảnh quá lớn"
