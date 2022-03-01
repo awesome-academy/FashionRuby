@@ -5,7 +5,7 @@ gem "ransack"
 gem 'rails', '~> 6.0.3'
 # Use sqlite3 as the database for Active Record
 gem 'active_storage_validations', '0.8.2'
-gem 'image_processing','1.9.3'
+gem 'image_processing','1.12.2'
 gem 'mini_magick', '4.9.5'
 gem 'mysql2', '~> 0.5.3'
 # Use Puma as the app server
@@ -20,7 +20,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'mini_magick', '4.9.5'
-gem 'image_processing','1.9.3'
+gem 'image_processing','1.12.2'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
